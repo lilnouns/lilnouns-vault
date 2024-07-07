@@ -1,6 +1,6 @@
 {
-  "name": "foundry-hardhat-template",
-  "version": "1.0.0-alpha.20",
+  "name": "lilnouns-vault",
+  "version": "1.0.0-alpha.0",
   "description": "A template for create smart contracts using Foundry and Hardhat.",
   "directories": {
     "lib": "lib",
