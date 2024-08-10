@@ -37,11 +37,11 @@ importers:
         specifier: 1.1.2
         version: 1.1.2(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2))
       '@nomicfoundation/hardhat-network-helpers':
-        specifier: 1.0.10
-        version: 1.0.10(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2))
+        specifier: 1.0.11
+        version: 1.0.11(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2))
       '@nomicfoundation/hardhat-toolbox':
         specifier: 5.0.0
-        version: 5.0.0(z5kktqtenlakqrkc7yskcllwzu)
+        version: 5.0.0(gv7qg46qjkfxtxwowjxo7z5zpy)
       '@nomiclabs/hardhat-solhint':
         specifier: 3.1.0
         version: 3.1.0(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2))
@@ -368,8 +368,8 @@ packages:
       '@nomicfoundation/hardhat-verify': ^2.0.1
       hardhat: ^2.18.0
 
-  '@nomicfoundation/hardhat-network-helpers@1.0.10':
-    resolution: {integrity: sha512-R35/BMBlx7tWN5V6d/8/19QCwEmIdbnA4ZrsuXgvs8i2qFx5i7h6mH5pBS4Pwi4WigLH+upl6faYusrNPuzMrQ==}
+  '@nomicfoundation/hardhat-network-helpers@1.0.11':
+    resolution: {integrity: sha512-uGPL7QSKvxrHRU69dx8jzoBvuztlLCtyFsbgfXIwIjnO3dqZRz2GNMHJoO3C3dIiUNM6jdNF4AUnoQKDscdYrA==}
     peerDependencies:
       hardhat: ^2.9.5
 
@@ -3568,17 +3568,17 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@nomicfoundation/hardhat-network-helpers@1.0.10(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2))':
+  '@nomicfoundation/hardhat-network-helpers@1.0.11(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2))':
     dependencies:
       ethereumjs-util: 7.1.5
       hardhat: 2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2)
 
-  '@nomicfoundation/hardhat-toolbox@5.0.0(z5kktqtenlakqrkc7yskcllwzu)':
+  '@nomicfoundation/hardhat-toolbox@5.0.0(gv7qg46qjkfxtxwowjxo7z5zpy)':
     dependencies:
       '@nomicfoundation/hardhat-chai-matchers': 2.0.7(@nomicfoundation/hardhat-ethers@3.0.5(ethers@6.13.2)(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2)))(chai@4.4.1)(ethers@6.13.2)(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2))
       '@nomicfoundation/hardhat-ethers': 3.0.5(ethers@6.13.2)(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2))
       '@nomicfoundation/hardhat-ignition-ethers': 0.15.0(@nomicfoundation/hardhat-ethers@3.0.5(ethers@6.13.2)(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2)))(@nomicfoundation/hardhat-ignition@0.15.0(@nomicfoundation/hardhat-verify@2.0.3(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2)))(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2)))(@nomicfoundation/ignition-core@0.15.0)(ethers@6.13.2)(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2))
-      '@nomicfoundation/hardhat-network-helpers': 1.0.10(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2))
+      '@nomicfoundation/hardhat-network-helpers': 1.0.11(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2))
       '@nomicfoundation/hardhat-verify': 2.0.3(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2))
       '@typechain/ethers-v6': 0.5.1(ethers@6.13.2)(typechain@8.3.2(typescript@5.5.2))(typescript@5.5.2)
       '@typechain/hardhat': 9.1.0(@typechain/ethers-v6@0.5.1(ethers@6.13.2)(typechain@8.3.2(typescript@5.5.2))(typescript@5.5.2))(ethers@6.13.2)(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2))(typechain@8.3.2(typescript@5.5.2))
