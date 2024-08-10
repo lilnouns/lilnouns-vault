@@ -32,7 +32,7 @@ contract LilNounsVaultTest is Test {
   }
 
   // Test for deployment and initialization
-  function testDeploymentAndInitialization() public {
+  function testDeploymentAndInitialization() public view {
     assertEq(lilNounsVault.owner(), owner);
   }
 
