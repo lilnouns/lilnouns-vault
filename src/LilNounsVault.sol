@@ -20,6 +20,9 @@ contract LilNounsVault is
   PausableUpgradeable,
   IERC721Receiver
 {
+  /// @notice Custom error for paused contract during upgrade attempt
+  error ContractPaused();
+
   /// @notice Initializer function to replace the constructor for upgradeable contracts
   function initialize() public initializer {
     __Ownable_init(msg.sender);
@@ -34,9 +37,13 @@ contract LilNounsVault is
    */
   function _authorizeUpgrade(
     address newImplementation
-  ) internal override onlyOwner {
-    require(!paused(), "Contract is paused, upgrade not allowed");
-    // Proceed with the upgrade if the contract is not paused
+  ) internal view override onlyOwner {
+    if (paused()) {
+      revert ContractPaused();
+    }
+
+    // Suppress unused variable warning
+    (newImplementation);
   }
 
   /**
