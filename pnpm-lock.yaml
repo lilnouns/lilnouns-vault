@@ -72,8 +72,8 @@ importers:
         specifier: 1.3.1
         version: 1.3.1(prettier@3.2.5)
       solhint:
-        specifier: 5.0.1
-        version: 5.0.1
+        specifier: 5.0.3
+        version: 5.0.3
       ts-node:
         specifier: 10.9.2
         version: 10.9.2(@types/node@20.14.9)(typescript@5.5.2)
@@ -2421,8 +2421,8 @@ packages:
     resolution: {integrity: sha512-85EeLbmkcPwD+3JR7aEMKsVC9YrRSxd4qkXuMzrlf7+z2Eqdfm1wHWq1ffTuo5aDhoZxp2I9yF3QkxZOxOL7aQ==}
     hasBin: true
 
-  solhint@5.0.1:
-    resolution: {integrity: sha512-QeQLS9HGCnIiibt+xiOa/+MuP7BWz9N7C5+Mj9pLHshdkNhuo3AzCpWmjfWVZBUuwIUO3YyCRVIcYLR3YOKGfg==}
+  solhint@5.0.3:
+    resolution: {integrity: sha512-OLCH6qm/mZTCpplTXzXTJGId1zrtNuDYP5c2e6snIv/hdRVxPfBBz/bAlL91bY/Accavkayp2Zp2BaDSrLVXTQ==}
     hasBin: true
 
   solidity-comments-extractor@0.0.8:
@@ -5667,7 +5667,7 @@ snapshots:
     optionalDependencies:
       prettier: 2.8.8
 
-  solhint@5.0.1:
+  solhint@5.0.3:
     dependencies:
       '@solidity-parser/parser': 0.18.0
       ajv: 6.12.6
