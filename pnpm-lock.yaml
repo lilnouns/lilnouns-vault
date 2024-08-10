@@ -33,8 +33,8 @@ importers:
         specifier: 5.0.0
         version: 5.0.0(yk4mzekjdocurig5rdqwfdlenm)
       '@nomiclabs/hardhat-solhint':
-        specifier: 3.0.1
-        version: 3.0.1(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2))
+        specifier: 3.1.0
+        version: 3.1.0(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2))
       '@typechain/ethers-v6':
         specifier: 0.5.1
         version: 0.5.1(ethers@6.13.1)(typechain@8.3.2(typescript@5.5.2))(typescript@5.5.2)
@@ -447,8 +447,8 @@ packages:
     resolution: {integrity: sha512-1LMtXj1puAxyFusBgUIy5pZk3073cNXYnXUpuNKFghHbIit/xZgbk0AokpUADbNm3gyD6bFWl3LRFh3dhVdREg==}
     engines: {node: '>= 12'}
 
-  '@nomiclabs/hardhat-solhint@3.0.1':
-    resolution: {integrity: sha512-GqDoStxL1aA9hZul9HRdk+3eEZ/XLBwvIlz3/EJUusUsoadNYEnio9aYOsBeNeZWo+B/Fd3EgMXgbf9wWQLyRA==}
+  '@nomiclabs/hardhat-solhint@3.1.0':
+    resolution: {integrity: sha512-5jNiYwLuiHZ2B11Ds4U5jH+DR565PqpsdbXml6iYfqMguyJb+ulU2rt58+hprNhoFKZds8cOlf9FaoWvA9KqkA==}
     peerDependencies:
       hardhat: ^2.0.0
 
@@ -3400,7 +3400,7 @@ snapshots:
       '@nomicfoundation/solidity-analyzer-win32-ia32-msvc': 0.1.1
       '@nomicfoundation/solidity-analyzer-win32-x64-msvc': 0.1.1
 
-  '@nomiclabs/hardhat-solhint@3.0.1(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2))':
+  '@nomiclabs/hardhat-solhint@3.1.0(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2))':
     dependencies:
       hardhat: 2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2)
       solhint: 3.6.2
