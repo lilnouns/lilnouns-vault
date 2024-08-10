@@ -48,7 +48,7 @@
     "solhint": "5.0.3",
     "ts-node": "10.9.2",
     "typechain": "8.3.2",
-    "typescript": "5.5.2"
+    "typescript": "5.5.4"
   },
   "resolutions": {
     "flat": ">=5.0.1",
