@@ -31,7 +31,7 @@ importers:
         version: 1.0.10(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2))
       '@nomicfoundation/hardhat-toolbox':
         specifier: 5.0.0
-        version: 5.0.0(svzfvrrkltg2ufdxe3e4aivnbm)
+        version: 5.0.0(u4b3g2dhmxn6acylp3eju4spfu)
       '@nomiclabs/hardhat-solhint':
         specifier: 3.1.0
         version: 3.1.0(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2))
@@ -45,8 +45,8 @@ importers:
         specifier: 4.3.11
         version: 4.3.11
       '@types/mocha':
-        specifier: 10.0.6
-        version: 10.0.6
+        specifier: 10.0.7
+        version: 10.0.7
       '@types/node':
         specifier: 20.14.9
         version: 20.14.9
@@ -578,8 +578,8 @@ packages:
   '@types/minimatch@5.1.2':
     resolution: {integrity: sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==}
 
-  '@types/mocha@10.0.6':
-    resolution: {integrity: sha512-dJvrYWxP/UcXm36Qn36fxhUKu8A/xMRXVT2cliFF1Z7UA9liG5Psj3ezNSZw+5puH2czDXRLcXQxf8JbJt0ejg==}
+  '@types/mocha@10.0.7':
+    resolution: {integrity: sha512-GN8yJ1mNTcFcah/wKEFIJckJx9iJLoMSzWcfRRuxz/Jk+U6KQNnml+etbtxFK8lPjzOw3zp4Ha/kjSst9fsHYw==}
 
   '@types/node@10.17.60':
     resolution: {integrity: sha512-F0KIgDJfy2nA3zMLmWGKxcH2ZVEtCZXHHdOQs2gSaQ27+lNeEfGxzkIw90aXswATX7AZ33tahPbzy6KAfUreVw==}
@@ -3304,7 +3304,7 @@ snapshots:
       ethereumjs-util: 7.1.5
       hardhat: 2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2)
 
-  '@nomicfoundation/hardhat-toolbox@5.0.0(svzfvrrkltg2ufdxe3e4aivnbm)':
+  '@nomicfoundation/hardhat-toolbox@5.0.0(u4b3g2dhmxn6acylp3eju4spfu)':
     dependencies:
       '@nomicfoundation/hardhat-chai-matchers': 2.0.7(@nomicfoundation/hardhat-ethers@3.0.5(ethers@6.13.1)(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2)))(chai@4.4.1)(ethers@6.13.1)(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2))
       '@nomicfoundation/hardhat-ethers': 3.0.5(ethers@6.13.1)(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2))
@@ -3314,7 +3314,7 @@ snapshots:
       '@typechain/ethers-v6': 0.5.1(ethers@6.13.1)(typechain@8.3.2(typescript@5.5.2))(typescript@5.5.2)
       '@typechain/hardhat': 9.1.0(@typechain/ethers-v6@0.5.1(ethers@6.13.1)(typechain@8.3.2(typescript@5.5.2))(typescript@5.5.2))(ethers@6.13.1)(hardhat@2.22.5(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2))(typescript@5.5.2))(typechain@8.3.2(typescript@5.5.2))
       '@types/chai': 4.3.11
-      '@types/mocha': 10.0.6
+      '@types/mocha': 10.0.7
       '@types/node': 20.14.9
       chai: 4.4.1
       ethers: 6.13.1
@@ -3554,7 +3554,7 @@ snapshots:
 
   '@types/minimatch@5.1.2': {}
 
-  '@types/mocha@10.0.6': {}
+  '@types/mocha@10.0.7': {}
 
   '@types/node@10.17.60': {}
 
