@@ -29,8 +29,8 @@ contract LilNounsVault is
   /// @notice Error for invalid pause period
   error InvalidPausePeriod();
 
-  uint256 public pauseStart;
-  uint256 public pauseEnd;
+  uint256 public pauseStartBlock;
+  uint256 public pauseEndBlock;
 
   /// @notice Initializer function to replace the constructor for upgradeable contracts
   function initialize() public initializer {
@@ -40,21 +40,24 @@ contract LilNounsVault is
   }
 
   /**
-   * @notice Pauses the contract for a specific period.
-   * @dev Only the owner can pause the contract. The pause start and end times are set as timestamps.
-   * @param _pauseStart The timestamp when the pause period begins.
-   * @param _pauseEnd The timestamp when the pause period ends.
+   * @notice Pauses the contract for a specific period based on block numbers.
+   * @dev Only the owner can pause the contract. The pause start and end times are set as block numbers.
+   * @param pauseStartBlock_ The block number when the pause period begins.
+   * @param pauseEndBlock_ The block number when the pause period ends.
    */
-  function pause(uint256 _pauseStart, uint256 _pauseEnd) external onlyOwner {
-    if (_pauseEnd <= _pauseStart) {
+  function pause(
+    uint256 pauseStartBlock_,
+    uint256 pauseEndBlock_
+  ) external onlyOwner {
+    if (pauseEndBlock_ <= pauseStartBlock_) {
       revert InvalidPausePeriod();
     }
-    if (_pauseStart < block.timestamp) {
+    if (pauseStartBlock_ < block.number) {
       revert InvalidPausePeriod();
     }
 
-    pauseStart = _pauseStart;
-    pauseEnd = _pauseEnd;
+    pauseStartBlock = pauseStartBlock_;
+    pauseEndBlock = pauseEndBlock_;
     _pause();
   }
 
@@ -63,7 +66,7 @@ contract LilNounsVault is
    * @dev Only the owner can unpause the contract. Cannot unpause during the restricted period.
    */
   function unpause() external onlyOwner {
-    if (block.timestamp >= pauseStart && block.timestamp <= pauseEnd) {
+    if (block.number >= pauseStartBlock && block.number <= pauseEndBlock) {
       revert UnpauseRestricted();
     }
     _unpause();
@@ -78,7 +81,8 @@ contract LilNounsVault is
     address newImplementation
   ) internal view override onlyOwner {
     if (
-      paused() && (block.timestamp >= pauseStart && block.timestamp <= pauseEnd)
+      paused() &&
+      (block.number >= pauseStartBlock && block.number <= pauseEndBlock)
     ) {
       revert ContractPausedDuringUpgrade();
     }
