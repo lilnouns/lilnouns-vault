@@ -1,7 +1,7 @@
 [profile.default]
 src = "src"
 out = "out"
-libs = ["lib"]
+libs = ["lib", "node_modules"]
 gas_reports = ["*"]
 solc_version = "0.8.26"
 
