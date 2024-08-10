@@ -36,14 +36,14 @@ describe("LilNounsVault", function () {
   }
 
   describe("Deployment and Initialization", function () {
-    it("Should deploy and initialize the contract correctly", async function () {
+    it("should deploy and initialize the contract correctly", async function () {
       const { lilNounsVault } = await loadFixture(deployVaultAndTokens);
       expect(await lilNounsVault.getAddress()).to.not.be.null;
     });
   });
 
   describe("ETH Handling", function () {
-    it("Should receive ETH correctly", async function () {
+    it("should receive ETH correctly", async function () {
       const { lilNounsVault, addr1 } = await loadFixture(deployVaultAndTokens);
       const initialBalance = await ethers.provider.getBalance(
         await lilNounsVault.getAddress(),
@@ -63,7 +63,7 @@ describe("LilNounsVault", function () {
   });
 
   describe("ERC-20 Token Handling", function () {
-    it("Should receive ERC-20 tokens correctly", async function () {
+    it("should receive ERC-20 tokens correctly", async function () {
       const { lilNounsVault, erc20, addr1 } =
         await loadFixture(deployVaultAndTokens);
 
@@ -78,7 +78,7 @@ describe("LilNounsVault", function () {
   });
 
   describe("ERC-721 Token Handling", function () {
-    it("Should receive ERC-721 tokens correctly", async function () {
+    it("should receive ERC-721 tokens correctly", async function () {
       const { lilNounsVault, erc721, addr1 } =
         await loadFixture(deployVaultAndTokens);
 
@@ -94,17 +94,23 @@ describe("LilNounsVault", function () {
   });
 
   describe("NFT Withdrawal", function () {
-    it("Should revert NFT withdrawal if the contract is paused", async function () {
-      const { lilNounsVault, erc721, owner, addr1 } = await loadFixture(deployVaultAndTokens);
+    it("should revert NFT withdrawal if the contract is paused", async function () {
+      const { lilNounsVault, erc721, owner, addr1 } =
+        await loadFixture(deployVaultAndTokens);
       const currentBlock = await ethers.provider.getBlockNumber();
-      const currentTimestamp = (await ethers.provider.getBlock(currentBlock))?.timestamp ?? 0;
+      const currentTimestamp =
+        (await ethers.provider.getBlock(currentBlock))?.timestamp ?? 0;
 
       // Mint and transfer an NFT to the contract
       await erc721.mint(addr1.address, 1);
-      await erc721.connect(addr1).transferFrom(addr1.address, await lilNounsVault.getAddress(), 1);
+      await erc721
+        .connect(addr1)
+        .transferFrom(addr1.address, await lilNounsVault.getAddress(), 1);
 
       // Pause the contract with block numbers based on the current timestamp
-      await lilNounsVault.connect(owner).pause(currentBlock + 10, currentBlock + 20);
+      await lilNounsVault
+        .connect(owner)
+        .pause(currentBlock + 10, currentBlock + 20);
 
       // Fast forward to a time within the pause period
       await time.increaseTo(currentTimestamp + 15);
