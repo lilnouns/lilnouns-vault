@@ -38,7 +38,7 @@
     "@types/chai": "4.3.11",
     "@types/mocha": "10.0.7",
     "@types/node": "22.2.0",
-    "chai": "4.4.1",
+    "chai": "4.5.0",
     "ethers": "6.13.2",
     "hardhat": "2.22.8",
     "husky": "9.1.4",
