@@ -6,17 +6,19 @@ import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/I
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import { PausableUpgradeable } from "@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol";
+import { IERC721Receiver } from "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 
 /**
  * @title LilNounsVault
  * @dev This contract serves as a vault, upgradeable via UUPS pattern.
- * It includes pausable functionality to allow for emergency stops.
+ * It includes pausable functionality to allow for emergency stops and can receive ETH and NFTs.
  */
 contract LilNounsVault is
   Initializable,
   UUPSUpgradeable,
   OwnableUpgradeable,
-  PausableUpgradeable
+  PausableUpgradeable,
+  IERC721Receiver
 {
   /// @notice Initializer function to replace the constructor for upgradeable contracts
   function initialize() public initializer {
@@ -48,5 +50,29 @@ contract LilNounsVault is
    */
   function unpause() external onlyOwner {
     _unpause();
+  }
+
+  /**
+   * @notice Function to receive ETH
+   * @dev This function enables the contract to accept ETH deposits.
+   */
+  receive() external payable {}
+
+  /**
+   * @notice Function to handle receiving NFTs
+   * @dev This function is called when an NFT is transferred to this contract.
+   * @param operator The address which called `safeTransferFrom` function
+   * @param from The address which previously owned the token
+   * @param tokenId The NFT identifier which is being transferred
+   * @param data Additional data with no specified format
+   * @return bytes4 This function must return `bytes4(keccak256("onERC721Received(address,address,uint256,bytes)"))`
+   */
+  function onERC721Received(
+    address operator,
+    address from,
+    uint256 tokenId,
+    bytes calldata data
+  ) external pure override returns (bytes4) {
+    return this.onERC721Received.selector;
   }
 }
