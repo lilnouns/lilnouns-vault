@@ -7,8 +7,9 @@ import { ERC20Mock } from "../src/mocks/ERC20Mock.sol";
 import { ERC721Mock } from "../src/mocks/ERC721Mock.sol";
 import { UUPSUpgradeableMock } from "../src/mocks/UUPSUpgradeableMock.sol";
 import { ERC1967Proxy } from "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol"; // Import the UUPS proxy
+import { IERC721Receiver } from "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 
-contract LilNounsVaultTest is Test {
+contract LilNounsVaultTest is Test, IERC721Receiver {
   LilNounsVault public lilNounsVault;
   ERC20Mock public erc20;
   ERC721Mock public erc721;
@@ -41,6 +42,16 @@ contract LilNounsVaultTest is Test {
     // Deploy a new implementation mock for upgrade testing
     newImplementation = new UUPSUpgradeableMock();
     newImplementation.initialize(); // Initialize the new mock implementation
+  }
+
+  // Implement the IERC721Receiver interface
+  function onERC721Received(
+    address, // operator
+    address, // from
+    uint256, // tokenId
+    bytes calldata // data
+  ) external pure override returns (bytes4) {
+    return this.onERC721Received.selector;
   }
 
   // Test for deployment and initialization
@@ -120,5 +131,35 @@ contract LilNounsVaultTest is Test {
       address(newImplementation),
       ""
     );
+  }
+
+  // Test for invalid pause period
+  function testInvalidPausePeriod() public {
+    // Pause end block is less than start block
+    vm.expectRevert(LilNounsVault.InvalidPausePeriod.selector);
+    lilNounsVault.pause(block.number + 10, block.number + 5);
+
+    // Pause start block is in the past
+    vm.expectRevert(LilNounsVault.InvalidPausePeriod.selector);
+    lilNounsVault.pause(block.number - 1, block.number + 10);
+  }
+
+  // Test for withdrawing ERC721 tokens
+  function testWithdrawERC721() public {
+    // Mint the NFT to addr1
+    erc721.mint(addr1, 1);
+
+    // Transfer the NFT to the LilNounsVault contract
+    vm.prank(addr1);
+    erc721.safeTransferFrom(addr1, address(lilNounsVault), 1);
+
+    // Verify the contract received the NFT
+    assertEq(erc721.ownerOf(1), address(lilNounsVault));
+
+    // Withdraw the NFT from the vault to the owner
+    lilNounsVault.withdraw(erc721, 1);
+
+    // Verify the owner received the NFT
+    assertEq(erc721.ownerOf(1), owner);
   }
 }

@@ -7,6 +7,7 @@ import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import { PausableUpgradeable } from "@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol";
 import { IERC721Receiver } from "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
+import { IERC721 } from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
 /**
  * @title LilNounsVault
@@ -89,6 +90,18 @@ contract LilNounsVault is
 
     // Suppress unused variable warning
     (newImplementation);
+  }
+
+  /**
+   * @notice Withdraw a specific ERC721 token
+   * @param nft The address of the ERC721 NFT contract
+   * @param tokenId The ID of the NFT to withdraw
+   */
+  function withdraw(
+    IERC721 nft,
+    uint256 tokenId
+  ) external onlyOwner whenNotPaused {
+    nft.safeTransferFrom(address(this), owner(), tokenId);
   }
 
   /**

@@ -1,6 +1,9 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import { loadFixture } from "@nomicfoundation/hardhat-toolbox/network-helpers";
+import {
+  loadFixture,
+  time,
+} from "@nomicfoundation/hardhat-toolbox/network-helpers";
 import { LilNounsVault, ERC20Mock, ERC721Mock } from "../typechain-types";
 
 describe("LilNounsVault", function () {
@@ -87,6 +90,35 @@ describe("LilNounsVault", function () {
 
       const ownerOfToken = await erc721.ownerOf(1);
       expect(ownerOfToken).to.equal(await lilNounsVault.getAddress());
+    });
+  });
+
+  describe("NFT Withdrawal", function () {
+    it("Should revert NFT withdrawal if the contract is paused", async function () {
+      const { lilNounsVault, erc721, owner, addr1 } = await loadFixture(deployVaultAndTokens);
+      const currentBlock = await ethers.provider.getBlockNumber();
+      const currentTimestamp = (await ethers.provider.getBlock(currentBlock))?.timestamp ?? 0;
+
+      // Mint and transfer an NFT to the contract
+      await erc721.mint(addr1.address, 1);
+      await erc721.connect(addr1).transferFrom(addr1.address, await lilNounsVault.getAddress(), 1);
+
+      // Pause the contract with block numbers based on the current timestamp
+      await lilNounsVault.connect(owner).pause(currentBlock + 10, currentBlock + 20);
+
+      // Fast forward to a time within the pause period
+      await time.increaseTo(currentTimestamp + 15);
+
+      // Attempt to withdraw the NFT (should fail)
+      await expect(
+        lilNounsVault.connect(owner).withdraw(erc721, 1)
+      ).to.be.revertedWithCustomError(lilNounsVault, "EnforcedPause");
+
+      // Fast forward to a time after the pause period and withdraw the NFT
+      await time.increaseTo(currentTimestamp + 21);
+      await lilNounsVault.connect(owner).unpause();
+      await lilNounsVault.connect(owner).withdraw(erc721, 1);
+      expect(await erc721.ownerOf(1)).to.equal(await owner.getAddress());
     });
   });
 });
