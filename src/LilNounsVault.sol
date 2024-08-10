@@ -29,12 +29,15 @@ contract LilNounsVault is
 
   /**
    * @notice Internal function that authorizes upgrades
-   * @dev Only the owner of the contract can authorize an upgrade
+   * @dev Only the owner of the contract can authorize an upgrade.
+   * This function is intentionally left empty as the access control is handled by the `onlyOwner` modifier.
    * @param newImplementation The address of the new implementation contract
    */
   function _authorizeUpgrade(
     address newImplementation
-  ) internal override onlyOwner {}
+  ) internal override onlyOwner {
+    // Intentionally left blank
+  }
 
   /**
    * @notice Pauses the contract, preventing all state-changing operations
@@ -61,17 +64,13 @@ contract LilNounsVault is
   /**
    * @notice Function to handle receiving NFTs
    * @dev This function is called when an NFT is transferred to this contract.
-   * @param operator The address which called `safeTransferFrom` function
-   * @param from The address which previously owned the token
-   * @param tokenId The NFT identifier which is being transferred
-   * @param data Additional data with no specified format
    * @return bytes4 This function must return `bytes4(keccak256("onERC721Received(address,address,uint256,bytes)"))`
    */
   function onERC721Received(
-    address operator,
-    address from,
-    uint256 tokenId,
-    bytes calldata data
+    address, // operator
+    address, // from
+    uint256, // tokenId
+    bytes calldata // data
   ) external pure override returns (bytes4) {
     return this.onERC721Received.selector;
   }
