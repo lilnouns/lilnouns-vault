@@ -1,4 +1,4 @@
-# Foundry and Hardhat Template
+# Lil Nouns Vault
 
 [![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/lilnouns/lilnouns-vault?include_prereleases)](https://github.com/lilnouns/lilnouns-vault/releases)
 [![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/lilnouns/lilnouns-vault/build.yml)](https://github.com/lilnouns/lilnouns-vault/actions/workflows/build.yml)
