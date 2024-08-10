@@ -8,7 +8,7 @@
   },
   "scripts": {
     "preinstall": "npx -y only-allow pnpm",
-    "postinstall": "forge install",
+    "postinstall": "forge install && pnpm remappings",
     "prepare": "husky",
     "prebuild": "pnpm run lint",
     "build": "pnpm run --sequential '/^build:.*/'",
@@ -20,7 +20,8 @@
     "pretest": "pnpm run build",
     "test": "pnpm run --sequential '/^test:.*/'",
     "test:forge": "forge test -vvvv",
-    "test:hardhat": "hardhat test --typecheck"
+    "test:hardhat": "hardhat test --typecheck",
+    "remappings": "forge remappings > remappings.txt"
   },
   "keywords": [],
   "author": "Milad Nekofar <milad@nekofar.com>",
