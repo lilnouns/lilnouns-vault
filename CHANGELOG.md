@@ -2,6 +2,44 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-alpha.1] - 2024-08-10
+
+### Features
+
+- Create vault contract (#19)
+- Add ETH and NFT receiving capability
+- Add ERC20 and ERC721 mock contracts
+
+### Bug Fixes
+
+- Import to `PausableUpgradeable` from `utils`
+- Update owner initialization
+
+### Testing
+
+- Add basic unit tests
+
+### Refactor
+
+- Remove `Counter` contract and associated tests
+
+### Documentation
+
+- Update project title
+
+### Miscellaneous Tasks
+
+- Register upgrades the plugin
+- Update solhint config to enforce func visibility
+- Update Node.js version to ^20
+- Update Prettier plugins
+- Add `compiler-version` to solhint rules
+- Add `solc` version to slither config
+
+### Styling
+
+- Streamline comments and parameter names
+
 ## [1.0.0-alpha.0] - 2024-08-10
 
 ### Documentation
