@@ -1,15 +1,18 @@
 // SPDX-License-Identifier: Apache-2.0
 pragma solidity ^0.8.18;
 
-import "forge-std/Test.sol";
-import "../src/LilNounsVault.sol";
-import "../src/mocks/ERC20Mock.sol";
-import "../src/mocks/ERC721Mock.sol";
+import { Test } from "forge-std/Test.sol";
+import { LilNounsVault } from "../src/LilNounsVault.sol";
+import { ERC20Mock } from "../src/mocks/ERC20Mock.sol";
+import { ERC721Mock } from "../src/mocks/ERC721Mock.sol";
+import { UUPSUpgradeableMock } from "../src/mocks/UUPSUpgradeableMock.sol";
+import { ERC1967Proxy } from "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol"; // Import the UUPS proxy
 
 contract LilNounsVaultTest is Test {
   LilNounsVault public lilNounsVault;
   ERC20Mock public erc20;
   ERC721Mock public erc721;
+  UUPSUpgradeableMock public newImplementation;
   address public owner;
   address public addr1;
   address public addr2;
@@ -26,9 +29,18 @@ contract LilNounsVaultTest is Test {
     // Deploy the ERC721 token
     erc721 = new ERC721Mock("TestNFT", "TNFT");
 
-    // Deploy the LilNounsVault contract
-    lilNounsVault = new LilNounsVault();
-    lilNounsVault.initialize();
+    // Deploy the LilNounsVault contract and initialize it via the proxy
+    LilNounsVault implementation = new LilNounsVault();
+    ERC1967Proxy proxy = new ERC1967Proxy(
+      address(implementation),
+      abi.encodeWithSelector(LilNounsVault.initialize.selector)
+    );
+
+    lilNounsVault = LilNounsVault(payable(address(proxy))); // Cast proxy to LilNounsVault using payable conversion
+
+    // Deploy a new implementation mock for upgrade testing
+    newImplementation = new UUPSUpgradeableMock();
+    newImplementation.initialize(); // Initialize the new mock implementation
   }
 
   // Test for deployment and initialization
@@ -69,5 +81,44 @@ contract LilNounsVaultTest is Test {
 
     address ownerOfToken = erc721.ownerOf(1);
     assertEq(ownerOfToken, address(lilNounsVault));
+  }
+
+  // Test for pausing the contract with block numbers
+  function testPauseWithBlockNumbers() public {
+    uint256 startBlock = block.number + 5;
+    uint256 endBlock = block.number + 10;
+
+    lilNounsVault.pause(startBlock, endBlock);
+
+    // Fast-forward to the start block
+    vm.roll(startBlock);
+    assertTrue(lilNounsVault.paused(), "Contract should be paused");
+
+    // Attempt to unpause during the pause period (should fail)
+    vm.expectRevert(LilNounsVault.UnpauseRestricted.selector);
+    lilNounsVault.unpause();
+
+    // Fast-forward to the end block
+    vm.roll(endBlock + 1);
+    lilNounsVault.unpause();
+    assertFalse(lilNounsVault.paused(), "Contract should be unpaused");
+  }
+
+  // Test that upgrading is blocked during pause period
+  function testUpgradeBlockedDuringPause() public {
+    uint256 startBlock = block.number + 5;
+    uint256 endBlock = block.number + 10;
+
+    lilNounsVault.pause(startBlock, endBlock);
+
+    // Fast-forward to the start block
+    vm.roll(startBlock);
+
+    // Attempt to upgrade during the pause period (should fail)
+    vm.expectRevert(LilNounsVault.ContractPausedDuringUpgrade.selector);
+    LilNounsVault(payable(address(lilNounsVault))).upgradeToAndCall(
+      address(newImplementation),
+      ""
+    );
   }
 }
