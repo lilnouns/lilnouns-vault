@@ -29,14 +29,14 @@ contract LilNounsVault is
 
   /**
    * @notice Internal function that authorizes upgrades
-   * @dev Only the owner of the contract can authorize an upgrade.
-   * This function is intentionally left empty as the access control is handled by the `onlyOwner` modifier.
+   * @dev Only the owner of the contract can authorize an upgrade, and the contract must not be paused.
    * @param newImplementation The address of the new implementation contract
    */
   function _authorizeUpgrade(
     address newImplementation
   ) internal override onlyOwner {
-    // Intentionally left blank
+    require(!paused(), "Contract is paused, upgrade not allowed");
+    // Proceed with the upgrade if the contract is not paused
   }
 
   /**
