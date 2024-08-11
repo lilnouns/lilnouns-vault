@@ -71,8 +71,8 @@ contract LilNounsVault is
   }
 
   /**
-   * @notice Unpauses the contract, resuming all state-changing operations.
-   * @dev Only the owner can unpause the contract. Cannot unpause during the restricted period.
+   * @notice Unpauses the contract.
+   * @dev Only the owner can call this function. It cannot be called during the restricted pause period.
    */
   function unpause() external onlyOwner {
     if (block.number >= pauseStartBlock && block.number <= pauseEndBlock) {
@@ -82,9 +82,10 @@ contract LilNounsVault is
   }
 
   /**
-   * @notice Internal function that authorizes upgrades
-   * @dev Only the owner of the contract can authorize an upgrade, and the contract must not be paused.
-   * @param newImplementation The address of the new implementation contract
+   * /**
+   * @notice Authorizes an upgrade to a new implementation contract.
+   * @dev This function ensures that upgrades can only be authorized by the owner and when the contract is not paused.
+   * @param newImplementation The address of the new implementation contract.
    */
   function _authorizeUpgrade(
     address newImplementation
@@ -100,14 +101,19 @@ contract LilNounsVault is
     (newImplementation);
   }
 
+  /**
+   * @notice Withdraws all ETH from the contract to the owner's address.
+   * @dev Only the owner can call this function. It is protected by non-reentrancy and can only be called when the contract is not paused.
+   */
   function withdraw() external onlyOwner whenNotPaused nonReentrant {
     uint256 amount = address(this).balance;
     Address.sendValue(payable(msg.sender), amount);
   }
 
   /**
-   * @notice Withdraw a specific ERC20 token
-   * @param token The address of the ERC20 token contract
+   * @notice Withdraws a specific ERC20 token from the contract to the owner's address.
+   * @dev Only the owner can call this function. It is protected by non-reentrancy and can only be called when the contract is not paused.
+   * @param token The address of the ERC20 token contract.
    */
   function withdraw(
     IERC20 token
@@ -117,9 +123,10 @@ contract LilNounsVault is
   }
 
   /**
-   * @notice Withdraw a specific ERC721 token
-   * @param nft The address of the ERC721 NFT contract
-   * @param tokenId The ID of the NFT to withdraw
+   * @notice Withdraws a specific ERC721 token from the contract to the owner's address.
+   * @dev Only the owner can call this function. It is protected by non-reentrancy and can only be called when the contract is not paused.
+   * @param nft The address of the ERC721 NFT contract.
+   * @param tokenId The ID of the NFT to withdraw.
    */
   function withdraw(
     IERC721 nft,
@@ -135,9 +142,9 @@ contract LilNounsVault is
   receive() external payable {}
 
   /**
-   * @notice Function to handle receiving NFTs
-   * @dev This function is called when an NFT is transferred to this contract.
-   * @return bytes4 This function must return `bytes4(keccak256("onERC721Received(address,address,uint256,bytes)"))`
+   * @notice Handles the receipt of ERC721 NFTs.
+   * @dev This function is called when an ERC721 token is transferred to this contract.
+   * @return bytes4 The selector of the `onERC721Received` function.
    */
   function onERC721Received(
     address, // operator
