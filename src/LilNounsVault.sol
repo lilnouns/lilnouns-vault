@@ -32,8 +32,8 @@ contract LilNounsVault is
   /// @notice Thrown when an upgrade attempt is made while the contract is paused.
   error UpgradeNotAllowedWhilePaused();
 
-  /// @notice Error for when attempting to unpause during the restricted period
-  error UnpauseRestricted();
+  /// @notice Thrown when an attempt is made to unpause during the restricted pause period.
+  error CannotUnpauseDuringPausePeriod();
 
   /// @notice Error for invalid pause period
   error InvalidPausePeriod();
