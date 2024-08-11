@@ -6,65 +6,166 @@ import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/I
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import { PausableUpgradeable } from "@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol";
+import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import { IERC721Receiver } from "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
+import { IERC721 } from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import { SafeERC20 } from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+import { Address } from "@openzeppelin/contracts/utils/Address.sol";
+import { ReentrancyGuardUpgradeable } from "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol";
 
 /**
  * @title LilNounsVault
- * @dev This contract serves as a vault, upgradeable via UUPS pattern.
- * It includes pausable functionality to allow for emergency stops and can receive ETH and NFTs.
+ * @notice An upgradeable vault contract with pausable functionality for handling ETH, ERC20 tokens, and ERC721 NFTs.
+ * @dev This contract uses the UUPS upgradeable pattern and inherits from OpenZeppelin's upgradeable contracts.
+ * It allows the owner to pause operations, withdraw funds, and upgrade the contract implementation.
  */
 contract LilNounsVault is
   Initializable,
   UUPSUpgradeable,
   OwnableUpgradeable,
   PausableUpgradeable,
+  ReentrancyGuardUpgradeable,
   IERC721Receiver
 {
-  /// @notice Initializer function to replace the constructor for upgradeable contracts
+  using SafeERC20 for IERC20;
+
+  /// @notice Thrown when an upgrade attempt is made while the contract is paused.
+  error UpgradeNotAllowedWhilePaused();
+
+  /// @notice Thrown when an attempt is made to unpause during the restricted pause period.
+  error CannotUnpauseDuringPausePeriod();
+
+  /// @notice Thrown when the provided pause period is invalid.
+  error InvalidPausePeriod();
+  error ZeroAddressError();
+
+  /// @notice The timestamp when the pause period starts.
+  uint256 public pauseStartTime;
+
+  /// @notice The timestamp when the pause period ends.
+  uint256 public pauseEndTime;
+
+  /**
+   * @notice Initializes the contract and sets the deployer as the initial owner.
+   * @dev This function replaces the constructor in upgradeable contracts.
+   */
   function initialize() public initializer {
     __Ownable_init(msg.sender);
     __UUPSUpgradeable_init();
     __Pausable_init();
+    __ReentrancyGuard_init();
   }
 
   /**
-   * @notice Internal function that authorizes upgrades
-   * @dev Only the owner of the contract can authorize an upgrade.
-   * This function is intentionally left empty as the access control is handled by the `onlyOwner` modifier.
-   * @param newImplementation The address of the new implementation contract
+   * @notice Pauses the contract for a specific time period.
+   * @dev Only the owner can call this function. The pause period is defined by start and end timestamps.
+   * @param startTimestamp The timestamp when the pause period begins.
+   * @param endTimestamp The timestamp when the pause period ends.
    */
-  function _authorizeUpgrade(
-    address newImplementation
-  ) internal override onlyOwner {
-    // Intentionally left blank
-  }
+  function pause(
+    uint256 startTimestamp,
+    uint256 endTimestamp
+  ) external onlyOwner {
+    if (endTimestamp <= startTimestamp) {
+      revert InvalidPausePeriod();
+    }
+    if (startTimestamp < block.timestamp) {
+      revert InvalidPausePeriod();
+    }
 
-  /**
-   * @notice Pauses the contract, preventing all state-changing operations
-   * @dev Only the owner can pause the contract
-   */
-  function pause() external onlyOwner {
+    pauseStartTime = startTimestamp;
+    pauseEndTime = endTimestamp;
     _pause();
   }
 
   /**
-   * @notice Unpauses the contract, resuming all state-changing operations
-   * @dev Only the owner can unpause the contract
+   * @notice Unpauses the contract.
+   * @dev Only the owner can call this function. It cannot be called during the restricted pause period.
    */
   function unpause() external onlyOwner {
+    if (block.timestamp >= pauseStartTime && block.timestamp <= pauseEndTime) {
+      revert CannotUnpauseDuringPausePeriod();
+    }
     _unpause();
   }
 
   /**
-   * @notice Function to receive ETH
-   * @dev This function enables the contract to accept ETH deposits.
+   * @notice Transfers ownership of the contract to a new account (`newOwner`).
+   * @dev Only the current owner can call this function. The contract must not be paused to transfer ownership.
+   * @param newOwner The address of the new owner.
+   */
+  function transferOwnership(
+    address newOwner
+  ) public override onlyOwner whenNotPaused {
+    if (newOwner == address(0)) {
+      revert ZeroAddressError();
+    }
+    _transferOwnership(newOwner);
+  }
+
+  /**
+   * @notice Authorizes an upgrade to a new implementation contract.
+   * @dev This function ensures that upgrades can only be authorized by the owner and when the contract is not paused.
+   * @param newImplementation The address of the new implementation contract.
+   */
+  function _authorizeUpgrade(
+    address newImplementation
+  ) internal view override onlyOwner {
+    if (
+      paused() &&
+      (block.timestamp >= pauseStartTime && block.timestamp <= pauseEndTime)
+    ) {
+      revert UpgradeNotAllowedWhilePaused();
+    }
+
+    // Suppress unused variable warning
+    (newImplementation);
+  }
+
+  /**
+   * @notice Withdraws all ETH from the contract to the owner's address.
+   * @dev Only the owner can call this function. It is protected by non-reentrancy and can only be called when the contract is not paused.
+   */
+  function withdraw() external onlyOwner whenNotPaused nonReentrant {
+    uint256 amount = address(this).balance;
+    Address.sendValue(payable(msg.sender), amount);
+  }
+
+  /**
+   * @notice Withdraws a specific ERC20 token from the contract to the owner's address.
+   * @dev Only the owner can call this function. It is protected by non-reentrancy and can only be called when the contract is not paused.
+   * @param token The address of the ERC20 token contract.
+   */
+  function withdraw(
+    IERC20 token
+  ) external onlyOwner whenNotPaused nonReentrant {
+    uint256 balance = token.balanceOf(address(this));
+    token.safeTransfer(owner(), balance);
+  }
+
+  /**
+   * @notice Withdraws a specific ERC721 token from the contract to the owner's address.
+   * @dev Only the owner can call this function. It is protected by non-reentrancy and can only be called when the contract is not paused.
+   * @param nft The address of the ERC721 NFT contract.
+   * @param tokenId The ID of the NFT to withdraw.
+   */
+  function withdraw(
+    IERC721 nft,
+    uint256 tokenId
+  ) external onlyOwner whenNotPaused nonReentrant {
+    nft.safeTransferFrom(address(this), owner(), tokenId);
+  }
+
+  /**
+   * @notice Function to receive ETH deposits.
+   * @dev This function allows the contract to accept ETH.
    */
   receive() external payable {}
 
   /**
-   * @notice Function to handle receiving NFTs
-   * @dev This function is called when an NFT is transferred to this contract.
-   * @return bytes4 This function must return `bytes4(keccak256("onERC721Received(address,address,uint256,bytes)"))`
+   * @notice Handles the receipt of ERC721 NFTs.
+   * @dev This function is called when an ERC721 token is transferred to this contract.
+   * @return bytes4 The selector of the `onERC721Received` function.
    */
   function onERC721Received(
     address, // operator
