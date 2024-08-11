@@ -38,10 +38,13 @@ contract LilNounsVault is
   /// @notice Error for invalid pause period
   error InvalidPausePeriod();
 
-  uint256 public pauseStartBlock;
-  uint256 public pauseEndBlock;
+  /// @notice The timestamp when the pause period starts.
+  uint256 public pauseStartTime;
 
   /// @notice Initializer function to replace the constructor for upgradeable contracts
+  /// @notice The timestamp when the pause period ends.
+  uint256 public pauseEndTime;
+
   function initialize() public initializer {
     __Ownable_init(msg.sender);
     __UUPSUpgradeable_init();
@@ -56,18 +59,18 @@ contract LilNounsVault is
    * @param pauseEndBlock_ The block number when the pause period ends.
    */
   function pause(
-    uint256 pauseStartBlock_,
-    uint256 pauseEndBlock_
+    uint256 startTimestamp,
+    uint256 endTimestamp
   ) external onlyOwner {
-    if (pauseEndBlock_ <= pauseStartBlock_) {
+    if (endTimestamp <= startTimestamp) {
       revert InvalidPausePeriod();
     }
-    if (pauseStartBlock_ < block.number) {
+    if (startTimestamp < block.timestamp) {
       revert InvalidPausePeriod();
     }
 
-    pauseStartBlock = pauseStartBlock_;
-    pauseEndBlock = pauseEndBlock_;
+    pauseStartTime = startTimestamp;
+    pauseEndTime = endTimestamp;
     _pause();
   }
 
@@ -76,8 +79,8 @@ contract LilNounsVault is
    * @dev Only the owner can call this function. It cannot be called during the restricted pause period.
    */
   function unpause() external onlyOwner {
-    if (block.number >= pauseStartBlock && block.number <= pauseEndBlock) {
-      revert UnpauseRestricted();
+    if (block.timestamp >= pauseStartTime && block.timestamp <= pauseEndTime) {
+      revert CannotUnpauseDuringPausePeriod();
     }
     _unpause();
   }
@@ -104,7 +107,7 @@ contract LilNounsVault is
   ) internal view override onlyOwner {
     if (
       paused() &&
-      (block.number >= pauseStartBlock && block.number <= pauseEndBlock)
+      (block.timestamp >= pauseStartTime && block.timestamp <= pauseEndTime)
     ) {
       revert ContractPausedDuringUpgrade();
     }
