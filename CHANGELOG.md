@@ -2,6 +2,60 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-alpha.2] - 2024-08-11
+
+### Features
+
+- Add timed pause functionality
+- Add ERC721 withdrawal functionality
+- Add ERC20 token withdrawal
+- Add `withdraw` function for ether transfer
+- Add reentrancy protection
+- Add `transferOwnership` functionality
+- Add specific error for zero address
+
+### Bug Fixes
+
+- Prohibit upgrade if contract is paused
+
+### Testing
+
+- Update `testDeploymentAndInitialization` view
+- Add upgrade and pause tests
+- Parametrize `withdraw` function name
+- Update tests and add ETH support
+- Add UUPS upgradeability and pause logic
+- Calculate gas cost on ETH withdrawal
+- Fix ERC20 withdrawal test
+
+### Refactor
+
+- Use custom error for paused contract check
+- Update pause mechanism to use blocks
+- Update pause period to timestamps
+- Rename custom error for clarity
+- Rename unpause error identifier
+- Remove `UUPSUpgradeableMock` dependency
+
+### Documentation
+
+- Update and clarify function documentation
+- Update `receive` function comments
+- Update contract docstring for clarity
+- Update docs of methods that missed
+
+### Miscellaneous Tasks
+
+- Update slither config
+- Update `detectors_to_exclude` in config
+- Update `filter_paths` in slither config
+- Update `filter_paths` specification
+
+### Styling
+
+- Standardize casing in test descriptions
+- Reformat code for improved readability
+
 ## [1.0.0-alpha.1] - 2024-08-10
 
 ### Features
