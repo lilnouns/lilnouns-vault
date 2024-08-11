@@ -1,6 +1,6 @@
 {
   "name": "lilnouns-vault",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "description": "A template for create smart contracts using Foundry and Hardhat.",
   "keywords": [],
   "license": "Apache-2.0",
