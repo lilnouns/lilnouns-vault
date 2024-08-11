@@ -123,7 +123,7 @@ describe("LilNounsVault", function () {
         lilNounsVault.connect(owner).unpause(),
       ).to.be.revertedWithCustomError(
         lilNounsVault,
-        "CannotUnpauseDuringPausePeriod",
+        "EnforcedPausePeriod",
       );
 
       // Fast forward to the end timestamp
@@ -155,7 +155,7 @@ describe("LilNounsVault", function () {
         ),
       ).to.be.revertedWithCustomError(
         lilNounsVault,
-        "UpgradeNotAllowedWhilePaused",
+        "EnforcedPausePeriod",
       );
     });
 

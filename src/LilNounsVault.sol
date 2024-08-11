@@ -29,11 +29,8 @@ contract LilNounsVault is
 {
   using SafeERC20 for IERC20;
 
-  /// @notice Thrown when an upgrade attempt is made while the contract is paused.
-  error UpgradeNotAllowedWhilePaused();
-
   /// @notice Thrown when an attempt is made to unpause during the restricted pause period.
-  error CannotUnpauseDuringPausePeriod();
+  error EnforcedPausePeriod();
 
   /// @notice Thrown when the provided pause period is invalid.
   error InvalidPausePeriod();
@@ -86,7 +83,7 @@ contract LilNounsVault is
    */
   function unpause() external onlyOwner {
     if (block.timestamp >= pauseStartTime && block.timestamp <= pauseEndTime) {
-      revert CannotUnpauseDuringPausePeriod();
+      revert EnforcedPausePeriod();
     }
     _unpause();
   }
@@ -117,7 +114,7 @@ contract LilNounsVault is
       paused() &&
       (block.timestamp >= pauseStartTime && block.timestamp <= pauseEndTime)
     ) {
-      revert UpgradeNotAllowedWhilePaused();
+      revert EnforcedPausePeriod();
     }
 
     // Suppress unused variable warning

@@ -108,7 +108,7 @@ contract LilNounsVaultTest is Test, IERC721Receiver {
     assertTrue(lilNounsVault.paused(), "Contract should be paused");
 
     // Attempt to unpause during the pause period (should fail)
-    vm.expectRevert(LilNounsVault.CannotUnpauseDuringPausePeriod.selector);
+    vm.expectRevert(LilNounsVault.EnforcedPausePeriod.selector);
     lilNounsVault.unpause();
 
     // Fast-forward to the end timestamp
@@ -128,7 +128,7 @@ contract LilNounsVaultTest is Test, IERC721Receiver {
     vm.warp(startTimestamp);
 
     // Attempt to upgrade during the pause period (should fail)
-    vm.expectRevert(LilNounsVault.UpgradeNotAllowedWhilePaused.selector);
+    vm.expectRevert(LilNounsVault.EnforcedPausePeriod.selector);
     lilNounsVault.upgradeToAndCall(address(newImplementation), "");
   }
 
