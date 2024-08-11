@@ -6,8 +6,10 @@ import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/I
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import { PausableUpgradeable } from "@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol";
+import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import { IERC721Receiver } from "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 import { IERC721 } from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import { SafeERC20 } from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
 /**
  * @title LilNounsVault
@@ -21,6 +23,8 @@ contract LilNounsVault is
   PausableUpgradeable,
   IERC721Receiver
 {
+  using SafeERC20 for IERC20;
+
   /// @notice Custom error for paused contract during upgrade attempt
   error ContractPausedDuringUpgrade();
 
@@ -90,6 +94,15 @@ contract LilNounsVault is
 
     // Suppress unused variable warning
     (newImplementation);
+  }
+
+  /**
+   * @notice Withdraw a specific ERC20 token
+   * @param token The address of the ERC20 token contract
+   */
+  function withdraw(IERC20 token) external onlyOwner whenNotPaused {
+    uint256 balance = token.balanceOf(address(this));
+    token.safeTransfer(owner(), balance);
   }
 
   /**
