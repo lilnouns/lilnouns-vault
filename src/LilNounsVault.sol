@@ -128,7 +128,7 @@ contract LilNounsVault is
    */
   function withdraw() external onlyOwner whenNotPaused nonReentrant {
     uint256 amount = address(this).balance;
-    Address.sendValue(payable(msg.sender), amount);
+    Address.sendValue(payable(owner()), amount);
   }
 
   /**
