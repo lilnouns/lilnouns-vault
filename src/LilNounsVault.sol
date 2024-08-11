@@ -29,8 +29,8 @@ contract LilNounsVault is
 {
   using SafeERC20 for IERC20;
 
-  /// @notice Custom error for paused contract during upgrade attempt
-  error ContractPausedDuringUpgrade();
+  /// @notice Thrown when an upgrade attempt is made while the contract is paused.
+  error UpgradeNotAllowedWhilePaused();
 
   /// @notice Error for when attempting to unpause during the restricted period
   error UnpauseRestricted();
@@ -109,7 +109,7 @@ contract LilNounsVault is
       paused() &&
       (block.timestamp >= pauseStartTime && block.timestamp <= pauseEndTime)
     ) {
-      revert ContractPausedDuringUpgrade();
+      revert UpgradeNotAllowedWhilePaused();
     }
 
     // Suppress unused variable warning
