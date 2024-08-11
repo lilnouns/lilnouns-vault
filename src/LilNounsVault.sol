@@ -15,8 +15,9 @@ import { ReentrancyGuardUpgradeable } from "@openzeppelin/contracts-upgradeable/
 
 /**
  * @title LilNounsVault
- * @dev This contract serves as a vault, upgradeable via UUPS pattern.
- * It includes pausable functionality to allow for emergency stops and can receive ETH and NFTs.
+ * @notice An upgradeable vault contract with pausable functionality for handling ETH, ERC20 tokens, and ERC721 NFTs.
+ * @dev This contract uses the UUPS upgradeable pattern and inherits from OpenZeppelin's upgradeable contracts.
+ * It allows the owner to pause operations, withdraw funds, and upgrade the contract implementation.
  */
 contract LilNounsVault is
   Initializable,
