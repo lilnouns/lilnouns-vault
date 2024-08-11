@@ -37,6 +37,7 @@ contract LilNounsVault is
 
   /// @notice Thrown when the provided pause period is invalid.
   error InvalidPausePeriod();
+  error ZeroAddressError();
 
   /// @notice The timestamp when the pause period starts.
   uint256 public pauseStartTime;
@@ -96,7 +97,9 @@ contract LilNounsVault is
   function transferOwnership(
     address newOwner
   ) public override onlyOwner whenNotPaused {
-    require(newOwner != address(0), "New owner is the zero address");
+    if (newOwner == address(0)) {
+      revert ZeroAddressError();
+    }
     _transferOwnership(newOwner);
   }
 
