@@ -199,4 +199,34 @@ contract LilNounsVaultTest is Test, IERC721Receiver {
 
     assertEq(erc20.balanceOf(owner), initialOwnerBalance + 100);
   }
+
+  function testDelegateERC20Votes() public {
+    vm.prank(owner); // Set msg.sender to owner
+    vault.delegate(address(erc20), addr3);
+
+    assertEq(
+      erc20.delegates(address(vault)),
+      addr3,
+      "Delegation of ERC20Votes failed"
+    );
+  }
+
+  function testDelegateERC721Votes() public {
+    vm.prank(owner); // Set msg.sender to owner
+    vault.delegate(address(erc721), addr3);
+
+    assertEq(
+      erc721.delegates(address(vault)),
+      addr3,
+      "Delegation of ERC721Votes failed"
+    );
+  }
+
+  function testDelegateRevertsOnZeroAddress() public {
+    vm.prank(owner); // Set msg.sender to owner
+    vm.expectRevert(
+      abi.encodeWithSelector(LilNounsVault.ZeroAddressError.selector)
+    );
+    vault.delegate(address(erc20), address(0));
+  }
 }

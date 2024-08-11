@@ -8,7 +8,7 @@ import { ERC20Mock, ERC721Mock, LilNounsVault } from "../typechain-types";
 
 describe("LilNounsVault", function () {
   async function deployVaultAndTokens() {
-    const [owner, addr1, addr2] = await ethers.getSigners();
+    const [owner, addr1, addr2, addr3] = await ethers.getSigners();
 
     // Deploy ERC-20 token for testing
     const erc20 = (await ethers.deployContract("ERC20Mock", [
@@ -40,6 +40,7 @@ describe("LilNounsVault", function () {
       owner,
       addr1,
       addr2,
+      addr3,
       newImplementation,
     };
   }
@@ -235,6 +236,44 @@ describe("LilNounsVault", function () {
 
       const finalBalance = await erc20.balanceOf(owner.address);
       expect(finalBalance).to.equal(initialBalance);
+    });
+  });
+
+  describe("Delegation", function () {
+    it("should delegate ERC20 votes correctly", async function () {
+      const { vault, erc20, owner, addr3 } =
+        await loadFixture(deployVaultAndTokens);
+
+      // Delegate ERC20 votes to addr3
+      await vault.connect(owner).delegate(erc20.getAddress(), addr3.address);
+
+      const delegatee = await erc20.delegates(vault.getAddress());
+      expect(delegatee).to.equal(
+        addr3.address,
+        "Delegation of ERC20Votes failed",
+      );
+    });
+
+    it("should delegate ERC721 votes correctly", async function () {
+      const { vault, erc721, owner, addr3 } =
+        await loadFixture(deployVaultAndTokens);
+
+      // Delegate ERC721 votes to addr3
+      await vault.connect(owner).delegate(erc721.getAddress(), addr3.address);
+
+      const delegatee = await erc721.delegates(vault.getAddress());
+      expect(delegatee).to.equal(
+        addr3.address,
+        "Delegation of ERC721Votes failed",
+      );
+    });
+
+    it("should revert when delegating to zero address", async function () {
+      const { vault, erc20, owner } = await loadFixture(deployVaultAndTokens);
+
+      await expect(
+        vault.connect(owner).delegate(erc20.getAddress(), ethers.ZeroAddress),
+      ).to.be.revertedWithCustomError(vault, "ZeroAddressError");
     });
   });
 });
