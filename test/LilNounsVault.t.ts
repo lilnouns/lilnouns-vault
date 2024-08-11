@@ -116,14 +116,19 @@ describe("LilNounsVault", function () {
       await time.increaseTo(currentTimestamp + 15);
 
       // Attempt to withdraw the NFT (should fail)
+      const withdrawERC721Function = "withdraw(address,uint256)";
       await expect(
-        lilNounsVault.connect(owner).withdraw(erc721, 1)
+        lilNounsVault
+          .connect(owner)
+          [withdrawERC721Function](erc721.getAddress(), 1),
       ).to.be.revertedWithCustomError(lilNounsVault, "EnforcedPause");
 
       // Fast forward to a time after the pause period and withdraw the NFT
       await time.increaseTo(currentTimestamp + 21);
       await lilNounsVault.connect(owner).unpause();
-      await lilNounsVault.connect(owner).withdraw(erc721, 1);
+      await lilNounsVault
+        .connect(owner)
+        [withdrawERC721Function](erc721.getAddress(), 1);
       expect(await erc721.ownerOf(1)).to.equal(await owner.getAddress());
     });
   });
