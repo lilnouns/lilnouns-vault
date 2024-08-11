@@ -12,6 +12,7 @@ import { IERC721 } from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import { SafeERC20 } from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import { Address } from "@openzeppelin/contracts/utils/Address.sol";
 import { ReentrancyGuardUpgradeable } from "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol";
+import { Votes } from "@openzeppelin/contracts/governance/utils/Votes.sol";
 
 /**
  * @title LilNounsVault
@@ -29,14 +30,13 @@ contract LilNounsVault is
 {
   using SafeERC20 for IERC20;
 
-  /// @notice Thrown when an upgrade attempt is made while the contract is paused.
-  error UpgradeNotAllowedWhilePaused();
-
   /// @notice Thrown when an attempt is made to unpause during the restricted pause period.
-  error CannotUnpauseDuringPausePeriod();
+  error EnforcedPausePeriod();
 
   /// @notice Thrown when the provided pause period is invalid.
   error InvalidPausePeriod();
+
+  /// @notice Thrown when a zero address is provided where it's not allowed.
   error ZeroAddressError();
 
   /// @notice The timestamp when the pause period starts.
@@ -84,7 +84,7 @@ contract LilNounsVault is
    */
   function unpause() external onlyOwner {
     if (block.timestamp >= pauseStartTime && block.timestamp <= pauseEndTime) {
-      revert CannotUnpauseDuringPausePeriod();
+      revert EnforcedPausePeriod();
     }
     _unpause();
   }
@@ -115,7 +115,7 @@ contract LilNounsVault is
       paused() &&
       (block.timestamp >= pauseStartTime && block.timestamp <= pauseEndTime)
     ) {
-      revert UpgradeNotAllowedWhilePaused();
+      revert EnforcedPausePeriod();
     }
 
     // Suppress unused variable warning
@@ -154,6 +154,21 @@ contract LilNounsVault is
     uint256 tokenId
   ) external onlyOwner whenNotPaused nonReentrant {
     nft.safeTransferFrom(address(this), owner(), tokenId);
+  }
+
+  /**
+   * @notice Delegates the votes of a specific `Votes` token (ERC20Votes or ERC721Votes) to another address.
+   * @dev Only the owner can call this function.
+   * @param token The address of the Votes token contract.
+   * @param delegatee The address to delegate the votes to.
+   */
+  function delegate(address token, address delegatee) external onlyOwner {
+    if (delegatee == address(0)) {
+      revert ZeroAddressError();
+    }
+
+    // Cast the token address to the Votes interface and delegate the votes
+    Votes(token).delegate(delegatee);
   }
 
   /**

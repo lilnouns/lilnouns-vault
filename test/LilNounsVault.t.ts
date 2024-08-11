@@ -8,15 +8,14 @@ import { ERC20Mock, ERC721Mock, LilNounsVault } from "../typechain-types";
 
 describe("LilNounsVault", function () {
   async function deployVaultAndTokens() {
-    const [owner, addr1, addr2] = await ethers.getSigners();
+    const [owner, addr1, addr2, addr3] = await ethers.getSigners();
 
     // Deploy ERC-20 token for testing
     const erc20 = (await ethers.deployContract("ERC20Mock", [
       "TestToken",
       "TTK",
-      owner.address,
-      1000n,
     ])) as ERC20Mock;
+    await erc20.mint(owner.address, 1000n);
 
     // Deploy ERC-721 token for testing
     const erc721 = (await ethers.deployContract("ERC721Mock", [
@@ -25,7 +24,7 @@ describe("LilNounsVault", function () {
     ])) as ERC721Mock;
 
     // Deploy LilNounsVault implementation as a UUPS proxy
-    const lilNounsVault = (await upgrades.deployProxy(
+    const vault = (await upgrades.deployProxy(
       await ethers.getContractFactory("LilNounsVault"),
       [], // Arguments to the initialize function
       { kind: "uups" },
@@ -35,38 +34,39 @@ describe("LilNounsVault", function () {
     const newImplementation = await ethers.getContractFactory("LilNounsVault");
 
     return {
-      lilNounsVault,
+      vault,
       erc20,
       erc721,
       owner,
       addr1,
       addr2,
+      addr3,
       newImplementation,
     };
   }
 
   describe("Deployment and Initialization", function () {
     it("should deploy and initialize the contract correctly", async function () {
-      const { lilNounsVault, owner } = await loadFixture(deployVaultAndTokens);
-      expect(await lilNounsVault.owner()).to.equal(await owner.getAddress());
+      const { vault, owner } = await loadFixture(deployVaultAndTokens);
+      expect(await vault.owner()).to.equal(await owner.getAddress());
     });
   });
 
   describe("ETH Handling", function () {
     it("should receive ETH correctly", async function () {
-      const { lilNounsVault, addr1 } = await loadFixture(deployVaultAndTokens);
+      const { vault, addr1 } = await loadFixture(deployVaultAndTokens);
       const initialBalance = await ethers.provider.getBalance(
-        await lilNounsVault.getAddress(),
+        await vault.getAddress(),
       );
 
       // Send 1 ETH to the contract
       await addr1.sendTransaction({
-        to: await lilNounsVault.getAddress(),
+        to: await vault.getAddress(),
         value: ethers.parseEther("1"),
       });
 
       const finalBalance = await ethers.provider.getBalance(
-        await lilNounsVault.getAddress(),
+        await vault.getAddress(),
       );
       expect(finalBalance - initialBalance).to.equal(ethers.parseEther("1"));
     });
@@ -74,37 +74,34 @@ describe("LilNounsVault", function () {
 
   describe("ERC-20 Token Handling", function () {
     it("should receive ERC-20 tokens correctly", async function () {
-      const { lilNounsVault, erc20 } = await loadFixture(deployVaultAndTokens);
+      const { vault, erc20 } = await loadFixture(deployVaultAndTokens);
 
       // Transfer 100 tokens to the contract
-      await erc20.transfer(await lilNounsVault.getAddress(), 100n);
+      await erc20.transfer(await vault.getAddress(), 100n);
 
-      const contractBalance = await erc20.balanceOf(
-        await lilNounsVault.getAddress(),
-      );
+      const contractBalance = await erc20.balanceOf(await vault.getAddress());
       expect(contractBalance).to.equal(100n);
     });
   });
 
   describe("ERC-721 Token Handling", function () {
     it("should receive ERC-721 tokens correctly", async function () {
-      const { lilNounsVault, erc721, addr1 } =
-        await loadFixture(deployVaultAndTokens);
+      const { vault, erc721, addr1 } = await loadFixture(deployVaultAndTokens);
 
       // Mint a new NFT and transfer it to the contract
       await erc721.mint(addr1.address, 1);
       await erc721
         .connect(addr1)
-        .transferFrom(addr1.address, await lilNounsVault.getAddress(), 1);
+        .transferFrom(addr1.address, await vault.getAddress(), 1);
 
       const ownerOfToken = await erc721.ownerOf(1);
-      expect(ownerOfToken).to.equal(await lilNounsVault.getAddress());
+      expect(ownerOfToken).to.equal(await vault.getAddress());
     });
   });
 
   describe("Pause and Unpause", function () {
     it("should pause and unpause correctly with timestamps", async function () {
-      const { lilNounsVault, owner } = await loadFixture(deployVaultAndTokens);
+      const { vault, owner } = await loadFixture(deployVaultAndTokens);
       const currentBlock = await ethers.provider.getBlockNumber();
       const currentTimestamp =
         (await ethers.provider.getBlock(currentBlock))?.timestamp ?? 0;
@@ -112,28 +109,25 @@ describe("LilNounsVault", function () {
       const startTimestamp = currentTimestamp + 5;
       const endTimestamp = currentTimestamp + 10;
 
-      await lilNounsVault.connect(owner).pause(startTimestamp, endTimestamp);
+      await vault.connect(owner).pause(startTimestamp, endTimestamp);
 
       // Fast forward to the start timestamp
       await time.increaseTo(startTimestamp);
-      expect(await lilNounsVault.paused()).to.be.true;
+      expect(await vault.paused()).to.be.true;
 
       // Attempt to unpause during the pause period (should fail)
       await expect(
-        lilNounsVault.connect(owner).unpause(),
-      ).to.be.revertedWithCustomError(
-        lilNounsVault,
-        "CannotUnpauseDuringPausePeriod",
-      );
+        vault.connect(owner).unpause(),
+      ).to.be.revertedWithCustomError(vault, "EnforcedPausePeriod");
 
       // Fast forward to the end timestamp
       await time.increaseTo(endTimestamp + 1);
-      await lilNounsVault.connect(owner).unpause();
-      expect(await lilNounsVault.paused()).to.be.false;
+      await vault.connect(owner).unpause();
+      expect(await vault.paused()).to.be.false;
     });
 
     it("should block upgrades during the pause period", async function () {
-      const { lilNounsVault, newImplementation, owner } =
+      const { vault, newImplementation, owner } =
         await loadFixture(deployVaultAndTokens);
       const currentBlock = await ethers.provider.getBlockNumber();
       const currentTimestamp =
@@ -142,78 +136,67 @@ describe("LilNounsVault", function () {
       const startTimestamp = currentTimestamp + 5;
       const endTimestamp = currentTimestamp + 10;
 
-      await lilNounsVault.connect(owner).pause(startTimestamp, endTimestamp);
+      await vault.connect(owner).pause(startTimestamp, endTimestamp);
 
       // Fast forward to the start timestamp
       await time.increaseTo(startTimestamp);
 
       // Attempt to upgrade during the pause period (should fail)
       await expect(
-        upgrades.upgradeProxy(
-          await lilNounsVault.getAddress(),
-          newImplementation,
-        ),
-      ).to.be.revertedWithCustomError(
-        lilNounsVault,
-        "UpgradeNotAllowedWhilePaused",
-      );
+        upgrades.upgradeProxy(await vault.getAddress(), newImplementation),
+      ).to.be.revertedWithCustomError(vault, "EnforcedPausePeriod");
     });
 
     it("should revert with invalid pause periods", async function () {
-      const { lilNounsVault, owner } = await loadFixture(deployVaultAndTokens);
+      const { vault, owner } = await loadFixture(deployVaultAndTokens);
 
       // Pause end timestamp is less than start timestamp
       await expect(
-        lilNounsVault
+        vault
           .connect(owner)
           .pause((await time.latest()) + 10, (await time.latest()) + 5),
-      ).to.be.revertedWithCustomError(lilNounsVault, "InvalidPausePeriod");
+      ).to.be.revertedWithCustomError(vault, "InvalidPausePeriod");
 
       // Pause start timestamp is in the past
       await expect(
-        lilNounsVault
+        vault
           .connect(owner)
           .pause((await time.latest()) - 1, (await time.latest()) + 10),
-      ).to.be.revertedWithCustomError(lilNounsVault, "InvalidPausePeriod");
+      ).to.be.revertedWithCustomError(vault, "InvalidPausePeriod");
     });
   });
 
   describe("Withdrawals", function () {
     it("should withdraw ERC721 tokens correctly", async function () {
-      const { lilNounsVault, erc721, owner, addr1 } =
+      const { vault, erc721, owner, addr1 } =
         await loadFixture(deployVaultAndTokens);
 
       // Mint and transfer an NFT to the contract
       await erc721.mint(addr1.address, 1);
       await erc721
         .connect(addr1)
-        .transferFrom(addr1.address, await lilNounsVault.getAddress(), 1);
+        .transferFrom(addr1.address, await vault.getAddress(), 1);
 
-      expect(await erc721.ownerOf(1)).to.equal(
-        await lilNounsVault.getAddress(),
-      );
+      expect(await erc721.ownerOf(1)).to.equal(await vault.getAddress());
 
       // Withdraw the NFT from the vault to the owner using the correct overloaded function
       const withdrawERC721 = "withdraw(address,uint256)";
-      await lilNounsVault
-        .connect(owner)
-        [withdrawERC721](erc721.getAddress(), 1);
+      await vault.connect(owner)[withdrawERC721](erc721.getAddress(), 1);
 
       expect(await erc721.ownerOf(1)).to.equal(await owner.getAddress());
     });
 
     it("should withdraw ETH correctly", async function () {
-      const { lilNounsVault, owner, addr1 } =
-        await loadFixture(deployVaultAndTokens);
+      const { vault, owner, addr1 } = await loadFixture(deployVaultAndTokens);
 
       // Send 1 ETH to the contract
       await addr1.sendTransaction({
-        to: await lilNounsVault.getAddress(),
+        to: await vault.getAddress(),
         value: ethers.parseEther("1"),
       });
 
       const contractBalance = await ethers.provider.getBalance(
-        await lilNounsVault.getAddress(),
+        await vault.getAddress(),
       );
       expect(contractBalance).to.equal(ethers.parseEther("1"));
 
@@ -223,7 +206,7 @@ describe("LilNounsVault", function () {
 
       // Withdraw the ETH
       const withdrawETH = "withdraw()";
-      const tx = await lilNounsVault.connect(owner)[withdrawETH]();
+      const tx = await vault.connect(owner)[withdrawETH]();
       const receipt = await tx.wait();
 
       // @ts-ignore
@@ -240,20 +223,57 @@ describe("LilNounsVault", function () {
     });
 
     it("should withdraw ERC20 tokens correctly", async function () {
-      const { lilNounsVault, erc20, owner } =
-        await loadFixture(deployVaultAndTokens);
+      const { vault, erc20, owner } = await loadFixture(deployVaultAndTokens);
 
       const initialBalance = await erc20.balanceOf(owner.address);
 
       // Transfer 100 tokens to the contract
-      await erc20.transfer(await lilNounsVault.getAddress(), 100n);
+      await erc20.transfer(await vault.getAddress(), 100n);
 
       // Withdraw the tokens using the correct overloaded function
       const withdrawERC20 = "withdraw(address)";
-      await lilNounsVault.connect(owner)[withdrawERC20](erc20.getAddress());
+      await vault.connect(owner)[withdrawERC20](erc20.getAddress());
 
       const finalBalance = await erc20.balanceOf(owner.address);
       expect(finalBalance).to.equal(initialBalance);
+    });
+  });
+
+  describe("Delegation", function () {
+    it("should delegate ERC20 votes correctly", async function () {
+      const { vault, erc20, owner, addr3 } =
+        await loadFixture(deployVaultAndTokens);
+
+      // Delegate ERC20 votes to addr3
+      await vault.connect(owner).delegate(erc20.getAddress(), addr3.address);
+
+      const delegatee = await erc20.delegates(vault.getAddress());
+      expect(delegatee).to.equal(
+        addr3.address,
+        "Delegation of ERC20Votes failed",
+      );
+    });
+
+    it("should delegate ERC721 votes correctly", async function () {
+      const { vault, erc721, owner, addr3 } =
+        await loadFixture(deployVaultAndTokens);
+
+      // Delegate ERC721 votes to addr3
+      await vault.connect(owner).delegate(erc721.getAddress(), addr3.address);
+
+      const delegatee = await erc721.delegates(vault.getAddress());
+      expect(delegatee).to.equal(
+        addr3.address,
+        "Delegation of ERC721Votes failed",
+      );
+    });
+
+    it("should revert when delegating to zero address", async function () {
+      const { vault, erc20, owner } = await loadFixture(deployVaultAndTokens);
+
+      await expect(
+        vault.connect(owner).delegate(erc20.getAddress(), ethers.ZeroAddress),
+      ).to.be.revertedWithCustomError(vault, "ZeroAddressError");
     });
   });
 });
