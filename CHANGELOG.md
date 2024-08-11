@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-alpha.3] - 2024-08-11
+
+### Features
+
+- Add voting extensions to ERC20 and ERC721
+- Add vote delegation functionality
+
+### Bug Fixes
+
+- Add `ZeroAddressError` for invalid addresses
+
+### Testing
+
+- Refactor to simplify contract interactions
+- Add delegation tests for ERC20 and ERC721
+
+### Refactor
+
+- Consolidate pause-related errors
+- Rename `lilNounsVault` to `vault`
+
 ## [1.0.0-alpha.2] - 2024-08-11
 
 ### Features
