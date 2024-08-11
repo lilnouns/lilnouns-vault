@@ -147,8 +147,8 @@ contract LilNounsVault is
   }
 
   /**
-   * @notice Function to receive ETH
-   * @dev This function enables the contract to accept ETH deposits.
+   * @notice Function to receive ETH deposits.
+   * @dev This function allows the contract to accept ETH.
    */
   receive() external payable {}
 
