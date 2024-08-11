@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0
-pragma solidity ^0.8.18;
+pragma solidity ^0.8.26;
 
 import { Test } from "forge-std/Test.sol";
 import { LilNounsVault } from "../src/LilNounsVault.sol";
@@ -54,6 +54,9 @@ contract LilNounsVaultTest is Test, IERC721Receiver {
     return this.onERC721Received.selector;
   }
 
+  // Add a receive function to accept ETH
+  receive() external payable {}
+
   // Test for deployment and initialization
   function testDeploymentAndInitialization() public view {
     assertEq(lilNounsVault.owner(), owner);
@@ -95,53 +98,50 @@ contract LilNounsVaultTest is Test, IERC721Receiver {
   }
 
   // Test for pausing the contract with block numbers
-  function testPauseWithBlockNumbers() public {
-    uint256 startBlock = block.number + 5;
-    uint256 endBlock = block.number + 10;
+  function testPauseWithTimestamps() public {
+    uint256 startTimestamp = block.timestamp + 5;
+    uint256 endTimestamp = block.timestamp + 10;
 
-    lilNounsVault.pause(startBlock, endBlock);
+    lilNounsVault.pause(startTimestamp, endTimestamp);
 
-    // Fast-forward to the start block
-    vm.roll(startBlock);
+    // Fast-forward to the start timestamp
+    vm.warp(startTimestamp);
     assertTrue(lilNounsVault.paused(), "Contract should be paused");
 
     // Attempt to unpause during the pause period (should fail)
-    vm.expectRevert(LilNounsVault.UnpauseRestricted.selector);
+    vm.expectRevert(LilNounsVault.CannotUnpauseDuringPausePeriod.selector);
     lilNounsVault.unpause();
 
-    // Fast-forward to the end block
-    vm.roll(endBlock + 1);
+    // Fast-forward to the end timestamp
+    vm.warp(endTimestamp + 1);
     lilNounsVault.unpause();
     assertFalse(lilNounsVault.paused(), "Contract should be unpaused");
   }
 
   // Test that upgrading is blocked during pause period
   function testUpgradeBlockedDuringPause() public {
-    uint256 startBlock = block.number + 5;
-    uint256 endBlock = block.number + 10;
+    uint256 startTimestamp = block.timestamp + 5;
+    uint256 endTimestamp = block.timestamp + 10;
 
-    lilNounsVault.pause(startBlock, endBlock);
+    lilNounsVault.pause(startTimestamp, endTimestamp);
 
-    // Fast-forward to the start block
-    vm.roll(startBlock);
+    // Fast-forward to the start timestamp
+    vm.warp(startTimestamp);
 
     // Attempt to upgrade during the pause period (should fail)
-    vm.expectRevert(LilNounsVault.ContractPausedDuringUpgrade.selector);
-    LilNounsVault(payable(address(lilNounsVault))).upgradeToAndCall(
-      address(newImplementation),
-      ""
-    );
+    vm.expectRevert(LilNounsVault.UpgradeNotAllowedWhilePaused.selector);
+    lilNounsVault.upgradeToAndCall(address(newImplementation), "");
   }
 
   // Test for invalid pause period
   function testInvalidPausePeriod() public {
-    // Pause end block is less than start block
+    // Pause end timestamp is less than start timestamp
     vm.expectRevert(LilNounsVault.InvalidPausePeriod.selector);
-    lilNounsVault.pause(block.number + 10, block.number + 5);
+    lilNounsVault.pause(block.timestamp + 10, block.timestamp + 5);
 
-    // Pause start block is in the past
+    // Pause start timestamp is in the past
     vm.expectRevert(LilNounsVault.InvalidPausePeriod.selector);
-    lilNounsVault.pause(block.number - 1, block.number + 10);
+    lilNounsVault.pause(block.timestamp - 1, block.timestamp + 10);
   }
 
   // Test for withdrawing ERC721 tokens
@@ -161,5 +161,40 @@ contract LilNounsVaultTest is Test, IERC721Receiver {
 
     // Verify the owner received the NFT
     assertEq(erc721.ownerOf(1), owner);
+  }
+
+  // Test for withdrawing ETH
+  function testWithdrawETH() public {
+    // Send 1 ETH to the contract
+    vm.deal(addr1, 1 ether);
+    vm.prank(addr1);
+    (bool success, ) = address(lilNounsVault).call{ value: 1 ether }("");
+    require(success, "ETH transfer failed");
+
+    // Check the balance of the contract
+    uint256 contractBalance = address(lilNounsVault).balance;
+    assertEq(contractBalance, 1 ether, "Contract did not receive the ETH");
+
+    // Withdraw the ETH
+    uint256 initialOwnerBalance = owner.balance;
+    lilNounsVault.withdraw();
+
+    assertEq(
+      owner.balance,
+      initialOwnerBalance + 1 ether,
+      "ETH withdrawal failed"
+    );
+  }
+
+  // Test for withdrawing ERC20 tokens
+  function testWithdrawERC20() public {
+    // Transfer 100 tokens to the contract
+    erc20.transfer(address(lilNounsVault), 100);
+
+    // Withdraw the tokens
+    uint256 initialOwnerBalance = erc20.balanceOf(owner);
+    lilNounsVault.withdraw(erc20);
+
+    assertEq(erc20.balanceOf(owner), initialOwnerBalance + 100);
   }
 }
