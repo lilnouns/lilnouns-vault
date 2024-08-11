@@ -214,16 +214,20 @@ describe("LilNounsVault", function () {
       );
       expect(contractBalance).to.equal(ethers.parseEther("1"));
 
-      // Withdraw the ETH using the correct overloaded function
-      const withdrawETH = "withdraw()";
-      await lilNounsVault.connect(owner)[withdrawETH]();
+      const ownerBalanceBefore = await ethers.provider.getBalance(owner.address);
 
-      const finalOwnerBalance = await ethers.provider.getBalance(owner.address);
-      expect(finalOwnerBalance).to.be.closeTo(
-        (await ethers.provider.getBalance(owner.address)) +
-          ethers.parseEther("1"),
-        ethers.parseEther("0.001"), // Accounting for gas costs
-      );
+      // Withdraw the ETH
+      const withdrawETH = "withdraw()";
+      const tx = await lilNounsVault.connect(owner)[withdrawETH]();
+      const receipt = await tx.wait();
+
+      // @ts-ignore
+      const gasUsed = receipt.gasUsed * tx.gasPrice;
+
+      const ownerBalanceAfter = await ethers.provider.getBalance(owner.address);
+      const expectedBalance = ownerBalanceBefore + ethers.parseEther("1") - gasUsed;
+
+      expect(ownerBalanceAfter).to.be.closeTo(expectedBalance, ethers.parseEther("0.001"));
     });
 
     it("should withdraw ERC20 tokens correctly", async function () {
