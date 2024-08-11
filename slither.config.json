@@ -1,5 +1,6 @@
 {
   "compile_force_framework": "foundry",
   "filter_paths": "lib,node_modules",
-  "solc": "0.8.26"
+  "solc": "0.8.26",
+  "detectors_to_exclude": "unused-import"
 }
