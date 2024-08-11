@@ -82,7 +82,18 @@ contract LilNounsVault is
   }
 
   /**
-   * /**
+   * @notice Transfers ownership of the contract to a new account (`newOwner`).
+   * @dev Only the current owner can call this function. The contract must not be paused to transfer ownership.
+   * @param newOwner The address of the new owner.
+   */
+  function transferOwnership(
+    address newOwner
+  ) public override onlyOwner whenNotPaused {
+    require(newOwner != address(0), "New owner is the zero address");
+    _transferOwnership(newOwner);
+  }
+
+  /**
    * @notice Authorizes an upgrade to a new implementation contract.
    * @dev This function ensures that upgrades can only be authorized by the owner and when the contract is not paused.
    * @param newImplementation The address of the new implementation contract.
