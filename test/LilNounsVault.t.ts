@@ -4,7 +4,7 @@ import {
   loadFixture,
   time,
 } from "@nomicfoundation/hardhat-toolbox/network-helpers";
-import { LilNounsVault, ERC20Mock, ERC721Mock } from "../typechain-types";
+import { ERC20Mock, ERC721Mock, LilNounsVault } from "../typechain-types";
 
 describe("LilNounsVault", function () {
   async function deployVaultAndTokens() {
@@ -149,7 +149,10 @@ describe("LilNounsVault", function () {
 
       // Attempt to upgrade during the pause period (should fail)
       await expect(
-        upgrades.upgradeProxy(await lilNounsVault.getAddress(), newImplementation),
+        upgrades.upgradeProxy(
+          await lilNounsVault.getAddress(),
+          newImplementation,
+        ),
       ).to.be.revertedWithCustomError(
         lilNounsVault,
         "UpgradeNotAllowedWhilePaused",
@@ -214,7 +217,9 @@ describe("LilNounsVault", function () {
       );
       expect(contractBalance).to.equal(ethers.parseEther("1"));
 
-      const ownerBalanceBefore = await ethers.provider.getBalance(owner.address);
+      const ownerBalanceBefore = await ethers.provider.getBalance(
+        owner.address,
+      );
 
       // Withdraw the ETH
       const withdrawETH = "withdraw()";
@@ -225,9 +230,13 @@ describe("LilNounsVault", function () {
       const gasUsed = receipt.gasUsed * tx.gasPrice;
 
       const ownerBalanceAfter = await ethers.provider.getBalance(owner.address);
-      const expectedBalance = ownerBalanceBefore + ethers.parseEther("1") - gasUsed;
+      const expectedBalance =
+        ownerBalanceBefore + ethers.parseEther("1") - gasUsed;
 
-      expect(ownerBalanceAfter).to.be.closeTo(expectedBalance, ethers.parseEther("0.001"));
+      expect(ownerBalanceAfter).to.be.closeTo(
+        expectedBalance,
+        ethers.parseEther("0.001"),
+      );
     });
 
     it("should withdraw ERC20 tokens correctly", async function () {
