@@ -234,6 +234,8 @@ describe("LilNounsVault", function () {
       const { lilNounsVault, erc20, owner } =
         await loadFixture(deployVaultAndTokens);
 
+      const initialBalance = await erc20.balanceOf(owner.address);
+
       // Transfer 100 tokens to the contract
       await erc20.transfer(await lilNounsVault.getAddress(), 100n);
 
@@ -241,9 +243,8 @@ describe("LilNounsVault", function () {
       const withdrawERC20 = "withdraw(address)";
       await lilNounsVault.connect(owner)[withdrawERC20](erc20.getAddress());
 
-      expect(await erc20.balanceOf(owner.address)).to.equal(
-        (await erc20.balanceOf(owner.address)) + 100n,
-      );
+      const finalBalance = await erc20.balanceOf(owner.address);
+      expect(finalBalance).to.equal(initialBalance);
     });
   });
 });
