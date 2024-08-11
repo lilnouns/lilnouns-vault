@@ -4,12 +4,7 @@ import {
   loadFixture,
   time,
 } from "@nomicfoundation/hardhat-toolbox/network-helpers";
-import {
-  LilNounsVault,
-  ERC20Mock,
-  ERC721Mock,
-  UUPSUpgradeableMock,
-} from "../typechain-types";
+import { LilNounsVault, ERC20Mock, ERC721Mock } from "../typechain-types";
 
 describe("LilNounsVault", function () {
   async function deployVaultAndTokens() {
@@ -36,11 +31,8 @@ describe("LilNounsVault", function () {
       { kind: "uups" },
     )) as unknown as LilNounsVault;
 
-    // Deploy a new implementation mock for upgrade testing
-    const newImplementation = (await ethers.deployContract(
-      "UUPSUpgradeableMock",
-    )) as UUPSUpgradeableMock;
-    await newImplementation.initialize(); // Initialize the new mock implementation
+    // Deploy a new instance of LilNounsVault for upgrade testing
+    const newImplementation = await ethers.getContractFactory("LilNounsVault");
 
     return {
       lilNounsVault,
@@ -157,10 +149,7 @@ describe("LilNounsVault", function () {
 
       // Attempt to upgrade during the pause period (should fail)
       await expect(
-        upgrades.upgradeProxy(
-          await lilNounsVault.getAddress(),
-          await ethers.getContractFactory("UUPSUpgradeableMock"),
-        ),
+        upgrades.upgradeProxy(await lilNounsVault.getAddress(), newImplementation),
       ).to.be.revertedWithCustomError(
         lilNounsVault,
         "UpgradeNotAllowedWhilePaused",
