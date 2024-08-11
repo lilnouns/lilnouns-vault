@@ -35,16 +35,19 @@ contract LilNounsVault is
   /// @notice Thrown when an attempt is made to unpause during the restricted pause period.
   error CannotUnpauseDuringPausePeriod();
 
-  /// @notice Error for invalid pause period
+  /// @notice Thrown when the provided pause period is invalid.
   error InvalidPausePeriod();
 
   /// @notice The timestamp when the pause period starts.
   uint256 public pauseStartTime;
 
-  /// @notice Initializer function to replace the constructor for upgradeable contracts
   /// @notice The timestamp when the pause period ends.
   uint256 public pauseEndTime;
 
+  /**
+   * @notice Initializes the contract and sets the deployer as the initial owner.
+   * @dev This function replaces the constructor in upgradeable contracts.
+   */
   function initialize() public initializer {
     __Ownable_init(msg.sender);
     __UUPSUpgradeable_init();
@@ -53,10 +56,10 @@ contract LilNounsVault is
   }
 
   /**
-   * @notice Pauses the contract for a specific period based on block numbers.
-   * @dev Only the owner can pause the contract. The pause start and end times are set as block numbers.
-   * @param pauseStartBlock_ The block number when the pause period begins.
-   * @param pauseEndBlock_ The block number when the pause period ends.
+   * @notice Pauses the contract for a specific time period.
+   * @dev Only the owner can call this function. The pause period is defined by start and end timestamps.
+   * @param startTimestamp The timestamp when the pause period begins.
+   * @param endTimestamp The timestamp when the pause period ends.
    */
   function pause(
     uint256 startTimestamp,
