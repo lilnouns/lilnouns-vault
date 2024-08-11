@@ -11,6 +11,7 @@ import { IERC721Receiver } from "@openzeppelin/contracts/token/ERC721/IERC721Rec
 import { IERC721 } from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import { SafeERC20 } from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import { Address } from "@openzeppelin/contracts/utils/Address.sol";
+import { ReentrancyGuardUpgradeable } from "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol";
 
 /**
  * @title LilNounsVault
@@ -22,6 +23,7 @@ contract LilNounsVault is
   UUPSUpgradeable,
   OwnableUpgradeable,
   PausableUpgradeable,
+  ReentrancyGuardUpgradeable,
   IERC721Receiver
 {
   using SafeERC20 for IERC20;
@@ -43,6 +45,7 @@ contract LilNounsVault is
     __Ownable_init(msg.sender);
     __UUPSUpgradeable_init();
     __Pausable_init();
+    __ReentrancyGuard_init();
   }
 
   /**
@@ -97,7 +100,7 @@ contract LilNounsVault is
     (newImplementation);
   }
 
-  function withdraw() external onlyOwner whenNotPaused {
+  function withdraw() external onlyOwner whenNotPaused nonReentrant {
     uint256 amount = address(this).balance;
     Address.sendValue(payable(msg.sender), amount);
   }
@@ -106,7 +109,9 @@ contract LilNounsVault is
    * @notice Withdraw a specific ERC20 token
    * @param token The address of the ERC20 token contract
    */
-  function withdraw(IERC20 token) external onlyOwner whenNotPaused {
+  function withdraw(
+    IERC20 token
+  ) external onlyOwner whenNotPaused nonReentrant {
     uint256 balance = token.balanceOf(address(this));
     token.safeTransfer(owner(), balance);
   }
@@ -119,7 +124,7 @@ contract LilNounsVault is
   function withdraw(
     IERC721 nft,
     uint256 tokenId
-  ) external onlyOwner whenNotPaused {
+  ) external onlyOwner whenNotPaused nonReentrant {
     nft.safeTransferFrom(address(this), owner(), tokenId);
   }
 
