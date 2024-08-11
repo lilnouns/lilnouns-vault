@@ -4,6 +4,7 @@ out = "out"
 libs = ["lib", "node_modules"]
 gas_reports = ["*"]
 solc_version = "0.8.26"
+remappings = ["nouns/=lib/nouns-monorepo/packages/nouns-contracts/"]
 
 [fmt]
 line_length = 80
