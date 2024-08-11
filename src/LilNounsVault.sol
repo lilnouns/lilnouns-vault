@@ -37,6 +37,8 @@ contract LilNounsVault is
 
   /// @notice Thrown when the provided pause period is invalid.
   error InvalidPausePeriod();
+
+  /// @notice Thrown when a zero address is provided where it's not allowed.
   error ZeroAddressError();
 
   /// @notice The timestamp when the pause period starts.
