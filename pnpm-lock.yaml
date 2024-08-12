@@ -29,6 +29,9 @@ importers:
       '@openzeppelin/hardhat-upgrades':
         specifier: 3.2.1
         version: 3.2.1(@nomicfoundation/hardhat-ethers@3.0.6(ethers@6.13.2)(hardhat@2.22.8(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4))(typescript@5.5.4)))(@nomicfoundation/hardhat-verify@2.0.9(hardhat@2.22.8(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4))(typescript@5.5.4)))(ethers@6.13.2)(hardhat@2.22.8(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4))(typescript@5.5.4))
+      '@openzeppelin/upgrades-core':
+        specifier: 1.35.0
+        version: 1.35.0
       ds-test:
         specifier: github:dapphub/ds-test
         version: https://codeload.github.com/dapphub/ds-test/tar.gz/e282159d5170298eb2455a6c05280ab5a73a4ef0
