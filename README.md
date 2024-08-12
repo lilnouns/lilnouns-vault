@@ -9,9 +9,16 @@
 
 ## Description
 
+The `LilNounsVault` is an advanced, upgradeable vault contract designed for secure management of ETH, ERC20 tokens, and
+ERC721 NFTs.
+Leveraging OpenZeppelin's UUPS upgradeable pattern, it ensures a high level of security, flexibility, and control for
+managing digital assets.
+Key features include pausable operations, enforced pause periods, safe asset withdrawals, and robust ownership control,
+making it a powerful tool for the Lil Nouns community.
+
 ## Usage
 
-Here's how you can use this template:
+Here's how you can use this repository:
 
 - **Building Contracts**: Run `pnpm run build` to compile your smart contracts.
 - **Running Tests**: Execute `pnpm run test` to run tests for your contracts using Hardhat and Forge.
