@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-beta.0] - 2024-08-12
+
+### Refactor
+
+- Rename and update scripts
+- Add logging for LilNounsVault proxy address
+
+### Miscellaneous Tasks
+
+- Update `filter_paths` in config
+- Add support for networks
+- Add settings for TOML files
+- Enable additional build options
+- Add `Upgrades` for UUPS proxy deployment
+- Update broadcast log ignore patterns
+
 ## [1.0.0-alpha.5] - 2024-08-12
 
 ### Documentation
