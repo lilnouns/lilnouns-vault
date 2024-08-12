@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-alpha.5] - 2024-08-12
+
+### Documentation
+
+- Update description and usage instructions
+
+### Miscellaneous Tasks
+
+- Remove `CounterScript` from `script` directory
+
 ## [1.0.0-alpha.4] - 2024-08-12
 
 ### Bug Fixes
