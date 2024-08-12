@@ -38,7 +38,12 @@
   "dependencies": {
     "@openzeppelin/contracts": "5.0.2",
     "@openzeppelin/contracts-upgradeable": "5.0.2",
-    "@openzeppelin/hardhat-upgrades": "3.2.1"
+    "@openzeppelin/foundry-upgrades": "github:OpenZeppelin/openzeppelin-foundry-upgrades",
+    "@openzeppelin/hardhat-upgrades": "3.2.1",
+    "@openzeppelin/upgrades-core": "1.35.0",
+    "ds-test": "github:dapphub/ds-test",
+    "forge-std": "github:foundry-rs/forge-std",
+    "solidity-stringutils": "github:Arachnid/solidity-stringutils"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "2.0.7",

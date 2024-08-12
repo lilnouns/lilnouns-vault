@@ -5,13 +5,13 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
+  debug: '>=3.2.7'
+  eth-gas-reporter: '>=0.2.26'
   flat: '>=5.0.1'
   minimatch: '>=3.0.5'
-  debug: '>=3.2.7'
-  word-wrap: '>=1.2.4'
-  tough-cookie: '>=4.1.3'
   request: '>=2.88.2'
-  eth-gas-reporter: '>=0.2.26'
+  tough-cookie: '>=4.1.3'
+  word-wrap: '>=1.2.4'
 
 importers:
 
@@ -23,9 +23,24 @@ importers:
       '@openzeppelin/contracts-upgradeable':
         specifier: 5.0.2
         version: 5.0.2(@openzeppelin/contracts@5.0.2)
+      '@openzeppelin/foundry-upgrades':
+        specifier: github:OpenZeppelin/openzeppelin-foundry-upgrades
+        version: openzeppelin-foundry-upgrades@https://codeload.github.com/OpenZeppelin/openzeppelin-foundry-upgrades/tar.gz/4cd15fc50b141c77d8cc9ff8efb44d00e841a299
       '@openzeppelin/hardhat-upgrades':
         specifier: 3.2.1
         version: 3.2.1(@nomicfoundation/hardhat-ethers@3.0.6(ethers@6.13.2)(hardhat@2.22.8(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4))(typescript@5.5.4)))(@nomicfoundation/hardhat-verify@2.0.9(hardhat@2.22.8(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4))(typescript@5.5.4)))(ethers@6.13.2)(hardhat@2.22.8(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4))(typescript@5.5.4))
+      '@openzeppelin/upgrades-core':
+        specifier: 1.35.0
+        version: 1.35.0
+      ds-test:
+        specifier: github:dapphub/ds-test
+        version: https://codeload.github.com/dapphub/ds-test/tar.gz/e282159d5170298eb2455a6c05280ab5a73a4ef0
+      forge-std:
+        specifier: github:foundry-rs/forge-std
+        version: https://codeload.github.com/foundry-rs/forge-std/tar.gz/bf6606142994b1e47e2882ce0cd477c020d77623
+      solidity-stringutils:
+        specifier: github:Arachnid/solidity-stringutils
+        version: https://codeload.github.com/Arachnid/solidity-stringutils/tar.gz/4b2fcc43fa0426e19ce88b1f1ec16f5903a2e461
     devDependencies:
       '@nomicfoundation/hardhat-chai-matchers':
         specifier: 2.0.7
@@ -1192,6 +1207,10 @@ packages:
     resolution: {integrity: sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==}
     engines: {node: '>=8'}
 
+  ds-test@https://codeload.github.com/dapphub/ds-test/tar.gz/e282159d5170298eb2455a6c05280ab5a73a4ef0:
+    resolution: {tarball: https://codeload.github.com/dapphub/ds-test/tar.gz/e282159d5170298eb2455a6c05280ab5a73a4ef0}
+    version: 1.0.0
+
   elliptic@6.5.4:
     resolution: {integrity: sha512-iLhC6ULemrljPZb+QutR5TQGB+pdW6KGD5RSegS+8sorOZT+rdQFbsQFJgvN3eRqNALqJer4oQ16YvJHlU8hzQ==}
 
@@ -1393,6 +1412,10 @@ packages:
 
   for-each@0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
+
+  forge-std@https://codeload.github.com/foundry-rs/forge-std/tar.gz/bf6606142994b1e47e2882ce0cd477c020d77623:
+    resolution: {tarball: https://codeload.github.com/foundry-rs/forge-std/tar.gz/bf6606142994b1e47e2882ce0cd477c020d77623}
+    version: 1.9.2
 
   form-data-encoder@2.1.4:
     resolution: {integrity: sha512-yDYSgNMraqvnxiEXO4hi88+YZxaHC6QKzb5N84iRCTDeRO7ZALpir/lVmf/uXUhnwUr2O4HU8s/n6x+yNjQkHw==}
@@ -2110,6 +2133,10 @@ packages:
     resolution: {integrity: sha512-VXJjc87FScF88uafS3JllDgvAm+c/Slfz06lorj2uAY34rlUu0Nt+v8wreiImcrgAjjIHp1rXpTDlLOGw29WwQ==}
     engines: {node: '>=18'}
 
+  openzeppelin-foundry-upgrades@https://codeload.github.com/OpenZeppelin/openzeppelin-foundry-upgrades/tar.gz/4cd15fc50b141c77d8cc9ff8efb44d00e841a299:
+    resolution: {tarball: https://codeload.github.com/OpenZeppelin/openzeppelin-foundry-upgrades/tar.gz/4cd15fc50b141c77d8cc9ff8efb44d00e841a299}
+    version: 0.0.0
+
   optionator@0.8.3:
     resolution: {integrity: sha512-+IW9pACdk3XWmmTXG8m3upGUJst5XRGzxMRjXzAuJ1XnIFNvfhjjIuYkDvysnPQ7qzqVzLt78BCruntqRhWQbA==}
     engines: {node: '>= 0.8.0'}
@@ -2539,6 +2566,10 @@ packages:
     peerDependencies:
       hardhat: ^2.11.0
 
+  solidity-stringutils@https://codeload.github.com/Arachnid/solidity-stringutils/tar.gz/4b2fcc43fa0426e19ce88b1f1ec16f5903a2e461:
+    resolution: {tarball: https://codeload.github.com/Arachnid/solidity-stringutils/tar.gz/4b2fcc43fa0426e19ce88b1f1ec16f5903a2e461}
+    version: 0.0.0
+
   sort-object-keys@1.1.3:
     resolution: {integrity: sha512-855pvK+VkU7PaKYPc+Jjnmt4EzejQHyhhF33q31qG8x7maDzkeFhAAThdCYay11CISO+qAMwjOBP+fPZe0IPyg==}
 
@@ -2744,10 +2775,6 @@ packages:
     resolution: {integrity: sha512-ZCmOJdvOWDBYJlzAoFkC+Q0+bUyEOS1ltgp1MGU03fqHG+dbi9tBFU2Rd9QKiDZFAYrhPh2JUf7rZRIuHRKtOg==}
     engines: {node: '>= 0.8.0'}
 
-  type-detect@4.0.8:
-    resolution: {integrity: sha512-0fr/mIH1dlO+x7TlcMy+bIDqKPsw/70tVyeHW787goQjhmqaZe10uwLujubK9q9Lg6Fiho1KUKDYz0Z7k7g5/g==}
-    engines: {node: '>=4'}
-
   type-detect@4.1.0:
     resolution: {integrity: sha512-Acylog8/luQ8L7il+geoSxhEkazvkslg7PSNKOX59mbB9cOveP5aq9h74Y7YU8yDpJwetzQQrfIwtf4Wp4LKcw==}
     engines: {node: '>=4'}
@@ -2802,8 +2829,8 @@ packages:
     resolution: {integrity: sha512-dvdQgNDNJo+8B2uBQoqdb11eUCE1JQXhvjC/CZtgvZseVd5TYMXnq0+vuUemXbd/Se29cTaUuPX3YIc2xgbvIg==}
     engines: {node: '>=8'}
 
-  uglify-js@3.19.1:
-    resolution: {integrity: sha512-y/2wiW+ceTYR2TSSptAhfnEtpLaQ4Ups5zrjB2d3kuVxHj16j/QJwPl5PvuGy9uARb39J0+iKxcRPvtpsx4A4A==}
+  uglify-js@3.19.2:
+    resolution: {integrity: sha512-S8KA6DDI47nQXJSi2ctQ629YzwOVs+bQML6DAtvy0wgNdpi+0ySpQK0g2pxBq2xfF2z3YCscu7NNA8nXT9PlIQ==}
     engines: {node: '>=0.8.0'}
     hasBin: true
 
@@ -2817,8 +2844,8 @@ packages:
     resolution: {integrity: sha512-72RFADWFqKmUb2hmmvNODKL3p9hcB6Gt2DOQMis1SEBaV6a4MH8soBvzg+95CYhCKPFedut2JY9bMfrDl9D23g==}
     engines: {node: '>=14.0'}
 
-  undici@6.19.4:
-    resolution: {integrity: sha512-i3uaEUwNdkRq2qtTRRJb13moW5HWqviu7Vl7oYRYz++uPtGHJj+x7TGjcEuwS5Mt2P4nA0U9dhIX3DdB6JGY0g==}
+  undici@6.19.7:
+    resolution: {integrity: sha512-HR3W/bMGPSr90i8AAp2C4DM3wChFdJPLrWYpIS++LxS8K+W535qftjt+4MyjNYHeWabMj1nvtmLIi7l++iq91A==}
     engines: {node: '>=18.17'}
 
   unfetch@4.2.0:
@@ -3596,7 +3623,7 @@ snapshots:
       ethers: 6.13.2
       hardhat: 2.22.8(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4))(typescript@5.5.4)
       proper-lockfile: 4.1.2
-      undici: 6.19.4
+      undici: 6.19.7
     optionalDependencies:
       '@nomicfoundation/hardhat-verify': 2.0.9(hardhat@2.22.8(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4))(typescript@5.5.4))
     transitivePeerDependencies:
@@ -4288,7 +4315,7 @@ snapshots:
 
   deep-eql@4.1.4:
     dependencies:
-      type-detect: 4.0.8
+      type-detect: 4.1.0
 
   deep-extend@0.6.0: {}
 
@@ -4327,6 +4354,8 @@ snapshots:
   dir-glob@3.0.1:
     dependencies:
       path-type: 4.0.0
+
+  ds-test@https://codeload.github.com/dapphub/ds-test/tar.gz/e282159d5170298eb2455a6c05280ab5a73a4ef0: {}
 
   elliptic@6.5.4:
     dependencies:
@@ -4671,6 +4700,8 @@ snapshots:
     dependencies:
       is-callable: 1.2.7
 
+  forge-std@https://codeload.github.com/foundry-rs/forge-std/tar.gz/bf6606142994b1e47e2882ce0cd477c020d77623: {}
+
   form-data-encoder@2.1.4: {}
 
   form-data@2.5.1:
@@ -4875,7 +4906,7 @@ snapshots:
       source-map: 0.6.1
       wordwrap: 1.0.0
     optionalDependencies:
-      uglify-js: 3.19.1
+      uglify-js: 3.19.2
 
   hardhat-gas-reporter@1.0.10(hardhat@2.22.8(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4))(typescript@5.5.4)):
     dependencies:
@@ -5451,6 +5482,8 @@ snapshots:
     dependencies:
       mimic-function: 5.0.1
 
+  openzeppelin-foundry-upgrades@https://codeload.github.com/OpenZeppelin/openzeppelin-foundry-upgrades/tar.gz/4cd15fc50b141c77d8cc9ff8efb44d00e841a299: {}
+
   optionator@0.8.3:
     dependencies:
       deep-is: 0.1.4
@@ -5918,6 +5951,8 @@ snapshots:
       shelljs: 0.8.5
       web3-utils: 1.10.4
 
+  solidity-stringutils@https://codeload.github.com/Arachnid/solidity-stringutils/tar.gz/4b2fcc43fa0426e19ce88b1f1ec16f5903a2e461: {}
+
   sort-object-keys@1.1.3: {}
 
   sort-package-json@2.10.0:
@@ -6150,8 +6185,6 @@ snapshots:
     dependencies:
       prelude-ls: 1.1.2
 
-  type-detect@4.0.8: {}
-
   type-detect@4.1.0: {}
 
   type-fest@0.20.2: {}
@@ -6216,7 +6249,7 @@ snapshots:
 
   typical@5.2.0: {}
 
-  uglify-js@3.19.1:
+  uglify-js@3.19.2:
     optional: true
 
   unbox-primitive@1.0.2:
@@ -6232,7 +6265,7 @@ snapshots:
     dependencies:
       '@fastify/busboy': 2.1.1
 
-  undici@6.19.4: {}
+  undici@6.19.7: {}
 
   unfetch@4.2.0: {}
 
