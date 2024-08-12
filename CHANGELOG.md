@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-alpha.4] - 2024-08-12
+
+### Bug Fixes
+
+- Update `withdraw` to send to contract owner
+
+### Miscellaneous Tasks
+
+- Add `prettier-plugin-toml` to `.prettierrc.json`
+
 ## [1.0.0-alpha.3] - 2024-08-11
 
 ### Features
