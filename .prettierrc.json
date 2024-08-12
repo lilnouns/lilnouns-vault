@@ -1,7 +1,8 @@
 {
   "plugins": [
     "prettier-plugin-solidity",
-    "prettier-plugin-packagejson"
+    "prettier-plugin-packagejson",
+    "prettier-plugin-toml"
   ],
   "overrides": [
     {

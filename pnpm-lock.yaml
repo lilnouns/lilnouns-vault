@@ -43,8 +43,8 @@ importers:
         specifier: 5.0.0
         version: 5.0.0(scniu77uzljmawqgeq4vtj5xre)
       '@nomiclabs/hardhat-solhint':
-        specifier: 3.1.0
-        version: 3.1.0(hardhat@2.22.8(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4))(typescript@5.5.4))(typescript@5.5.4)
+        specifier: 4.0.0
+        version: 4.0.0(hardhat@2.22.8(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4))(typescript@5.5.4))(typescript@5.5.4)
       '@typechain/ethers-v6':
         specifier: 0.5.1
         version: 0.5.1(ethers@6.13.2)(typechain@8.3.2(typescript@5.5.4))(typescript@5.5.4)
@@ -84,6 +84,9 @@ importers:
       prettier-plugin-solidity:
         specifier: 1.3.1
         version: 1.3.1(prettier@3.3.3)
+      prettier-plugin-toml:
+        specifier: 2.0.1
+        version: 2.0.1(prettier@3.3.3)
       solhint:
         specifier: 5.0.3
         version: 5.0.3(typescript@5.5.4)
@@ -485,10 +488,10 @@ packages:
     resolution: {integrity: sha512-q4n32/FNKIhQ3zQGGw5CvPF6GTvDCpYwIf7bEY/dZTZbgfDsHyjJwURxUJf3VQuuJj+fDIFl4+KkBVbw4Ef6jA==}
     engines: {node: '>= 12'}
 
-  '@nomiclabs/hardhat-solhint@3.1.0':
-    resolution: {integrity: sha512-5jNiYwLuiHZ2B11Ds4U5jH+DR565PqpsdbXml6iYfqMguyJb+ulU2rt58+hprNhoFKZds8cOlf9FaoWvA9KqkA==}
+  '@nomiclabs/hardhat-solhint@4.0.0':
+    resolution: {integrity: sha512-TuHkhjMJv8KT575bpWjkjnNQIIjjZy5taQlf/dmMUYkjEjgToT35QntilmyRvRCfcvexDzrfxNAVoQwTIcTYfg==}
     peerDependencies:
-      hardhat: ^2.0.0
+      hardhat: ^2.22.72.0.0
 
   '@openzeppelin/contracts-upgradeable@5.0.2':
     resolution: {integrity: sha512-0MmkHSHiW2NRFiT9/r5Lu4eJq5UJ4/tzlOgYXNAIj/ONkQTVnz22pLxDvp4C4uZ9he7ZFvGn3Driptn1/iU7tQ==}
@@ -593,9 +596,6 @@ packages:
   '@solidity-parser/parser@0.14.5':
     resolution: {integrity: sha512-6dKnHZn7fg/iQATVEzqyUOyEidbn05q7YA2mQ9hC0MMXhhV3/JrsxmFSYZAcr7j1yUP700LLhTruvJ3MiQmjJg==}
 
-  '@solidity-parser/parser@0.16.2':
-    resolution: {integrity: sha512-PI9NfoA3P8XK2VBkK5oIfRgKDsicwDZfkVq9ZTBCQYGOP1N2owgY2dyLGyU5/J/hQs8KRk55kdmvTLjy3Mu3vg==}
-
   '@solidity-parser/parser@0.17.0':
     resolution: {integrity: sha512-Nko8R0/kUo391jsEHHxrGM07QFdnPGvlmox4rmH0kNiNAashItAilhy4Mv4pK5gQmW5f4sXAF58fwJbmlkGcVw==}
 
@@ -605,6 +605,12 @@ packages:
   '@szmarczak/http-timer@5.0.1':
     resolution: {integrity: sha512-+PmQX0PiAYPMeVYe237LJAYvOMYW1j2rH5YROyS3b4CTVJum34HfRvKvAzozHAQG0TnHNdUfY9nCeUyRAs//cw==}
     engines: {node: '>=14.16'}
+
+  '@taplo/core@0.1.1':
+    resolution: {integrity: sha512-BG/zLGf5wiNXGEVPvUAAX/4ilB3PwDUY2o0MV0y47mZbDZ9ad9UK/cIQsILat3bqbPJsALVbU6k3cskNZ3vAQg==}
+
+  '@taplo/lib@0.4.0-alpha.2':
+    resolution: {integrity: sha512-DV/Re3DPVY+BhBtLZ3dmP4mP6YMLSsgq9qGLXwOV38lvNF/fBlgvQswzlXmzCEefL/3q2eMoefZpOI/+GLuCNA==}
 
   '@tsconfig/node10@1.0.11':
     resolution: {integrity: sha512-DcRjDCujK/kCk/cUe8Xz8ZSpm8mS3mNNpta+jGCA6USEDfktlNvm1+IuZ9eTcDbNk41BHwpHHeW+N1lKCz4zOw==}
@@ -2234,6 +2240,12 @@ packages:
     peerDependencies:
       prettier: '>=2.3.0'
 
+  prettier-plugin-toml@2.0.1:
+    resolution: {integrity: sha512-99z1YOkViECHtXQjGIigd3talI/ybUI1zB3yniAwUrlWBXupNXThB1hM6bwSMUEj2/+tomTlMtT98F5t4s8IWA==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      prettier: ^3.0.3
+
   prettier@2.8.8:
     resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
@@ -2509,10 +2521,6 @@ packages:
   solc@0.8.26:
     resolution: {integrity: sha512-yiPQNVf5rBFHwN6SIf3TUUvVAFKcQqmSUFeq+fb6pNRCo0ZCgpYOZDi3BVoezCPIAcKrVYd/qXlBLUP9wVrZ9g==}
     engines: {node: '>=10.0.0'}
-    hasBin: true
-
-  solhint@3.6.2:
-    resolution: {integrity: sha512-85EeLbmkcPwD+3JR7aEMKsVC9YrRSxd4qkXuMzrlf7+z2Eqdfm1wHWq1ffTuo5aDhoZxp2I9yF3QkxZOxOL7aQ==}
     hasBin: true
 
   solhint@5.0.3:
@@ -3537,10 +3545,10 @@ snapshots:
       '@nomicfoundation/solidity-analyzer-linux-x64-musl': 0.1.2
       '@nomicfoundation/solidity-analyzer-win32-x64-msvc': 0.1.2
 
-  '@nomiclabs/hardhat-solhint@3.1.0(hardhat@2.22.8(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4))(typescript@5.5.4))(typescript@5.5.4)':
+  '@nomiclabs/hardhat-solhint@4.0.0(hardhat@2.22.8(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4))(typescript@5.5.4))(typescript@5.5.4)':
     dependencies:
       hardhat: 2.22.8(ts-node@10.9.2(@types/node@22.2.0)(typescript@5.5.4))(typescript@5.5.4)
-      solhint: 3.6.2(typescript@5.5.4)
+      solhint: 5.0.3(typescript@5.5.4)
     transitivePeerDependencies:
       - typescript
 
@@ -3706,10 +3714,6 @@ snapshots:
     dependencies:
       antlr4ts: 0.5.0-alpha.4
 
-  '@solidity-parser/parser@0.16.2':
-    dependencies:
-      antlr4ts: 0.5.0-alpha.4
-
   '@solidity-parser/parser@0.17.0': {}
 
   '@solidity-parser/parser@0.18.0': {}
@@ -3717,6 +3721,12 @@ snapshots:
   '@szmarczak/http-timer@5.0.1':
     dependencies:
       defer-to-connect: 2.0.1
+
+  '@taplo/core@0.1.1': {}
+
+  '@taplo/lib@0.4.0-alpha.2':
+    dependencies:
+      '@taplo/core': 0.1.1
 
   '@tsconfig/node10@1.0.11': {}
 
@@ -5550,6 +5560,11 @@ snapshots:
       semver: 7.6.3
       solidity-comments-extractor: 0.0.8
 
+  prettier-plugin-toml@2.0.1(prettier@3.3.3):
+    dependencies:
+      '@taplo/lib': 0.4.0-alpha.2
+      prettier: 3.3.3
+
   prettier@2.8.8: {}
 
   prettier@3.3.3: {}
@@ -5848,30 +5863,6 @@ snapshots:
       tmp: 0.0.33
     transitivePeerDependencies:
       - debug
-
-  solhint@3.6.2(typescript@5.5.4):
-    dependencies:
-      '@solidity-parser/parser': 0.16.2
-      ajv: 6.12.6
-      antlr4: 4.13.2
-      ast-parents: 0.0.1
-      chalk: 4.1.2
-      commander: 10.0.1
-      cosmiconfig: 8.3.6(typescript@5.5.4)
-      fast-diff: 1.3.0
-      glob: 8.1.0
-      ignore: 5.3.1
-      js-yaml: 4.1.0
-      lodash: 4.17.21
-      pluralize: 8.0.0
-      semver: 7.6.3
-      strip-ansi: 6.0.1
-      table: 6.8.2
-      text-table: 0.2.0
-    optionalDependencies:
-      prettier: 2.8.8
-    transitivePeerDependencies:
-      - typescript
 
   solhint@5.0.3(typescript@5.5.4):
     dependencies:
