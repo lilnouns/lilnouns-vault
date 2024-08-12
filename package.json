@@ -38,7 +38,8 @@
   "dependencies": {
     "@openzeppelin/contracts": "5.0.2",
     "@openzeppelin/contracts-upgradeable": "5.0.2",
-    "@openzeppelin/hardhat-upgrades": "3.2.1"
+    "@openzeppelin/hardhat-upgrades": "3.2.1",
+    "ds-test": "github:dapphub/ds-test",
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "2.0.7",
