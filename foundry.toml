@@ -5,6 +5,7 @@ libs = ["lib", "node_modules"]
 gas_reports = ["*"]
 solc_version = "0.8.26"
 remappings = [
+  "ds-test/=lib/forge-std/lib/ds-test/src/",
   "@openzeppelin/=node_modules/@openzeppelin/",
 ]
 

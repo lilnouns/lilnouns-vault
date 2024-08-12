@@ -1,3 +1,4 @@
+ds-test/=lib/forge-std/lib/ds-test/src/
 @openzeppelin/=node_modules/@openzeppelin/
 eth-gas-reporter/=node_modules/eth-gas-reporter/
 forge-std/=lib/forge-std/src/
