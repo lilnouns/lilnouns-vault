@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-beta.2] - 2024-08-15
+
+### Miscellaneous Tasks
+
+- Remove `TZ` export in `pre-commit`
+
 ## [1.0.0-beta.1] - 2024-08-12
 
 ### Bug Fixes
