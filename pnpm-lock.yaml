@@ -25,22 +25,22 @@ importers:
         version: 5.0.2(@openzeppelin/contracts@5.0.2)
       '@openzeppelin/foundry-upgrades':
         specifier: OpenZeppelin/openzeppelin-foundry-upgrades
-        version: openzeppelin-foundry-upgrades@https://codeload.github.com/OpenZeppelin/openzeppelin-foundry-upgrades/tar.gz/b3142ba1f4974f8e6ed5c2e9bdcc2c6d6a7960a6
+        version: openzeppelin-foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#b3142ba1f4974f8e6ed5c2e9bdcc2c6d6a7960a6
       '@openzeppelin/hardhat-upgrades':
         specifier: 3.2.1
         version: 3.2.1(@nomicfoundation/hardhat-ethers@3.0.6(ethers@6.13.2)(hardhat@2.22.8(ts-node@10.9.2(@types/node@22.3.0)(typescript@5.5.4))(typescript@5.5.4)))(@nomicfoundation/hardhat-verify@2.0.9(hardhat@2.22.8(ts-node@10.9.2(@types/node@22.3.0)(typescript@5.5.4))(typescript@5.5.4)))(ethers@6.13.2)(hardhat@2.22.8(ts-node@10.9.2(@types/node@22.3.0)(typescript@5.5.4))(typescript@5.5.4))
       '@openzeppelin/upgrades-core':
-        specifier: 1.35.1
-        version: 1.35.1
+        specifier: 1.36.0
+        version: 1.36.0
       ds-test:
         specifier: dapphub/ds-test
-        version: https://codeload.github.com/dapphub/ds-test/tar.gz/e282159d5170298eb2455a6c05280ab5a73a4ef0
+        version: git+https://git@github.com:dapphub/ds-test.git#e282159d5170298eb2455a6c05280ab5a73a4ef0
       forge-std:
         specifier: foundry-rs/forge-std
-        version: https://codeload.github.com/foundry-rs/forge-std/tar.gz/bf6606142994b1e47e2882ce0cd477c020d77623
+        version: git+https://git@github.com:foundry-rs/forge-std.git#bf6606142994b1e47e2882ce0cd477c020d77623
       solidity-stringutils:
         specifier: github:Arachnid/solidity-stringutils
-        version: https://codeload.github.com/Arachnid/solidity-stringutils/tar.gz/4b2fcc43fa0426e19ce88b1f1ec16f5903a2e461
+        version: git+https://git@github.com:Arachnid/solidity-stringutils.git#4b2fcc43fa0426e19ce88b1f1ec16f5903a2e461
     devDependencies:
       '@nomicfoundation/hardhat-chai-matchers':
         specifier: 2.0.7
@@ -431,44 +431,44 @@ packages:
   '@nomicfoundation/ignition-ui@0.15.5':
     resolution: {integrity: sha512-ZcE4rIn10qKahR4OqS8rl8NM2Fbg2QYiBXgMgj74ZI0++LlCcZgB5HyaBbX+lsnKHjTXtjYD3b+2mtg7jFbAMQ==}
 
-  '@nomicfoundation/slang-darwin-arm64@0.15.1':
-    resolution: {integrity: sha512-taPHlCUNNztQZJze9OlZFK9cZH8Ut4Ih4QJQo5CKebXx9vWOUtmSBfKv/M2P8hiV/iL7Q5sPwR7HY9uZYnb49Q==}
+  '@nomicfoundation/slang-darwin-arm64@0.16.0':
+    resolution: {integrity: sha512-tdrpV2/sEy9pWevl6pg2qdG8chV5R2lO80D0vgwP3FTd27vwLRgAdSMSUlhtVSb8NWKx6E1dagjjNfabUzmZpQ==}
     engines: {node: '>= 10'}
 
-  '@nomicfoundation/slang-darwin-x64@0.15.1':
-    resolution: {integrity: sha512-kgZh5KQe/UcbFqn1EpyrvBuT8E6I1kWSgGPtO25t90zAqFv23sMUPdn7wLpMjngkD+quIIgrzQGUtupS5YYEig==}
+  '@nomicfoundation/slang-darwin-x64@0.16.0':
+    resolution: {integrity: sha512-a4OsidbwzaKOR7693ImYUSRKnmOs1xvTJviln0bc9nr6fngSkzXF7ijlHL/9/FrBhCIR+jY2ozmncWNOmqrvjQ==}
     engines: {node: '>= 10'}
 
-  '@nomicfoundation/slang-linux-arm64-gnu@0.15.1':
-    resolution: {integrity: sha512-Iw8mepaccKRWllPU9l+hoe88LN9fScC0Px3nFeNQy26qk1ueO0tjovP1dhTvmGwHUxacOYPqhQTUn7Iu0oxNoQ==}
+  '@nomicfoundation/slang-linux-arm64-gnu@0.16.0':
+    resolution: {integrity: sha512-4kHqeVbJ6HvmhSIP3p/vS4SjiaC8/TRbeh+6jT77mr6fb6fVxUcVdNwCTVPocn7GRx1rYAsuYqjYZkeS72ubzg==}
     engines: {node: '>= 10'}
 
-  '@nomicfoundation/slang-linux-arm64-musl@0.15.1':
-    resolution: {integrity: sha512-zcesdQZwRgrT7ND+3TZUjRK/uGF20EfhEfCg8ZMhrb4Q7XaK1JvtHazIs03TV8Jcs30TPkEXks8Qi0Zdfy4RuA==}
+  '@nomicfoundation/slang-linux-arm64-musl@0.16.0':
+    resolution: {integrity: sha512-seuEaQSEGa3yqBI6Y/HH4X10+f7BNkX5OzOTNjWejqSIFAVBj0mWNBNWetT2YWDHRqiOSm5khD3+8LaSvShDRQ==}
     engines: {node: '>= 10'}
 
-  '@nomicfoundation/slang-linux-x64-gnu@0.15.1':
-    resolution: {integrity: sha512-FSmAnzKm58TFIwx4r/wOZtqfDx0nI6AfvnOh8kLDF5OxpWW3r0q9fq8lyaUReg9C/ZgCZRBn+m5WGrNKCZcvPQ==}
+  '@nomicfoundation/slang-linux-x64-gnu@0.16.0':
+    resolution: {integrity: sha512-DI8sIWhz1EsuAE2L4vlBM48WaSaWpRgUixG1ZHIlxpTwzn6s+DxmfAxmOcBeLpNdtfba9eSpqF+2539zllktPQ==}
     engines: {node: '>= 10'}
 
-  '@nomicfoundation/slang-linux-x64-musl@0.15.1':
-    resolution: {integrity: sha512-hnoA/dgeHQ8aS0SReABYkxf0d/Q6DdaKsaYv6ev21wyQA7TROxT1X3nekECLGu1GYLML8pzvD9vyAMBRKOkkyg==}
+  '@nomicfoundation/slang-linux-x64-musl@0.16.0':
+    resolution: {integrity: sha512-80obGwJ336r5wxQ/dLzEDp1nlAYtMWdnP5G5T2JmCnIkxxEVnyQIH62VcK6mc7RMSVeAlL1RGGx2LdNbk9V4QA==}
     engines: {node: '>= 10'}
 
-  '@nomicfoundation/slang-win32-arm64-msvc@0.15.1':
-    resolution: {integrity: sha512-2H0chHQ4uTh4l4UxN5fIVHR5mKaL5mfYTID6kxxxv2+KAh68EpYWwxLlkS5So90R2WcuPvFvTVKLm/uRo4h4dg==}
+  '@nomicfoundation/slang-win32-arm64-msvc@0.16.0':
+    resolution: {integrity: sha512-hcmsfXjRaCuy5/eUhrdDOnE5uqfJ0vVXvon5mTHaWzf6UE4REIx3vJwf/t4QQu1Q4mKKO5ZxzauBdzRtbhOKsw==}
     engines: {node: '>= 10'}
 
-  '@nomicfoundation/slang-win32-ia32-msvc@0.15.1':
-    resolution: {integrity: sha512-CVZWBnbpFlVBg/m7bsiw70jY3p9TGH9vxq0vLEEJ56yK+QPosxPrKMcADojtGjIOjWjPSZ+lCoo5ilnW0a249g==}
+  '@nomicfoundation/slang-win32-ia32-msvc@0.16.0':
+    resolution: {integrity: sha512-W9959+Tdq71kkE5EGxoQWBxhpe9bjxpY7ozDoPjz2lBzaGi8X24z4toS6us3W83URIf6Cve0VizAX4fz5MWjFw==}
     engines: {node: '>= 10'}
 
-  '@nomicfoundation/slang-win32-x64-msvc@0.15.1':
-    resolution: {integrity: sha512-cyER8M1fdBTzIfihy55d4LGGlN/eQxDqfRUTXgJf1VvNR98tRB0Q3nBfyh5PK2yP98B4lMt3RJYDqTQu+dOVDA==}
+  '@nomicfoundation/slang-win32-x64-msvc@0.16.0':
+    resolution: {integrity: sha512-sOKuMtm3g62ugdhgpWqjF+o3clIR4eAIiAbx6oRPGB/9fPukgZnI5untsgTYJyVldAzby7jlIQ4R7df18aNraw==}
     engines: {node: '>= 10'}
 
-  '@nomicfoundation/slang@0.15.1':
-    resolution: {integrity: sha512-th7nxRWRXf583uHpWUCd8U7BYxIqJX2f3oZLff/mlPkqIr45pD2hLT/o00eCjrBIR8N7vybUULZg1CeThGNk7g==}
+  '@nomicfoundation/slang@0.16.0':
+    resolution: {integrity: sha512-JBI+X+6/1WnaVNvnWp7o9PRbIFpgxKDmEKzYnMUfrBGFmm7rT2PsvFvVBoZPeM09B0AFYK+XJt9tqnbJvzhlLw==}
     engines: {node: '>= 10'}
 
   '@nomicfoundation/solidity-analyzer-darwin-arm64@0.1.2':
@@ -537,8 +537,8 @@ packages:
       '@nomicfoundation/hardhat-verify':
         optional: true
 
-  '@openzeppelin/upgrades-core@1.35.1':
-    resolution: {integrity: sha512-FzbOzMrrNtXpL+DoM6jtOGZOvUdp6F4KTsb0niqfrd2BxMecL9fUA0aupi09p1Of+9BELcYozX/Gt7tr91Z2TA==}
+  '@openzeppelin/upgrades-core@1.36.0':
+    resolution: {integrity: sha512-DPq6kPspc0lmKb6+Fv0dg1ldI931qq5yI0YLla6UYa/NsXlSrHCUC0Exa5ecFNuZvr0wVtycIGw3tMi8CU/K3Q==}
     hasBin: true
 
   '@pkgr/core@0.1.1':
@@ -1207,8 +1207,8 @@ packages:
     resolution: {integrity: sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==}
     engines: {node: '>=8'}
 
-  ds-test@https://codeload.github.com/dapphub/ds-test/tar.gz/e282159d5170298eb2455a6c05280ab5a73a4ef0:
-    resolution: {tarball: https://codeload.github.com/dapphub/ds-test/tar.gz/e282159d5170298eb2455a6c05280ab5a73a4ef0}
+  ds-test@git+https://git@github.com:dapphub/ds-test.git#e282159d5170298eb2455a6c05280ab5a73a4ef0:
+    resolution: {commit: e282159d5170298eb2455a6c05280ab5a73a4ef0, repo: git@github.com:dapphub/ds-test.git, type: git}
     version: 1.0.0
 
   elliptic@6.5.4:
@@ -1413,8 +1413,8 @@ packages:
   for-each@0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
 
-  forge-std@https://codeload.github.com/foundry-rs/forge-std/tar.gz/bf6606142994b1e47e2882ce0cd477c020d77623:
-    resolution: {tarball: https://codeload.github.com/foundry-rs/forge-std/tar.gz/bf6606142994b1e47e2882ce0cd477c020d77623}
+  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#bf6606142994b1e47e2882ce0cd477c020d77623:
+    resolution: {commit: bf6606142994b1e47e2882ce0cd477c020d77623, repo: git@github.com:foundry-rs/forge-std.git, type: git}
     version: 1.9.2
 
   form-data-encoder@2.1.4:
@@ -2133,8 +2133,8 @@ packages:
     resolution: {integrity: sha512-VXJjc87FScF88uafS3JllDgvAm+c/Slfz06lorj2uAY34rlUu0Nt+v8wreiImcrgAjjIHp1rXpTDlLOGw29WwQ==}
     engines: {node: '>=18'}
 
-  openzeppelin-foundry-upgrades@https://codeload.github.com/OpenZeppelin/openzeppelin-foundry-upgrades/tar.gz/b3142ba1f4974f8e6ed5c2e9bdcc2c6d6a7960a6:
-    resolution: {tarball: https://codeload.github.com/OpenZeppelin/openzeppelin-foundry-upgrades/tar.gz/b3142ba1f4974f8e6ed5c2e9bdcc2c6d6a7960a6}
+  openzeppelin-foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#b3142ba1f4974f8e6ed5c2e9bdcc2c6d6a7960a6:
+    resolution: {commit: b3142ba1f4974f8e6ed5c2e9bdcc2c6d6a7960a6, repo: git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git, type: git}
     version: 0.0.0
 
   optionator@0.8.3:
@@ -2566,8 +2566,8 @@ packages:
     peerDependencies:
       hardhat: ^2.11.0
 
-  solidity-stringutils@https://codeload.github.com/Arachnid/solidity-stringutils/tar.gz/4b2fcc43fa0426e19ce88b1f1ec16f5903a2e461:
-    resolution: {tarball: https://codeload.github.com/Arachnid/solidity-stringutils/tar.gz/4b2fcc43fa0426e19ce88b1f1ec16f5903a2e461}
+  solidity-stringutils@git+https://git@github.com:Arachnid/solidity-stringutils.git#4b2fcc43fa0426e19ce88b1f1ec16f5903a2e461:
+    resolution: {commit: 4b2fcc43fa0426e19ce88b1f1ec16f5903a2e461, repo: git@github.com:Arachnid/solidity-stringutils.git, type: git}
     version: 0.0.0
 
   sort-object-keys@1.1.3:
@@ -3511,35 +3511,35 @@ snapshots:
 
   '@nomicfoundation/ignition-ui@0.15.5': {}
 
-  '@nomicfoundation/slang-darwin-arm64@0.15.1': {}
+  '@nomicfoundation/slang-darwin-arm64@0.16.0': {}
 
-  '@nomicfoundation/slang-darwin-x64@0.15.1': {}
+  '@nomicfoundation/slang-darwin-x64@0.16.0': {}
 
-  '@nomicfoundation/slang-linux-arm64-gnu@0.15.1': {}
+  '@nomicfoundation/slang-linux-arm64-gnu@0.16.0': {}
 
-  '@nomicfoundation/slang-linux-arm64-musl@0.15.1': {}
+  '@nomicfoundation/slang-linux-arm64-musl@0.16.0': {}
 
-  '@nomicfoundation/slang-linux-x64-gnu@0.15.1': {}
+  '@nomicfoundation/slang-linux-x64-gnu@0.16.0': {}
 
-  '@nomicfoundation/slang-linux-x64-musl@0.15.1': {}
+  '@nomicfoundation/slang-linux-x64-musl@0.16.0': {}
 
-  '@nomicfoundation/slang-win32-arm64-msvc@0.15.1': {}
+  '@nomicfoundation/slang-win32-arm64-msvc@0.16.0': {}
 
-  '@nomicfoundation/slang-win32-ia32-msvc@0.15.1': {}
+  '@nomicfoundation/slang-win32-ia32-msvc@0.16.0': {}
 
-  '@nomicfoundation/slang-win32-x64-msvc@0.15.1': {}
+  '@nomicfoundation/slang-win32-x64-msvc@0.16.0': {}
 
-  '@nomicfoundation/slang@0.15.1':
+  '@nomicfoundation/slang@0.16.0':
     dependencies:
-      '@nomicfoundation/slang-darwin-arm64': 0.15.1
-      '@nomicfoundation/slang-darwin-x64': 0.15.1
-      '@nomicfoundation/slang-linux-arm64-gnu': 0.15.1
-      '@nomicfoundation/slang-linux-arm64-musl': 0.15.1
-      '@nomicfoundation/slang-linux-x64-gnu': 0.15.1
-      '@nomicfoundation/slang-linux-x64-musl': 0.15.1
-      '@nomicfoundation/slang-win32-arm64-msvc': 0.15.1
-      '@nomicfoundation/slang-win32-ia32-msvc': 0.15.1
-      '@nomicfoundation/slang-win32-x64-msvc': 0.15.1
+      '@nomicfoundation/slang-darwin-arm64': 0.16.0
+      '@nomicfoundation/slang-darwin-x64': 0.16.0
+      '@nomicfoundation/slang-linux-arm64-gnu': 0.16.0
+      '@nomicfoundation/slang-linux-arm64-musl': 0.16.0
+      '@nomicfoundation/slang-linux-x64-gnu': 0.16.0
+      '@nomicfoundation/slang-linux-x64-musl': 0.16.0
+      '@nomicfoundation/slang-win32-arm64-msvc': 0.16.0
+      '@nomicfoundation/slang-win32-ia32-msvc': 0.16.0
+      '@nomicfoundation/slang-win32-x64-msvc': 0.16.0
 
   '@nomicfoundation/solidity-analyzer-darwin-arm64@0.1.2':
     optional: true
@@ -3616,7 +3616,7 @@ snapshots:
       '@openzeppelin/defender-sdk-base-client': 1.14.3
       '@openzeppelin/defender-sdk-deploy-client': 1.14.3(debug@4.3.6)
       '@openzeppelin/defender-sdk-network-client': 1.14.3(debug@4.3.6)
-      '@openzeppelin/upgrades-core': 1.35.1
+      '@openzeppelin/upgrades-core': 1.36.0
       chalk: 4.1.2
       debug: 4.3.6(supports-color@8.1.1)
       ethereumjs-util: 7.1.5
@@ -3630,9 +3630,9 @@ snapshots:
       - encoding
       - supports-color
 
-  '@openzeppelin/upgrades-core@1.35.1':
+  '@openzeppelin/upgrades-core@1.36.0':
     dependencies:
-      '@nomicfoundation/slang': 0.15.1
+      '@nomicfoundation/slang': 0.16.0
       cbor: 9.0.2
       chalk: 4.1.2
       compare-versions: 6.1.1
@@ -4355,7 +4355,7 @@ snapshots:
     dependencies:
       path-type: 4.0.0
 
-  ds-test@https://codeload.github.com/dapphub/ds-test/tar.gz/e282159d5170298eb2455a6c05280ab5a73a4ef0: {}
+  ds-test@git+https://git@github.com:dapphub/ds-test.git#e282159d5170298eb2455a6c05280ab5a73a4ef0: {}
 
   elliptic@6.5.4:
     dependencies:
@@ -4700,7 +4700,7 @@ snapshots:
     dependencies:
       is-callable: 1.2.7
 
-  forge-std@https://codeload.github.com/foundry-rs/forge-std/tar.gz/bf6606142994b1e47e2882ce0cd477c020d77623: {}
+  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#bf6606142994b1e47e2882ce0cd477c020d77623: {}
 
   form-data-encoder@2.1.4: {}
 
@@ -5482,7 +5482,7 @@ snapshots:
     dependencies:
       mimic-function: 5.0.1
 
-  openzeppelin-foundry-upgrades@https://codeload.github.com/OpenZeppelin/openzeppelin-foundry-upgrades/tar.gz/b3142ba1f4974f8e6ed5c2e9bdcc2c6d6a7960a6: {}
+  openzeppelin-foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#b3142ba1f4974f8e6ed5c2e9bdcc2c6d6a7960a6: {}
 
   optionator@0.8.3:
     dependencies:
@@ -5951,7 +5951,7 @@ snapshots:
       shelljs: 0.8.5
       web3-utils: 1.10.4
 
-  solidity-stringutils@https://codeload.github.com/Arachnid/solidity-stringutils/tar.gz/4b2fcc43fa0426e19ce88b1f1ec16f5903a2e461: {}
+  solidity-stringutils@git+https://git@github.com:Arachnid/solidity-stringutils.git#4b2fcc43fa0426e19ce88b1f1ec16f5903a2e461: {}
 
   sort-object-keys@1.1.3: {}
 
