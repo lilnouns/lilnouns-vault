@@ -18,11 +18,11 @@ importers:
   .:
     dependencies:
       '@openzeppelin/contracts':
-        specifier: 5.0.2
-        version: 5.0.2
+        specifier: 5.1.0
+        version: 5.1.0
       '@openzeppelin/contracts-upgradeable':
-        specifier: 5.0.2
-        version: 5.0.2(@openzeppelin/contracts@5.0.2)
+        specifier: 5.1.0
+        version: 5.1.0(@openzeppelin/contracts@5.1.0)
       '@openzeppelin/foundry-upgrades':
         specifier: OpenZeppelin/openzeppelin-foundry-upgrades
         version: openzeppelin-foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#16e0ae21e0e39049f619f2396fa28c57fad07368
@@ -37,7 +37,7 @@ importers:
         version: git+https://git@github.com:dapphub/ds-test.git#e282159d5170298eb2455a6c05280ab5a73a4ef0
       forge-std:
         specifier: foundry-rs/forge-std
-        version: git+https://git@github.com:foundry-rs/forge-std.git#035de35f5e366c8d6ed142aec4ccb57fe2dd87d4
+        version: git+https://git@github.com:foundry-rs/forge-std.git#1de6eecf821de7fe2c908cc48d3ab3dced20717f
       solidity-stringutils:
         specifier: github:Arachnid/solidity-stringutils
         version: git+https://git@github.com:Arachnid/solidity-stringutils.git#4b2fcc43fa0426e19ce88b1f1ec16f5903a2e461
@@ -508,13 +508,13 @@ packages:
     peerDependencies:
       hardhat: ^2.0.0
 
-  '@openzeppelin/contracts-upgradeable@5.0.2':
-    resolution: {integrity: sha512-0MmkHSHiW2NRFiT9/r5Lu4eJq5UJ4/tzlOgYXNAIj/ONkQTVnz22pLxDvp4C4uZ9he7ZFvGn3Driptn1/iU7tQ==}
+  '@openzeppelin/contracts-upgradeable@5.1.0':
+    resolution: {integrity: sha512-AIElwP5Ck+cslNE+Hkemf5SxjJoF4wBvvjxc27Rp+9jaPs/CLIaUBMYe1FNzhdiN0cYuwGRmYaRHmmntuiju4Q==}
     peerDependencies:
-      '@openzeppelin/contracts': 5.0.2
+      '@openzeppelin/contracts': 5.1.0
 
-  '@openzeppelin/contracts@5.0.2':
-    resolution: {integrity: sha512-ytPc6eLGcHHnapAZ9S+5qsdomhjo6QBHTDRRBFfTxXIpsicMhVPouPgmUPebZZZGX7vt9USA+Z+0M0dSVtSUEA==}
+  '@openzeppelin/contracts@5.1.0':
+    resolution: {integrity: sha512-p1ULhl7BXzjjbha5aqst+QMLY+4/LCWADXOCsmLHRM77AqiPjnd9vvUN9sosUfhL9JGKpZ0TjEGxgvnizmWGSA==}
 
   '@openzeppelin/defender-sdk-base-client@1.15.0':
     resolution: {integrity: sha512-nuf/xegMIuKCO0hMrxI1KQKTzQw1iCl/9kew2nJM9MrFIohhfEXItc5rbJRoV/jehmK/Jhi9ATF9OHH09StEsQ==}
@@ -1414,8 +1414,8 @@ packages:
   for-each@0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
 
-  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#035de35f5e366c8d6ed142aec4ccb57fe2dd87d4:
-    resolution: {commit: 035de35f5e366c8d6ed142aec4ccb57fe2dd87d4, repo: git@github.com:foundry-rs/forge-std.git, type: git}
+  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#1de6eecf821de7fe2c908cc48d3ab3dced20717f:
+    resolution: {commit: 1de6eecf821de7fe2c908cc48d3ab3dced20717f, repo: git@github.com:foundry-rs/forge-std.git, type: git}
     version: 1.9.3
 
   form-data-encoder@2.1.4:
@@ -3589,11 +3589,11 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@openzeppelin/contracts-upgradeable@5.0.2(@openzeppelin/contracts@5.0.2)':
+  '@openzeppelin/contracts-upgradeable@5.1.0(@openzeppelin/contracts@5.1.0)':
     dependencies:
-      '@openzeppelin/contracts': 5.0.2
+      '@openzeppelin/contracts': 5.1.0
 
-  '@openzeppelin/contracts@5.0.2': {}
+  '@openzeppelin/contracts@5.1.0': {}
 
   '@openzeppelin/defender-sdk-base-client@1.15.0':
     dependencies:
@@ -4713,7 +4713,7 @@ snapshots:
     dependencies:
       is-callable: 1.2.7
 
-  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#035de35f5e366c8d6ed142aec4ccb57fe2dd87d4: {}
+  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#1de6eecf821de7fe2c908cc48d3ab3dced20717f: {}
 
   form-data-encoder@2.1.4: {}
 
