@@ -28,6 +28,7 @@
   },
   "resolutions": {
     "debug": ">=3.2.7",
+    "elliptic": ">=6.6.0",
     "eth-gas-reporter": ">=0.2.26",
     "flat": ">=5.0.1",
     "minimatch": ">=3.0.5",
