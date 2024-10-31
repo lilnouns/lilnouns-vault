@@ -27,6 +27,7 @@
     "test:hardhat": "hardhat test --typecheck"
   },
   "resolutions": {
+    "cookie": ">=0.7.0",
     "debug": ">=3.2.7",
     "elliptic": ">=6.6.0",
     "eth-gas-reporter": ">=0.2.26",
