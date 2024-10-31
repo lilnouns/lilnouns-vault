@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-beta.5] - 2024-10-31
+
+### Bug Fixes
+
+- Solve minor issues and update dependencies  (#100)
+- Solve some minor security issues (#102)
+
 ## [1.0.0-beta.4] - 2024-10-31
 
 ### Bug Fixes
