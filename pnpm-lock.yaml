@@ -30,8 +30,8 @@ importers:
         specifier: 3.4.0
         version: 3.4.0(@nomicfoundation/hardhat-ethers@3.0.8(ethers@6.13.3)(hardhat@2.22.13(ts-node@10.9.2(@types/node@22.8.4)(typescript@5.6.3))(typescript@5.6.3)))(@nomicfoundation/hardhat-verify@2.0.9(hardhat@2.22.13(ts-node@10.9.2(@types/node@22.8.4)(typescript@5.6.3))(typescript@5.6.3)))(ethers@6.13.3)(hardhat@2.22.13(ts-node@10.9.2(@types/node@22.8.4)(typescript@5.6.3))(typescript@5.6.3))
       '@openzeppelin/upgrades-core':
-        specifier: 1.39.0
-        version: 1.39.0
+        specifier: 1.40.0
+        version: 1.40.0
       ds-test:
         specifier: dapphub/ds-test
         version: git+https://git@github.com:dapphub/ds-test.git#e282159d5170298eb2455a6c05280ab5a73a4ef0
@@ -537,8 +537,8 @@ packages:
       '@nomicfoundation/hardhat-verify':
         optional: true
 
-  '@openzeppelin/upgrades-core@1.39.0':
-    resolution: {integrity: sha512-TJ1kMeyp7yD4aDR2bFDK+9m5JVe/ObFDck3erVm2WcBKPtRsmFOP6b0QO1DM6w0HOOIiu8VKfrFDqZ6NyJcUyw==}
+  '@openzeppelin/upgrades-core@1.40.0':
+    resolution: {integrity: sha512-4bPSXdEqHsNRL5T1ybPLneWGYjzGl6XWGWkv7aUoFFgz8mOdarstRBX1Wi4XJFw6IeHPUI7mMSQr2jdz8Y2ypQ==}
     hasBin: true
 
   '@pkgr/core@0.1.1':
@@ -689,9 +689,6 @@ packages:
 
   '@types/node@18.15.13':
     resolution: {integrity: sha512-N+0kuo9KgrUQ1Sn/ifDXsvg0TTleP7rIy4zOBGECxAljqvqfqpTfzx0Q1NUedOixRMBfe2Whhb056a42cWs26Q==}
-
-  '@types/node@22.8.2':
-    resolution: {integrity: sha512-NzaRNFV+FZkvK/KLCsNdTvID0SThyrs5SHB6tsD/lajr22FGC73N2QeDPM2wHtVde8mgcXuSsHQkH5cX1pbPLw==}
 
   '@types/node@22.8.4':
     resolution: {integrity: sha512-SpNNxkftTJOPk0oN+y2bIqurEXHTA2AOZ3EJDDKeJ5VzkvvORSvmQXGQarcOzWV1ac7DCaPBEdMDxBsM+d8jWw==}
@@ -1326,6 +1323,7 @@ packages:
 
   ethereumjs-abi@0.6.8:
     resolution: {integrity: sha512-Tx0r/iXI6r+lRsdvkFDlut0N08jWMnKRZ6Gkq+Nmw75lZe4e6o3EkSnkaBP5NF6+m5PTGAr9JP43N3LyeoglsA==}
+    deprecated: This library has been deprecated and usage is discouraged.
 
   ethereumjs-util@6.2.1:
     resolution: {integrity: sha512-W2Ktez4L01Vexijrm5EB6w7dg4n/TgpoYU4avuT5T3Vmnw/eCRtiBrJfQYS/DCSvDIOLn2k57GcHdeBcgVxAqw==}
@@ -3625,7 +3623,7 @@ snapshots:
       '@openzeppelin/defender-sdk-base-client': 1.15.0
       '@openzeppelin/defender-sdk-deploy-client': 1.15.0(debug@4.3.6)
       '@openzeppelin/defender-sdk-network-client': 1.15.0(debug@4.3.6)
-      '@openzeppelin/upgrades-core': 1.39.0
+      '@openzeppelin/upgrades-core': 1.40.0
       chalk: 4.1.2
       debug: 4.3.6(supports-color@8.1.1)
       ethereumjs-util: 7.1.5
@@ -3639,7 +3637,7 @@ snapshots:
       - encoding
       - supports-color
 
-  '@openzeppelin/upgrades-core@1.39.0':
+  '@openzeppelin/upgrades-core@1.40.0':
     dependencies:
       '@nomicfoundation/slang': 0.17.0
       cbor: 9.0.2
@@ -3803,16 +3801,16 @@ snapshots:
 
   '@types/concat-stream@1.6.1':
     dependencies:
-      '@types/node': 22.8.2
+      '@types/node': 22.8.4
 
   '@types/form-data@0.0.33':
     dependencies:
-      '@types/node': 22.8.2
+      '@types/node': 22.8.4
 
   '@types/glob@7.2.0':
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 22.8.2
+      '@types/node': 22.8.4
 
   '@types/http-cache-semantics@4.0.4': {}
 
@@ -3825,10 +3823,6 @@ snapshots:
   '@types/node@10.17.60': {}
 
   '@types/node@18.15.13': {}
-
-  '@types/node@22.8.2':
-    dependencies:
-      undici-types: 6.19.8
 
   '@types/node@22.8.4':
     dependencies:
