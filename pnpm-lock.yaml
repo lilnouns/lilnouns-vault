@@ -41,7 +41,7 @@ importers:
         version: git+https://git@github.com:dapphub/ds-test.git#e282159d5170298eb2455a6c05280ab5a73a4ef0
       forge-std:
         specifier: foundry-rs/forge-std
-        version: git+https://git@github.com:foundry-rs/forge-std.git#1eea5bae12ae557d589f9f0f0edae2faa47cb262
+        version: git+https://git@github.com:foundry-rs/forge-std.git#2b59872eee0b8088ddcade39fe8c041e17bb79c0
       solidity-stringutils:
         specifier: github:Arachnid/solidity-stringutils
         version: git+https://git@github.com:Arachnid/solidity-stringutils.git#4b2fcc43fa0426e19ce88b1f1ec16f5903a2e461
@@ -60,7 +60,7 @@ importers:
         version: 1.0.12(hardhat@2.22.13(ts-node@10.9.2(@types/node@22.8.4)(typescript@5.6.3))(typescript@5.6.3))
       '@nomicfoundation/hardhat-toolbox':
         specifier: 5.0.0
-        version: 5.0.0(4vciyyfvh7m4emos3ebxolph5m)
+        version: 5.0.0(5rjqc3ozsueier6hsmlzyqinx4)
       '@nomiclabs/hardhat-solhint':
         specifier: 4.0.1
         version: 4.0.1(hardhat@2.22.13(ts-node@10.9.2(@types/node@22.8.4)(typescript@5.6.3))(typescript@5.6.3))(typescript@5.6.3)
@@ -74,8 +74,8 @@ importers:
         specifier: 4.3.11
         version: 4.3.11
       '@types/mocha':
-        specifier: 10.0.9
-        version: 10.0.9
+        specifier: 10.0.10
+        version: 10.0.10
       '@types/node':
         specifier: 22.8.4
         version: 22.8.4
@@ -685,8 +685,8 @@ packages:
   '@types/minimatch@5.1.2':
     resolution: {integrity: sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==}
 
-  '@types/mocha@10.0.9':
-    resolution: {integrity: sha512-sicdRoWtYevwxjOHNMPTl3vSfJM6oyW8o1wXeI7uww6b6xHg8eBznQDNSGBCDJmsE8UMxP05JgZRtsKbTqt//Q==}
+  '@types/mocha@10.0.10':
+    resolution: {integrity: sha512-xPyYSz1cMPnJQhl0CLMH68j3gprKZaTjG3s5Vi+fDgx+uhG9NOXwbVt52eFS8ECyXhyKcjDLCBEqBExKuiZb7Q==}
 
   '@types/node@10.17.60':
     resolution: {integrity: sha512-F0KIgDJfy2nA3zMLmWGKxcH2ZVEtCZXHHdOQs2gSaQ27+lNeEfGxzkIw90aXswATX7AZ33tahPbzy6KAfUreVw==}
@@ -1416,8 +1416,8 @@ packages:
   for-each@0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
 
-  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#1eea5bae12ae557d589f9f0f0edae2faa47cb262:
-    resolution: {commit: 1eea5bae12ae557d589f9f0f0edae2faa47cb262, repo: git@github.com:foundry-rs/forge-std.git, type: git}
+  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#2b59872eee0b8088ddcade39fe8c041e17bb79c0:
+    resolution: {commit: 2b59872eee0b8088ddcade39fe8c041e17bb79c0, repo: git@github.com:foundry-rs/forge-std.git, type: git}
     version: 1.9.4
 
   form-data-encoder@2.1.4:
@@ -3456,7 +3456,7 @@ snapshots:
       ethereumjs-util: 7.1.5
       hardhat: 2.22.13(ts-node@10.9.2(@types/node@22.8.4)(typescript@5.6.3))(typescript@5.6.3)
 
-  '@nomicfoundation/hardhat-toolbox@5.0.0(4vciyyfvh7m4emos3ebxolph5m)':
+  '@nomicfoundation/hardhat-toolbox@5.0.0(5rjqc3ozsueier6hsmlzyqinx4)':
     dependencies:
       '@nomicfoundation/hardhat-chai-matchers': 2.0.8(@nomicfoundation/hardhat-ethers@3.0.8(ethers@6.13.3)(hardhat@2.22.13(ts-node@10.9.2(@types/node@22.8.4)(typescript@5.6.3))(typescript@5.6.3)))(chai@4.5.0)(ethers@6.13.3)(hardhat@2.22.13(ts-node@10.9.2(@types/node@22.8.4)(typescript@5.6.3))(typescript@5.6.3))
       '@nomicfoundation/hardhat-ethers': 3.0.8(ethers@6.13.3)(hardhat@2.22.13(ts-node@10.9.2(@types/node@22.8.4)(typescript@5.6.3))(typescript@5.6.3))
@@ -3466,7 +3466,7 @@ snapshots:
       '@typechain/ethers-v6': 0.5.1(ethers@6.13.3)(typechain@8.3.2(typescript@5.6.3))(typescript@5.6.3)
       '@typechain/hardhat': 9.1.0(@typechain/ethers-v6@0.5.1(ethers@6.13.3)(typechain@8.3.2(typescript@5.6.3))(typescript@5.6.3))(ethers@6.13.3)(hardhat@2.22.13(ts-node@10.9.2(@types/node@22.8.4)(typescript@5.6.3))(typescript@5.6.3))(typechain@8.3.2(typescript@5.6.3))
       '@types/chai': 4.3.11
-      '@types/mocha': 10.0.9
+      '@types/mocha': 10.0.10
       '@types/node': 22.8.4
       chai: 4.5.0
       ethers: 6.13.3
@@ -3810,7 +3810,7 @@ snapshots:
 
   '@types/minimatch@5.1.2': {}
 
-  '@types/mocha@10.0.9': {}
+  '@types/mocha@10.0.10': {}
 
   '@types/node@10.17.60': {}
 
@@ -4692,7 +4692,7 @@ snapshots:
     dependencies:
       is-callable: 1.2.7
 
-  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#1eea5bae12ae557d589f9f0f0edae2faa47cb262: {}
+  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#2b59872eee0b8088ddcade39fe8c041e17bb79c0: {}
 
   form-data-encoder@2.1.4: {}
 
