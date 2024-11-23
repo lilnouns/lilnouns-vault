@@ -64,7 +64,7 @@
     "chai": "4.5.0",
     "ethers": "6.13.3",
     "hardhat": "2.22.13",
-    "husky": "9.1.6",
+    "husky": "9.1.7",
     "lint-staged": "15.2.10",
     "prettier": "3.3.3",
     "prettier-plugin-packagejson": "2.5.5",
