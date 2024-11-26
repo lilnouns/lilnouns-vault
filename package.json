@@ -44,7 +44,7 @@
     "@openzeppelin/contracts-upgradeable": "5.1.0",
     "@openzeppelin/foundry-upgrades": "OpenZeppelin/openzeppelin-foundry-upgrades",
     "@openzeppelin/hardhat-upgrades": "3.5.0",
-    "@openzeppelin/upgrades-core": "1.40.0",
+    "@openzeppelin/upgrades-core": "1.41.0",
     "ds-test": "dapphub/ds-test",
     "forge-std": "foundry-rs/forge-std",
     "solidity-stringutils": "github:Arachnid/solidity-stringutils"
