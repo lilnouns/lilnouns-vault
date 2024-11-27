@@ -29,7 +29,7 @@ importers:
         version: 5.1.0(@openzeppelin/contracts@5.1.0)
       '@openzeppelin/foundry-upgrades':
         specifier: OpenZeppelin/openzeppelin-foundry-upgrades
-        version: openzeppelin-foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#16e0ae21e0e39049f619f2396fa28c57fad07368
+        version: openzeppelin-foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#8e754fde23b2b030a35bb47cd84b77dd42a44437
       '@openzeppelin/hardhat-upgrades':
         specifier: 3.5.0
         version: 3.5.0(@nomicfoundation/hardhat-ethers@3.0.8(ethers@6.13.3)(hardhat@2.22.16(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.6.3))(typescript@5.6.3)))(@nomicfoundation/hardhat-verify@2.0.9(hardhat@2.22.16(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.6.3))(typescript@5.6.3)))(ethers@6.13.3)(hardhat@2.22.16(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.6.3))(typescript@5.6.3))
@@ -41,7 +41,7 @@ importers:
         version: git+https://git@github.com:dapphub/ds-test.git#e282159d5170298eb2455a6c05280ab5a73a4ef0
       forge-std:
         specifier: foundry-rs/forge-std
-        version: git+https://git@github.com:foundry-rs/forge-std.git#2b59872eee0b8088ddcade39fe8c041e17bb79c0
+        version: git+https://git@github.com:foundry-rs/forge-std.git#83c5d212a01f8950727da4095cdfe2654baccb5b
       solidity-stringutils:
         specifier: github:Arachnid/solidity-stringutils
         version: git+https://git@github.com:Arachnid/solidity-stringutils.git#4b2fcc43fa0426e19ce88b1f1ec16f5903a2e461
@@ -95,17 +95,17 @@ importers:
         specifier: 15.2.10
         version: 15.2.10
       prettier:
-        specifier: 3.3.3
-        version: 3.3.3
+        specifier: 3.4.1
+        version: 3.4.1
       prettier-plugin-packagejson:
         specifier: 2.5.5
-        version: 2.5.5(prettier@3.3.3)
+        version: 2.5.5(prettier@3.4.1)
       prettier-plugin-solidity:
         specifier: 1.4.1
-        version: 1.4.1(prettier@3.3.3)
+        version: 1.4.1(prettier@3.4.1)
       prettier-plugin-toml:
         specifier: 2.0.1
-        version: 2.0.1(prettier@3.3.3)
+        version: 2.0.1(prettier@3.4.1)
       solhint:
         specifier: 5.0.3
         version: 5.0.3(typescript@5.6.3)
@@ -1420,8 +1420,8 @@ packages:
   for-each@0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
 
-  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#2b59872eee0b8088ddcade39fe8c041e17bb79c0:
-    resolution: {commit: 2b59872eee0b8088ddcade39fe8c041e17bb79c0, repo: git@github.com:foundry-rs/forge-std.git, type: git}
+  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#83c5d212a01f8950727da4095cdfe2654baccb5b:
+    resolution: {commit: 83c5d212a01f8950727da4095cdfe2654baccb5b, repo: git@github.com:foundry-rs/forge-std.git, type: git}
     version: 1.9.4
 
   form-data-encoder@2.1.4:
@@ -2135,9 +2135,9 @@ packages:
     resolution: {integrity: sha512-VXJjc87FScF88uafS3JllDgvAm+c/Slfz06lorj2uAY34rlUu0Nt+v8wreiImcrgAjjIHp1rXpTDlLOGw29WwQ==}
     engines: {node: '>=18'}
 
-  openzeppelin-foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#16e0ae21e0e39049f619f2396fa28c57fad07368:
-    resolution: {commit: 16e0ae21e0e39049f619f2396fa28c57fad07368, repo: git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git, type: git}
-    version: 0.0.0
+  openzeppelin-foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#8e754fde23b2b030a35bb47cd84b77dd42a44437:
+    resolution: {commit: 8e754fde23b2b030a35bb47cd84b77dd42a44437, repo: git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git, type: git}
+    version: 0.3.6
 
   optionator@0.8.3:
     resolution: {integrity: sha512-+IW9pACdk3XWmmTXG8m3upGUJst5XRGzxMRjXzAuJ1XnIFNvfhjjIuYkDvysnPQ7qzqVzLt78BCruntqRhWQbA==}
@@ -2268,8 +2268,8 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
 
-  prettier@3.3.3:
-    resolution: {integrity: sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==}
+  prettier@3.4.1:
+    resolution: {integrity: sha512-G+YdqtITVZmOJje6QkXQWzl3fSfMxFwm1tjTyo9exhkmWSqC4Yhd1+lug++IlR2mvRVAxEDDWYkQdeSztajqgg==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -4660,7 +4660,7 @@ snapshots:
     dependencies:
       is-callable: 1.2.7
 
-  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#2b59872eee0b8088ddcade39fe8c041e17bb79c0: {}
+  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#83c5d212a01f8950727da4095cdfe2654baccb5b: {}
 
   form-data-encoder@2.1.4: {}
 
@@ -5425,7 +5425,7 @@ snapshots:
     dependencies:
       mimic-function: 5.0.1
 
-  openzeppelin-foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#16e0ae21e0e39049f619f2396fa28c57fad07368: {}
+  openzeppelin-foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#8e754fde23b2b030a35bb47cd84b77dd42a44437: {}
 
   optionator@0.8.3:
     dependencies:
@@ -5512,27 +5512,27 @@ snapshots:
 
   prelude-ls@1.1.2: {}
 
-  prettier-plugin-packagejson@2.5.5(prettier@3.3.3):
+  prettier-plugin-packagejson@2.5.5(prettier@3.4.1):
     dependencies:
       sort-package-json: 2.11.0
       synckit: 0.9.2
     optionalDependencies:
-      prettier: 3.3.3
+      prettier: 3.4.1
 
-  prettier-plugin-solidity@1.4.1(prettier@3.3.3):
+  prettier-plugin-solidity@1.4.1(prettier@3.4.1):
     dependencies:
       '@solidity-parser/parser': 0.18.0
-      prettier: 3.3.3
+      prettier: 3.4.1
       semver: 7.6.3
 
-  prettier-plugin-toml@2.0.1(prettier@3.3.3):
+  prettier-plugin-toml@2.0.1(prettier@3.4.1):
     dependencies:
       '@taplo/lib': 0.4.0-alpha.2
-      prettier: 3.3.3
+      prettier: 3.4.1
 
   prettier@2.8.8: {}
 
-  prettier@3.3.3: {}
+  prettier@3.4.1: {}
 
   process-nextick-args@2.0.1: {}
 
