@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-beta.8] - 2024-12-09
+
+### Bug Fixes
+
+- Solve some minor issues and update dependencies
+
 ## [1.0.0-beta.7] - 2024-12-09
 
 ### Miscellaneous Tasks
