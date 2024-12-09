@@ -65,6 +65,9 @@ jobs:
         with:
           version: nightly
 
+      - name: Force HTTPS for GitHub
+        run: git config --global url."https://github.com/".insteadOf "git@github.com:"
+
       - name: Install pnpm package manager
         uses: pnpm/action-setup@v4.0.0
         id: pnpm-install
@@ -78,7 +81,7 @@ jobs:
           echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
 
       - name: Cache pnpm Store
-        uses: actions/cache@v4.1.2
+        uses: actions/cache@v4.2.0
         with:
           path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }} # The path of the directory to cache.
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }} # An explicit key for restoring and saving the cache.
@@ -118,7 +121,7 @@ jobs:
 
       # Generate a changelog for the new release using Git
       - name: Generate a changelog
-        uses: orhun/git-cliff-action@v4.3.1
+        uses: orhun/git-cliff-action@v4.4.2
         id: git-cliff
         with:
           config: cliff.toml # The configuration file for git-cliff
