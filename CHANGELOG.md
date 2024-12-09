@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-beta.7] - 2024-12-09
+
+### Miscellaneous Tasks
+
+- Force HTTPS for GitHub in workflow
+
 ## [1.0.0-beta.6] - 2024-11-23
 
 ### Bug Fixes
