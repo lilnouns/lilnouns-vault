@@ -31,8 +31,8 @@ importers:
         specifier: OpenZeppelin/openzeppelin-foundry-upgrades
         version: git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#6461ba3851dea1fa4381a0fb1477c669279cdd44(@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9)(@openzeppelin/upgrades-core@1.41.0)
       '@openzeppelin/hardhat-upgrades':
-        specifier: 3.7.0
-        version: 3.7.0(@nomicfoundation/hardhat-ethers@3.0.8(ethers@6.13.4)(hardhat@2.22.17(ts-node@10.9.2(@types/node@22.10.2)(typescript@5.7.2))(typescript@5.7.2)))(@nomicfoundation/hardhat-verify@2.0.11(hardhat@2.22.17(ts-node@10.9.2(@types/node@22.10.2)(typescript@5.7.2))(typescript@5.7.2)))(ethers@6.13.4)(hardhat@2.22.17(ts-node@10.9.2(@types/node@22.10.2)(typescript@5.7.2))(typescript@5.7.2))
+        specifier: 3.8.0
+        version: 3.8.0(@nomicfoundation/hardhat-ethers@3.0.8(ethers@6.13.4)(hardhat@2.22.17(ts-node@10.9.2(@types/node@22.10.2)(typescript@5.7.2))(typescript@5.7.2)))(@nomicfoundation/hardhat-verify@2.0.11(hardhat@2.22.17(ts-node@10.9.2(@types/node@22.10.2)(typescript@5.7.2))(typescript@5.7.2)))(ethers@6.13.4)(hardhat@2.22.17(ts-node@10.9.2(@types/node@22.10.2)(typescript@5.7.2))(typescript@5.7.2))
       '@openzeppelin/upgrades-core':
         specifier: 1.41.0
         version: 1.41.0
@@ -41,7 +41,7 @@ importers:
         version: git+https://git@github.com:dapphub/ds-test.git#e282159d5170298eb2455a6c05280ab5a73a4ef0
       forge-std:
         specifier: foundry-rs/forge-std
-        version: git+https://git@github.com:foundry-rs/forge-std.git#d3db4ef90a72b7d24aa5a2e5c649593eaef7801d
+        version: git+https://git@github.com:foundry-rs/forge-std.git#b93cf4bc34ff214c099dc970b153f85ade8c9f66
       solidity-stringutils:
         specifier: github:Arachnid/solidity-stringutils
         version: git+https://git@github.com:Arachnid/solidity-stringutils.git#4b2fcc43fa0426e19ce88b1f1ec16f5903a2e461
@@ -506,8 +506,8 @@ packages:
       '@openzeppelin/defender-deploy-client-cli': 0.0.1-alpha.9
       '@openzeppelin/upgrades-core': ^1.37.0
 
-  '@openzeppelin/hardhat-upgrades@3.7.0':
-    resolution: {integrity: sha512-dTnqqTIZUOyEzL62FIusZPeac9CqTD+x3Q5h+46JBALgS9DubUq/jXMhiE3JKLco3RELZQCh/9GYKBoUA0R2DQ==}
+  '@openzeppelin/hardhat-upgrades@3.8.0':
+    resolution: {integrity: sha512-NwRk14ykTVilQqB0Vzd0vOWvUE8gpyn+SSwdzyHECRc5fuSSPDt/cIdadG9Hd6AKMPXfY+CS6G7q0+nDLng2Zw==}
     hasBin: true
     peerDependencies:
       '@nomicfoundation/hardhat-ethers': ^3.0.0
@@ -667,9 +667,6 @@ packages:
 
   '@types/node@10.17.60':
     resolution: {integrity: sha512-F0KIgDJfy2nA3zMLmWGKxcH2ZVEtCZXHHdOQs2gSaQ27+lNeEfGxzkIw90aXswATX7AZ33tahPbzy6KAfUreVw==}
-
-  '@types/node@22.10.1':
-    resolution: {integrity: sha512-qKgsUwfHZV2WCWLAnVP1JqnpE6Im6h3Y0+fYgMTasNQ7V++CBX5OT1as0g0f+OyubbFqhf6XVNIsmN4IIhEgGQ==}
 
   '@types/node@22.10.2':
     resolution: {integrity: sha512-Xxr6BBRCAOQixvonOye19wnzyDiUtTeqldOOmj3CkeblonbccA12PFwlufvRdrpjXxqnmUaeiU5EOA+7s5diUQ==}
@@ -1350,9 +1347,9 @@ packages:
       debug:
         optional: true
 
-  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#d3db4ef90a72b7d24aa5a2e5c649593eaef7801d:
-    resolution: {commit: d3db4ef90a72b7d24aa5a2e5c649593eaef7801d, repo: git@github.com:foundry-rs/forge-std.git, type: git}
-    version: 1.9.4
+  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#b93cf4bc34ff214c099dc970b153f85ade8c9f66:
+    resolution: {commit: b93cf4bc34ff214c099dc970b153f85ade8c9f66, repo: git@github.com:foundry-rs/forge-std.git, type: git}
+    version: 1.9.5
 
   form-data-encoder@2.1.4:
     resolution: {integrity: sha512-yDYSgNMraqvnxiEXO4hi88+YZxaHC6QKzb5N84iRCTDeRO7ZALpir/lVmf/uXUhnwUr2O4HU8s/n6x+yNjQkHw==}
@@ -3349,7 +3346,7 @@ snapshots:
       '@openzeppelin/defender-deploy-client-cli': 0.0.1-alpha.9
       '@openzeppelin/upgrades-core': 1.41.0
 
-  '@openzeppelin/hardhat-upgrades@3.7.0(@nomicfoundation/hardhat-ethers@3.0.8(ethers@6.13.4)(hardhat@2.22.17(ts-node@10.9.2(@types/node@22.10.2)(typescript@5.7.2))(typescript@5.7.2)))(@nomicfoundation/hardhat-verify@2.0.11(hardhat@2.22.17(ts-node@10.9.2(@types/node@22.10.2)(typescript@5.7.2))(typescript@5.7.2)))(ethers@6.13.4)(hardhat@2.22.17(ts-node@10.9.2(@types/node@22.10.2)(typescript@5.7.2))(typescript@5.7.2))':
+  '@openzeppelin/hardhat-upgrades@3.8.0(@nomicfoundation/hardhat-ethers@3.0.8(ethers@6.13.4)(hardhat@2.22.17(ts-node@10.9.2(@types/node@22.10.2)(typescript@5.7.2))(typescript@5.7.2)))(@nomicfoundation/hardhat-verify@2.0.11(hardhat@2.22.17(ts-node@10.9.2(@types/node@22.10.2)(typescript@5.7.2))(typescript@5.7.2)))(ethers@6.13.4)(hardhat@2.22.17(ts-node@10.9.2(@types/node@22.10.2)(typescript@5.7.2))(typescript@5.7.2))':
     dependencies:
       '@nomicfoundation/hardhat-ethers': 3.0.8(ethers@6.13.4)(hardhat@2.22.17(ts-node@10.9.2(@types/node@22.10.2)(typescript@5.7.2))(typescript@5.7.2))
       '@openzeppelin/defender-sdk-base-client': 1.15.2
@@ -3533,16 +3530,16 @@ snapshots:
 
   '@types/concat-stream@1.6.1':
     dependencies:
-      '@types/node': 22.10.1
+      '@types/node': 22.10.2
 
   '@types/form-data@0.0.33':
     dependencies:
-      '@types/node': 22.10.1
+      '@types/node': 22.10.2
 
   '@types/glob@7.2.0':
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 22.10.1
+      '@types/node': 22.10.2
 
   '@types/http-cache-semantics@4.0.4': {}
 
@@ -3553,10 +3550,6 @@ snapshots:
   '@types/mocha@10.0.10': {}
 
   '@types/node@10.17.60': {}
-
-  '@types/node@22.10.1':
-    dependencies:
-      undici-types: 6.20.0
 
   '@types/node@22.10.2':
     dependencies:
@@ -4314,7 +4307,7 @@ snapshots:
     optionalDependencies:
       debug: 4.4.0(supports-color@8.1.1)
 
-  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#d3db4ef90a72b7d24aa5a2e5c649593eaef7801d: {}
+  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#b93cf4bc34ff214c099dc970b153f85ade8c9f66: {}
 
   form-data-encoder@2.1.4: {}
 
