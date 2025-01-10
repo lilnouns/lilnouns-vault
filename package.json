@@ -40,8 +40,8 @@
     "ws": ">=7.5.10"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "5.1.0",
-    "@openzeppelin/contracts-upgradeable": "5.1.0",
+    "@openzeppelin/contracts": "5.2.0",
+    "@openzeppelin/contracts-upgradeable": "5.2.0",
     "@openzeppelin/foundry-upgrades": "OpenZeppelin/openzeppelin-foundry-upgrades",
     "@openzeppelin/hardhat-upgrades": "3.8.0",
     "@openzeppelin/upgrades-core": "1.41.0",

@@ -22,11 +22,11 @@ importers:
   .:
     dependencies:
       '@openzeppelin/contracts':
-        specifier: 5.1.0
-        version: 5.1.0
+        specifier: 5.2.0
+        version: 5.2.0
       '@openzeppelin/contracts-upgradeable':
-        specifier: 5.1.0
-        version: 5.1.0(@openzeppelin/contracts@5.1.0)
+        specifier: 5.2.0
+        version: 5.2.0(@openzeppelin/contracts@5.2.0)
       '@openzeppelin/foundry-upgrades':
         specifier: OpenZeppelin/openzeppelin-foundry-upgrades
         version: git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#3a4bd0d10e945e82472b306776eb5ec272571945(@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9)(@openzeppelin/upgrades-core@1.41.0)
@@ -478,13 +478,13 @@ packages:
     peerDependencies:
       hardhat: ^2.0.0
 
-  '@openzeppelin/contracts-upgradeable@5.1.0':
-    resolution: {integrity: sha512-AIElwP5Ck+cslNE+Hkemf5SxjJoF4wBvvjxc27Rp+9jaPs/CLIaUBMYe1FNzhdiN0cYuwGRmYaRHmmntuiju4Q==}
+  '@openzeppelin/contracts-upgradeable@5.2.0':
+    resolution: {integrity: sha512-mZIu9oa4tQTlGiOJHk6D3LdJlqFqF6oNOSn6S6UVJtzfs9UsY9/dhMEbAVTwElxUtJnjpf6yA062+oBp+eOyPg==}
     peerDependencies:
-      '@openzeppelin/contracts': 5.1.0
+      '@openzeppelin/contracts': 5.2.0
 
-  '@openzeppelin/contracts@5.1.0':
-    resolution: {integrity: sha512-p1ULhl7BXzjjbha5aqst+QMLY+4/LCWADXOCsmLHRM77AqiPjnd9vvUN9sosUfhL9JGKpZ0TjEGxgvnizmWGSA==}
+  '@openzeppelin/contracts@5.2.0':
+    resolution: {integrity: sha512-bxjNie5z89W1Ea0NZLZluFh8PrFNn9DH8DQlujEok2yjsOlraUPKID5p1Wk3qdNbf6XkQ1Os2RvfiHrrXLHWKA==}
 
   '@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9':
     resolution: {integrity: sha512-EablwUBEiLwOJuNNRWeLx5C8wq+deq0x8MacRskQ1XvyiqKnh4+M1GyKqVUEIJ4R7aarBTE3Qb566K96+vIRhA==}
@@ -3302,11 +3302,11 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@openzeppelin/contracts-upgradeable@5.1.0(@openzeppelin/contracts@5.1.0)':
+  '@openzeppelin/contracts-upgradeable@5.2.0(@openzeppelin/contracts@5.2.0)':
     dependencies:
-      '@openzeppelin/contracts': 5.1.0
+      '@openzeppelin/contracts': 5.2.0
 
-  '@openzeppelin/contracts@5.1.0': {}
+  '@openzeppelin/contracts@5.2.0': {}
 
   '@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9':
     dependencies:
