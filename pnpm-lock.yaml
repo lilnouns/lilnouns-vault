@@ -29,7 +29,7 @@ importers:
         version: 5.2.0(@openzeppelin/contracts@5.2.0)
       '@openzeppelin/foundry-upgrades':
         specifier: OpenZeppelin/openzeppelin-foundry-upgrades
-        version: git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#3a4bd0d10e945e82472b306776eb5ec272571945(@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9)(@openzeppelin/upgrades-core@1.41.0)
+        version: git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#453d9ff3591cb42f65d2281ea792aded95d7bd8c(@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9)(@openzeppelin/upgrades-core@1.41.0)
       '@openzeppelin/hardhat-upgrades':
         specifier: 3.8.0
         version: 3.8.0(@nomicfoundation/hardhat-ethers@3.0.8(ethers@6.13.5)(hardhat@2.22.17(ts-node@10.9.2(@types/node@22.10.5)(typescript@5.7.3))(typescript@5.7.3)))(@nomicfoundation/hardhat-verify@2.0.11(hardhat@2.22.17(ts-node@10.9.2(@types/node@22.10.5)(typescript@5.7.3))(typescript@5.7.3)))(ethers@6.13.5)(hardhat@2.22.17(ts-node@10.9.2(@types/node@22.10.5)(typescript@5.7.3))(typescript@5.7.3))
@@ -92,8 +92,8 @@ importers:
         specifier: 9.1.7
         version: 9.1.7
       lint-staged:
-        specifier: 15.3.0
-        version: 15.3.0
+        specifier: 15.4.1
+        version: 15.4.1
       prettier:
         specifier: 3.4.2
         version: 3.4.2
@@ -499,11 +499,11 @@ packages:
   '@openzeppelin/defender-sdk-network-client@1.15.2':
     resolution: {integrity: sha512-9r9pegc1aR7xzP9fmj1zvkk0OXMRJE10JabxxiJzAQQgmNXDeTGI6W5bFgrNJfxzcImNGqddJ3K4weKdLyL21A==}
 
-  '@openzeppelin/foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#3a4bd0d10e945e82472b306776eb5ec272571945':
-    resolution: {commit: 3a4bd0d10e945e82472b306776eb5ec272571945, repo: git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git, type: git}
-    version: 0.3.6
+  '@openzeppelin/foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#453d9ff3591cb42f65d2281ea792aded95d7bd8c':
+    resolution: {commit: 453d9ff3591cb42f65d2281ea792aded95d7bd8c, repo: git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git, type: git}
+    version: 0.3.7
     peerDependencies:
-      '@openzeppelin/defender-deploy-client-cli': 0.0.1-alpha.9
+      '@openzeppelin/defender-deploy-client-cli': 0.0.1-alpha.10
       '@openzeppelin/upgrades-core': ^1.37.0
 
   '@openzeppelin/hardhat-upgrades@3.8.0':
@@ -1770,8 +1770,8 @@ packages:
   lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
 
-  lint-staged@15.3.0:
-    resolution: {integrity: sha512-vHFahytLoF2enJklgtOtCtIjZrKD/LoxlaUusd5nh7dWv/dkKQJY74ndFSzxCdv7g0ueGg1ORgTSt4Y9LPZn9A==}
+  lint-staged@15.4.1:
+    resolution: {integrity: sha512-P8yJuVRyLrm5KxCtFx+gjI5Bil+wO7wnTl7C3bXhvtTaAFGirzeB24++D0wGoUwxrUKecNiehemgCob9YL39NA==}
     engines: {node: '>=18.12.0'}
     hasBin: true
 
@@ -3344,7 +3344,7 @@ snapshots:
       - debug
       - encoding
 
-  '@openzeppelin/foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#3a4bd0d10e945e82472b306776eb5ec272571945(@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9)(@openzeppelin/upgrades-core@1.41.0)':
+  '@openzeppelin/foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#453d9ff3591cb42f65d2281ea792aded95d7bd8c(@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9)(@openzeppelin/upgrades-core@1.41.0)':
     dependencies:
       '@openzeppelin/defender-deploy-client-cli': 0.0.1-alpha.9
       '@openzeppelin/upgrades-core': 1.41.0
@@ -4778,7 +4778,7 @@ snapshots:
 
   lines-and-columns@1.2.4: {}
 
-  lint-staged@15.3.0:
+  lint-staged@15.4.1:
     dependencies:
       chalk: 5.4.1
       commander: 12.1.0
