@@ -29,7 +29,7 @@ importers:
         version: 5.2.0(@openzeppelin/contracts@5.2.0)
       '@openzeppelin/foundry-upgrades':
         specifier: OpenZeppelin/openzeppelin-foundry-upgrades
-        version: git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#3a4bd0d10e945e82472b306776eb5ec272571945(@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9)(@openzeppelin/upgrades-core@1.41.0)
+        version: git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#453d9ff3591cb42f65d2281ea792aded95d7bd8c(@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9)(@openzeppelin/upgrades-core@1.41.0)
       '@openzeppelin/hardhat-upgrades':
         specifier: 3.8.0
         version: 3.8.0(@nomicfoundation/hardhat-ethers@3.0.8(ethers@6.13.5)(hardhat@2.22.17(ts-node@10.9.2(@types/node@22.10.5)(typescript@5.7.3))(typescript@5.7.3)))(@nomicfoundation/hardhat-verify@2.0.11(hardhat@2.22.17(ts-node@10.9.2(@types/node@22.10.5)(typescript@5.7.3))(typescript@5.7.3)))(ethers@6.13.5)(hardhat@2.22.17(ts-node@10.9.2(@types/node@22.10.5)(typescript@5.7.3))(typescript@5.7.3))
@@ -107,8 +107,8 @@ importers:
         specifier: 2.0.1
         version: 2.0.1(prettier@3.4.2)
       solhint:
-        specifier: 5.0.4
-        version: 5.0.4(typescript@5.7.3)
+        specifier: 5.0.5
+        version: 5.0.5(typescript@5.7.3)
       ts-node:
         specifier: 10.9.2
         version: 10.9.2(@types/node@22.10.5)(typescript@5.7.3)
@@ -499,11 +499,11 @@ packages:
   '@openzeppelin/defender-sdk-network-client@1.15.2':
     resolution: {integrity: sha512-9r9pegc1aR7xzP9fmj1zvkk0OXMRJE10JabxxiJzAQQgmNXDeTGI6W5bFgrNJfxzcImNGqddJ3K4weKdLyL21A==}
 
-  '@openzeppelin/foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#3a4bd0d10e945e82472b306776eb5ec272571945':
-    resolution: {commit: 3a4bd0d10e945e82472b306776eb5ec272571945, repo: git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git, type: git}
-    version: 0.3.6
+  '@openzeppelin/foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#453d9ff3591cb42f65d2281ea792aded95d7bd8c':
+    resolution: {commit: 453d9ff3591cb42f65d2281ea792aded95d7bd8c, repo: git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git, type: git}
+    version: 0.3.7
     peerDependencies:
-      '@openzeppelin/defender-deploy-client-cli': 0.0.1-alpha.9
+      '@openzeppelin/defender-deploy-client-cli': 0.0.1-alpha.10
       '@openzeppelin/upgrades-core': ^1.37.0
 
   '@openzeppelin/hardhat-upgrades@3.8.0':
@@ -2357,8 +2357,8 @@ packages:
     engines: {node: '>=10.0.0'}
     hasBin: true
 
-  solhint@5.0.4:
-    resolution: {integrity: sha512-GzKBjJ8S2utRsEOCJXhY2H35gwHGmoQY2rQXcPGT4XdDlzwgGYz0Ovo9Xm7cmWYgSo121uF+5tiwrqQT2b+Rtw==}
+  solhint@5.0.5:
+    resolution: {integrity: sha512-WrnG6T+/UduuzSWsSOAbfq1ywLUDwNea3Gd5hg6PS+pLUm8lz2ECNr0beX609clBxmDeZ3676AiA9nPDljmbJQ==}
     hasBin: true
 
   solidity-ast@0.4.59:
@@ -3298,7 +3298,7 @@ snapshots:
   '@nomiclabs/hardhat-solhint@4.0.1(hardhat@2.22.17(ts-node@10.9.2(@types/node@22.10.5)(typescript@5.7.3))(typescript@5.7.3))(typescript@5.7.3)':
     dependencies:
       hardhat: 2.22.17(ts-node@10.9.2(@types/node@22.10.5)(typescript@5.7.3))(typescript@5.7.3)
-      solhint: 5.0.4(typescript@5.7.3)
+      solhint: 5.0.5(typescript@5.7.3)
     transitivePeerDependencies:
       - typescript
 
@@ -3344,7 +3344,7 @@ snapshots:
       - debug
       - encoding
 
-  '@openzeppelin/foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#3a4bd0d10e945e82472b306776eb5ec272571945(@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9)(@openzeppelin/upgrades-core@1.41.0)':
+  '@openzeppelin/foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#453d9ff3591cb42f65d2281ea792aded95d7bd8c(@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9)(@openzeppelin/upgrades-core@1.41.0)':
     dependencies:
       '@openzeppelin/defender-deploy-client-cli': 0.0.1-alpha.9
       '@openzeppelin/upgrades-core': 1.41.0
@@ -5353,7 +5353,7 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  solhint@5.0.4(typescript@5.7.3):
+  solhint@5.0.5(typescript@5.7.3):
     dependencies:
       '@solidity-parser/parser': 0.19.0
       ajv: 6.12.6
