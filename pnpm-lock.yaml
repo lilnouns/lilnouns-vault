@@ -29,13 +29,13 @@ importers:
         version: 5.2.0(@openzeppelin/contracts@5.2.0)
       '@openzeppelin/foundry-upgrades':
         specifier: OpenZeppelin/openzeppelin-foundry-upgrades
-        version: git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#453d9ff3591cb42f65d2281ea792aded95d7bd8c(@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9)(@openzeppelin/upgrades-core@1.41.0)
+        version: git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#453d9ff3591cb42f65d2281ea792aded95d7bd8c(@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9)(@openzeppelin/upgrades-core@1.42.0)
       '@openzeppelin/hardhat-upgrades':
         specifier: 3.9.0
         version: 3.9.0(@nomicfoundation/hardhat-ethers@3.0.8(ethers@6.13.5)(hardhat@2.22.18(ts-node@10.9.2(@types/node@22.10.8)(typescript@5.7.3))(typescript@5.7.3)))(@nomicfoundation/hardhat-verify@2.0.11(hardhat@2.22.18(ts-node@10.9.2(@types/node@22.10.8)(typescript@5.7.3))(typescript@5.7.3)))(ethers@6.13.5)(hardhat@2.22.18(ts-node@10.9.2(@types/node@22.10.8)(typescript@5.7.3))(typescript@5.7.3))
       '@openzeppelin/upgrades-core':
-        specifier: 1.41.0
-        version: 1.41.0
+        specifier: 1.42.0
+        version: 1.42.0
       ds-test:
         specifier: dapphub/ds-test
         version: git+https://git@github.com:dapphub/ds-test.git#e282159d5170298eb2455a6c05280ab5a73a4ef0
@@ -636,8 +636,8 @@ packages:
       '@nomicfoundation/hardhat-verify':
         optional: true
 
-  '@openzeppelin/upgrades-core@1.41.0':
-    resolution: {integrity: sha512-+oryinqZnxkiZvg7bWqWX4Ki/CNwVUZEqC6Elpi5PQoahpL3/6Sq9xjIozD5AiI2O61h8JHQ+A//5NtczyavJw==}
+  '@openzeppelin/upgrades-core@1.42.0':
+    resolution: {integrity: sha512-WcWPUCPZGoiMDFbGWDznbg5243DXRCg0YA6tn0gcvDJFNmZG6ZjyEeJiVYGvYz45IcnSlMI60WAYU+UFUWGn4A==}
     hasBin: true
 
   '@pkgr/core@0.1.1':
@@ -1246,6 +1246,10 @@ packages:
   caseless@0.12.0:
     resolution: {integrity: sha512-4tYFyifaFfGacoiObjJegolkwSU4xQNGbVgUiNYVUxbQ2x2lUsFvY4hVgVzGiIe6WLOPqycWXA40l+PWsxthUw==}
 
+  cbor@10.0.3:
+    resolution: {integrity: sha512-72Jnj81xMsqepqdcSdf2+fflz/UDsThOHy5hj2MW5F5xzHL8Oa0KQ6I6V9CwVUPxg5pf+W9xp6W2KilaRXWWtw==}
+    engines: {node: '>=18'}
+
   cbor@8.1.0:
     resolution: {integrity: sha512-DwGjNW9omn6EwP70aXsn7FQJx5kO12tX0bZkaTjzdVFM6/7nhA4t0EENocKGx6D2Bch9PE2KzCUf5SceBdeijg==}
     engines: {node: '>=12.19'}
@@ -1292,8 +1296,9 @@ packages:
   ci-info@2.0.0:
     resolution: {integrity: sha512-5tK7EtrZ0N+OLFMthtqOj4fI2Jeb88C4CAZPu25LDVUgXJ0A3Js4PMGqrn0JU1W0Mh1/Z8wZzYPxqUrXeBboCQ==}
 
-  cipher-base@1.0.4:
-    resolution: {integrity: sha512-Kkht5ye6ZGmwv40uUDZztayT2ThLQGfnj/T71N/XzeZeo3nf8foyW7zGTsPYkEya3m5f3cAypH+qe7YOrM1U2Q==}
+  cipher-base@1.0.6:
+    resolution: {integrity: sha512-3Ek9H3X6pj5TgenXYtNWdaBon1tgYCaebd+XPg0keyjEbEfkD4KkmAxkQ/i1vYvxdcT5nscLBfq9VJRmCBcFSw==}
+    engines: {node: '>= 0.10'}
 
   clean-stack@2.2.0:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}
@@ -2114,6 +2119,7 @@ packages:
 
   lodash.isequal@4.5.0:
     resolution: {integrity: sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==}
+    deprecated: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
 
   lodash.truncate@4.4.2:
     resolution: {integrity: sha512-jttmRe7bRse52OsWIMDLaXxWqRAmtIUccAQ3garviCqJjafXOfNMO0yMfNpdD6zbGaTU0P5Nz7e7gAT6cKmJRw==}
@@ -4067,10 +4073,10 @@ snapshots:
       - debug
       - encoding
 
-  '@openzeppelin/foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#453d9ff3591cb42f65d2281ea792aded95d7bd8c(@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9)(@openzeppelin/upgrades-core@1.41.0)':
+  '@openzeppelin/foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#453d9ff3591cb42f65d2281ea792aded95d7bd8c(@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9)(@openzeppelin/upgrades-core@1.42.0)':
     dependencies:
       '@openzeppelin/defender-deploy-client-cli': 0.0.1-alpha.9
-      '@openzeppelin/upgrades-core': 1.41.0
+      '@openzeppelin/upgrades-core': 1.42.0
 
   '@openzeppelin/hardhat-upgrades@3.9.0(@nomicfoundation/hardhat-ethers@3.0.8(ethers@6.13.5)(hardhat@2.22.18(ts-node@10.9.2(@types/node@22.10.8)(typescript@5.7.3))(typescript@5.7.3)))(@nomicfoundation/hardhat-verify@2.0.11(hardhat@2.22.18(ts-node@10.9.2(@types/node@22.10.8)(typescript@5.7.3))(typescript@5.7.3)))(ethers@6.13.5)(hardhat@2.22.18(ts-node@10.9.2(@types/node@22.10.8)(typescript@5.7.3))(typescript@5.7.3))':
     dependencies:
@@ -4078,7 +4084,7 @@ snapshots:
       '@openzeppelin/defender-sdk-base-client': 2.1.0
       '@openzeppelin/defender-sdk-deploy-client': 2.1.0(debug@4.4.0)
       '@openzeppelin/defender-sdk-network-client': 2.1.0(debug@4.4.0)
-      '@openzeppelin/upgrades-core': 1.41.0
+      '@openzeppelin/upgrades-core': 1.42.0
       chalk: 4.1.2
       debug: 4.4.0(supports-color@8.1.1)
       ethereumjs-util: 7.1.5
@@ -4093,10 +4099,10 @@ snapshots:
       - encoding
       - supports-color
 
-  '@openzeppelin/upgrades-core@1.41.0':
+  '@openzeppelin/upgrades-core@1.42.0':
     dependencies:
       '@nomicfoundation/slang': 0.18.3
-      cbor: 9.0.2
+      cbor: 10.0.3
       chalk: 4.1.2
       compare-versions: 6.1.1
       debug: 4.4.0(supports-color@8.1.1)
@@ -4786,7 +4792,7 @@ snapshots:
   browserify-aes@1.2.0:
     dependencies:
       buffer-xor: 1.0.3
-      cipher-base: 1.0.4
+      cipher-base: 1.0.6
       create-hash: 1.2.0
       evp_bytestokey: 1.0.3
       inherits: 2.0.4
@@ -4841,6 +4847,10 @@ snapshots:
   camelcase@6.3.0: {}
 
   caseless@0.12.0: {}
+
+  cbor@10.0.3:
+    dependencies:
+      nofilter: 3.1.0
 
   cbor@8.1.0:
     dependencies:
@@ -4902,7 +4912,7 @@ snapshots:
 
   ci-info@2.0.0: {}
 
-  cipher-base@1.0.4:
+  cipher-base@1.0.6:
     dependencies:
       inherits: 2.0.4
       safe-buffer: 5.2.1
@@ -5004,7 +5014,7 @@ snapshots:
 
   create-hash@1.2.0:
     dependencies:
-      cipher-base: 1.0.4
+      cipher-base: 1.0.6
       inherits: 2.0.4
       md5.js: 1.3.5
       ripemd160: 2.0.2
@@ -5012,7 +5022,7 @@ snapshots:
 
   create-hmac@1.1.7:
     dependencies:
-      cipher-base: 1.0.4
+      cipher-base: 1.0.6
       create-hash: 1.2.0
       inherits: 2.0.4
       ripemd160: 2.0.2
