@@ -29,13 +29,13 @@ importers:
         version: 5.2.0(@openzeppelin/contracts@5.2.0)
       '@openzeppelin/foundry-upgrades':
         specifier: OpenZeppelin/openzeppelin-foundry-upgrades
-        version: git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#c29dd49f9f539f1cae03b3aeb84002ee9663c721(@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9)(@openzeppelin/upgrades-core@1.42.0)
+        version: git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#c29dd49f9f539f1cae03b3aeb84002ee9663c721(@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9)(@openzeppelin/upgrades-core@1.42.1)
       '@openzeppelin/hardhat-upgrades':
         specifier: 3.9.0
         version: 3.9.0(@nomicfoundation/hardhat-ethers@3.0.8(ethers@6.13.5)(hardhat@2.22.18(ts-node@10.9.2(@types/node@22.10.10)(typescript@5.7.3))(typescript@5.7.3)))(@nomicfoundation/hardhat-verify@2.0.11(hardhat@2.22.18(ts-node@10.9.2(@types/node@22.10.10)(typescript@5.7.3))(typescript@5.7.3)))(ethers@6.13.5)(hardhat@2.22.18(ts-node@10.9.2(@types/node@22.10.10)(typescript@5.7.3))(typescript@5.7.3))
       '@openzeppelin/upgrades-core':
-        specifier: 1.42.0
-        version: 1.42.0
+        specifier: 1.42.1
+        version: 1.42.1
       ds-test:
         specifier: dapphub/ds-test
         version: git+https://git@github.com:dapphub/ds-test.git#e282159d5170298eb2455a6c05280ab5a73a4ef0
@@ -636,8 +636,8 @@ packages:
       '@nomicfoundation/hardhat-verify':
         optional: true
 
-  '@openzeppelin/upgrades-core@1.42.0':
-    resolution: {integrity: sha512-WcWPUCPZGoiMDFbGWDznbg5243DXRCg0YA6tn0gcvDJFNmZG6ZjyEeJiVYGvYz45IcnSlMI60WAYU+UFUWGn4A==}
+  '@openzeppelin/upgrades-core@1.42.1':
+    resolution: {integrity: sha512-8qnz2XfQrco8R8u9NjV+KiSLrVn7DnWFd+3BuhTUjhVy0bzCSu2SMKCVpZLtXbxf4f2dpz8jYPQYRa6s23PhLA==}
     hasBin: true
 
   '@pkgr/core@0.1.1':
@@ -4073,10 +4073,10 @@ snapshots:
       - debug
       - encoding
 
-  '@openzeppelin/foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#c29dd49f9f539f1cae03b3aeb84002ee9663c721(@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9)(@openzeppelin/upgrades-core@1.42.0)':
+  '@openzeppelin/foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#c29dd49f9f539f1cae03b3aeb84002ee9663c721(@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9)(@openzeppelin/upgrades-core@1.42.1)':
     dependencies:
       '@openzeppelin/defender-deploy-client-cli': 0.0.1-alpha.9
-      '@openzeppelin/upgrades-core': 1.42.0
+      '@openzeppelin/upgrades-core': 1.42.1
 
   '@openzeppelin/hardhat-upgrades@3.9.0(@nomicfoundation/hardhat-ethers@3.0.8(ethers@6.13.5)(hardhat@2.22.18(ts-node@10.9.2(@types/node@22.10.10)(typescript@5.7.3))(typescript@5.7.3)))(@nomicfoundation/hardhat-verify@2.0.11(hardhat@2.22.18(ts-node@10.9.2(@types/node@22.10.10)(typescript@5.7.3))(typescript@5.7.3)))(ethers@6.13.5)(hardhat@2.22.18(ts-node@10.9.2(@types/node@22.10.10)(typescript@5.7.3))(typescript@5.7.3))':
     dependencies:
@@ -4084,7 +4084,7 @@ snapshots:
       '@openzeppelin/defender-sdk-base-client': 2.1.0
       '@openzeppelin/defender-sdk-deploy-client': 2.1.0(debug@4.4.0)
       '@openzeppelin/defender-sdk-network-client': 2.1.0(debug@4.4.0)
-      '@openzeppelin/upgrades-core': 1.42.0
+      '@openzeppelin/upgrades-core': 1.42.1
       chalk: 4.1.2
       debug: 4.4.0(supports-color@8.1.1)
       ethereumjs-util: 7.1.5
@@ -4099,7 +4099,7 @@ snapshots:
       - encoding
       - supports-color
 
-  '@openzeppelin/upgrades-core@1.42.0':
+  '@openzeppelin/upgrades-core@1.42.1':
     dependencies:
       '@nomicfoundation/slang': 0.18.3
       cbor: 10.0.3
