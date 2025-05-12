@@ -29,7 +29,7 @@ importers:
         version: 5.3.0(@openzeppelin/contracts@5.3.0)
       '@openzeppelin/foundry-upgrades':
         specifier: OpenZeppelin/openzeppelin-foundry-upgrades
-        version: git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#326d96b5d9b5fa87b8cdb734f02a8f73324dad3e(@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9)(@openzeppelin/upgrades-core@1.44.0)
+        version: git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#9715e4511dbf87244eb989ac76ba2706f055edbb(@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9)(@openzeppelin/upgrades-core@1.44.0)
       '@openzeppelin/hardhat-upgrades':
         specifier: 3.9.0
         version: 3.9.0(@nomicfoundation/hardhat-ethers@3.0.8(ethers@6.13.5)(hardhat@2.23.0(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3))(typescript@5.8.3)))(@nomicfoundation/hardhat-verify@2.0.11(hardhat@2.23.0(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3))(typescript@5.8.3)))(ethers@6.13.5)(hardhat@2.23.0(ts-node@10.9.2(@types/node@22.15.0)(typescript@5.8.3))(typescript@5.8.3))
@@ -41,7 +41,7 @@ importers:
         version: git+https://git@github.com:dapphub/ds-test.git#e282159d5170298eb2455a6c05280ab5a73a4ef0
       forge-std:
         specifier: foundry-rs/forge-std
-        version: git+https://git@github.com:foundry-rs/forge-std.git#9530d9ec702df1b27b7f8f50c0a63a11b1b5fba9
+        version: git+https://git@github.com:foundry-rs/forge-std.git#77041d2ce690e692d6e03cc812b57d1ddaa4d505
       solidity-stringutils:
         specifier: github:Arachnid/solidity-stringutils
         version: git+https://git@github.com:Arachnid/solidity-stringutils.git#4b2fcc43fa0426e19ce88b1f1ec16f5903a2e461
@@ -104,8 +104,8 @@ importers:
         specifier: 1.4.2
         version: 1.4.2(prettier@3.5.3)
       prettier-plugin-toml:
-        specifier: 2.0.4
-        version: 2.0.4(prettier@3.5.3)
+        specifier: 2.0.5
+        version: 2.0.5(prettier@3.5.3)
       solhint:
         specifier: 5.0.5
         version: 5.0.5(typescript@5.8.3)
@@ -604,8 +604,8 @@ packages:
   '@openzeppelin/defender-sdk-network-client@2.1.0':
     resolution: {integrity: sha512-ebtSmihHMlcjFTtXyB/IFr+CjCcjdW0nV+ijG24SNnRvOaHn2BNORs6CwhdEZc8ok9YHWnKouGKdfzmxX+mp/A==}
 
-  '@openzeppelin/foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#326d96b5d9b5fa87b8cdb734f02a8f73324dad3e':
-    resolution: {commit: 326d96b5d9b5fa87b8cdb734f02a8f73324dad3e, repo: git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git, type: git}
+  '@openzeppelin/foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#9715e4511dbf87244eb989ac76ba2706f055edbb':
+    resolution: {commit: 9715e4511dbf87244eb989ac76ba2706f055edbb, repo: git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git, type: git}
     version: 0.4.0
     peerDependencies:
       '@openzeppelin/defender-deploy-client-cli': 0.0.1-alpha.10
@@ -1173,6 +1173,9 @@ packages:
   bn.js@5.2.1:
     resolution: {integrity: sha512-eXRvHzWyYPBuB4NBy0cmYQjGitUrtqwbvlzP3G6VFnNRbsZQIxQ10PbKKHt8gZ/HW/D/747aDl+QkDqg3KQLMQ==}
 
+  bn.js@5.2.2:
+    resolution: {integrity: sha512-v2YAxEmKaBLahNwE1mjp4WON6huMNeuDvagFZW+ASCuA/ku0bXR9hSMw0XpiqMoA3+rmnyck/tPRSFQkoC9Cuw==}
+
   bowser@2.11.0:
     resolution: {integrity: sha512-AlcaJBi/pqqJBIQ8U9Mcpc9i8Aqxn88Skv5d+xBX006BY5u8N3mGLHa5Lgppa7L/HfwgwLgZ6NYs+Ag6uUmJRA==}
 
@@ -1669,9 +1672,9 @@ packages:
       debug:
         optional: true
 
-  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#9530d9ec702df1b27b7f8f50c0a63a11b1b5fba9:
-    resolution: {commit: 9530d9ec702df1b27b7f8f50c0a63a11b1b5fba9, repo: git@github.com:foundry-rs/forge-std.git, type: git}
-    version: 1.9.6
+  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#77041d2ce690e692d6e03cc812b57d1ddaa4d505:
+    resolution: {commit: 77041d2ce690e692d6e03cc812b57d1ddaa4d505, repo: git@github.com:foundry-rs/forge-std.git, type: git}
+    version: 1.9.7
 
   form-data-encoder@2.1.4:
     resolution: {integrity: sha512-yDYSgNMraqvnxiEXO4hi88+YZxaHC6QKzb5N84iRCTDeRO7ZALpir/lVmf/uXUhnwUr2O4HU8s/n6x+yNjQkHw==}
@@ -2426,8 +2429,8 @@ packages:
     peerDependencies:
       prettier: '>=2.3.0'
 
-  prettier-plugin-toml@2.0.4:
-    resolution: {integrity: sha512-uOTNPClqnE3T9XJ8hCqAJek70Jnk3/ZuAG/aXRTmrWbVe8lJyuZ60KV7OtgWqF+iGZOPVpkh+giHhX9GZYRHGA==}
+  prettier-plugin-toml@2.0.5:
+    resolution: {integrity: sha512-WjXXKQyY4TdXWHU1v73UJxK/oDLSppf+b9KrSVl2kC4ZOr9CIVPKTQ/JxttgbYMaH8r3ihw7WYhMpI1EFa1obg==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       prettier: ^3.0.3
@@ -3083,6 +3086,18 @@ packages:
       utf-8-validate:
         optional: true
 
+  ws@8.18.2:
+    resolution: {integrity: sha512-DMricUmwGZUVr++AEAe2uiVM7UoO9MAVZMDu05UQOaUII0lp+zOzLLU4Xqh/JvTqklB1T4uELaaPBKyjE1r4fQ==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: '>=5.0.2'
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+
   y18n@5.0.8:
     resolution: {integrity: sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==}
     engines: {node: '>=10'}
@@ -3683,7 +3698,7 @@ snapshots:
       '@ethersproject/transactions': 5.8.0
       '@ethersproject/web': 5.8.0
       bech32: 1.1.4
-      ws: 8.18.1
+      ws: 8.18.2
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -4072,7 +4087,7 @@ snapshots:
       - debug
       - encoding
 
-  '@openzeppelin/foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#326d96b5d9b5fa87b8cdb734f02a8f73324dad3e(@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9)(@openzeppelin/upgrades-core@1.44.0)':
+  '@openzeppelin/foundry-upgrades@git+https://git@github.com:OpenZeppelin/openzeppelin-foundry-upgrades.git#9715e4511dbf87244eb989ac76ba2706f055edbb(@openzeppelin/defender-deploy-client-cli@0.0.1-alpha.9)(@openzeppelin/upgrades-core@1.44.0)':
     dependencies:
       '@openzeppelin/defender-deploy-client-cli': 0.0.1-alpha.9
       '@openzeppelin/upgrades-core': 1.44.0
@@ -4782,6 +4797,8 @@ snapshots:
 
   bn.js@5.2.1: {}
 
+  bn.js@5.2.2: {}
+
   bowser@2.11.0: {}
 
   boxen@5.1.2:
@@ -5364,7 +5381,7 @@ snapshots:
     optionalDependencies:
       debug: 4.4.0(supports-color@8.1.1)
 
-  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#9530d9ec702df1b27b7f8f50c0a63a11b1b5fba9: {}
+  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#77041d2ce690e692d6e03cc812b57d1ddaa4d505: {}
 
   form-data-encoder@2.1.4: {}
 
@@ -6150,7 +6167,7 @@ snapshots:
       prettier: 3.5.3
       semver: 7.6.3
 
-  prettier-plugin-toml@2.0.4(prettier@3.5.3):
+  prettier-plugin-toml@2.0.5(prettier@3.5.3):
     dependencies:
       '@taplo/lib': 0.5.0
       prettier: 3.5.3
@@ -6779,7 +6796,7 @@ snapshots:
   web3-utils@1.10.4:
     dependencies:
       '@ethereumjs/util': 8.1.0
-      bn.js: 5.2.1
+      bn.js: 5.2.2
       ethereum-bloom-filters: 1.2.0
       ethereum-cryptography: 2.2.1
       ethjs-unit: 0.1.6
@@ -6834,6 +6851,8 @@ snapshots:
   ws@8.18.0: {}
 
   ws@8.18.1: {}
+
+  ws@8.18.2: {}
 
   y18n@5.0.8: {}
 
