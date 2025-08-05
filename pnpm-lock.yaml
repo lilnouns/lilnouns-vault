@@ -104,8 +104,8 @@ importers:
         specifier: 2.1.0
         version: 2.1.0(prettier@3.6.2)
       prettier-plugin-toml:
-        specifier: 2.0.4
-        version: 2.0.4(prettier@3.6.2)
+        specifier: 2.0.6
+        version: 2.0.6(prettier@3.6.2)
       solhint:
         specifier: 6.0.0
         version: 6.0.0(typescript@5.8.3)
@@ -2482,8 +2482,8 @@ packages:
     peerDependencies:
       prettier: '>=3.0.0'
 
-  prettier-plugin-toml@2.0.4:
-    resolution: {integrity: sha512-uOTNPClqnE3T9XJ8hCqAJek70Jnk3/ZuAG/aXRTmrWbVe8lJyuZ60KV7OtgWqF+iGZOPVpkh+giHhX9GZYRHGA==}
+  prettier-plugin-toml@2.0.6:
+    resolution: {integrity: sha512-12N/wBuHa9jd/KVy9pRP20NMKxQfQLMseQCt66lIbLaPLItvGUcSIryE1eZZMJ7loSws6Ig3M2Elc2EreNh76w==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       prettier: ^3.0.3
@@ -6274,7 +6274,7 @@ snapshots:
       prettier: 3.6.2
       semver: 7.7.2
 
-  prettier-plugin-toml@2.0.4(prettier@3.6.2):
+  prettier-plugin-toml@2.0.6(prettier@3.6.2):
     dependencies:
       '@taplo/lib': 0.5.0
       prettier: 3.6.2
