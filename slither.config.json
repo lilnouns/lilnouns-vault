@@ -2,5 +2,5 @@
   "compile_force_framework": "foundry",
   "detectors_to_exclude": "unused-import,block-timestamp",
   "filter_paths": "lib/|tests/|scripts/|node_modules/|.*/mocks/",
-  "solc": "0.8.28"
+  "solc": "0.8.29"
 }

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-beta.12] - 2025-08-05
+
+### Miscellaneous Tasks
+
+- Add `clean` commands for forge and hardhat
+- Remove `pnpm` version from action setup
+
 ## [1.0.0-beta.11] - 2025-04-09
 
 ### Documentation
