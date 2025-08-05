@@ -101,8 +101,8 @@ importers:
         specifier: 2.5.10
         version: 2.5.10(prettier@3.5.3)
       prettier-plugin-solidity:
-        specifier: 1.4.2
-        version: 1.4.2(prettier@3.5.3)
+        specifier: 2.1.0
+        version: 2.1.0(prettier@3.5.3)
       prettier-plugin-toml:
         specifier: 2.0.4
         version: 2.0.4(prettier@3.5.3)
@@ -256,6 +256,9 @@ packages:
 
   '@bytecodealliance/preview2-shim@0.17.0':
     resolution: {integrity: sha512-JorcEwe4ud0x5BS/Ar2aQWOQoFzjq/7jcnxYXCvSMh0oRm0dQXzOA+hqLDBnOMks1LLBA7dmiLLsEBl09Yd6iQ==}
+
+  '@bytecodealliance/preview2-shim@0.17.2':
+    resolution: {integrity: sha512-mNm/lblgES8UkVle8rGImXOz4TtL3eU3inHay/7TVchkKrb/lgcVvTK0+VAw8p5zQ0rgQsXm1j5dOlAAd+MeoA==}
 
   '@cspotcode/source-map-support@0.8.1':
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
@@ -548,6 +551,9 @@ packages:
 
   '@nomicfoundation/slang@0.18.3':
     resolution: {integrity: sha512-YqAWgckqbHM0/CZxi9Nlf4hjk9wUNLC9ngWCWBiqMxPIZmzsVKYuChdlrfeBPQyvQQBoOhbx+7C1005kLVQDZQ==}
+
+  '@nomicfoundation/slang@1.2.0':
+    resolution: {integrity: sha512-+04Z1RHbbz0ldDbHKQFOzveCdI9Rd3TZZu7fno5hHy3OsqTo9UK5Jgqo68wMvRovCO99POv6oCEyO7+urGeN8Q==}
 
   '@nomicfoundation/solidity-analyzer-darwin-arm64@0.1.2':
     resolution: {integrity: sha512-JaqcWPDZENCvm++lFFGjrDd8mxtf+CtLd2MiXvMNTBD33dContTZ9TWETwNFwg7JTJT5Q9HEecH7FA+HTSsIUw==}
@@ -2445,11 +2451,11 @@ packages:
       prettier:
         optional: true
 
-  prettier-plugin-solidity@1.4.2:
-    resolution: {integrity: sha512-VVD/4XlDjSzyPWWCPW8JEleFa8JNKFYac5kNlMjVXemQyQZKfpekPMhFZSePuXB6L+RixlFvWe20iacGjFYrLw==}
-    engines: {node: '>=18'}
+  prettier-plugin-solidity@2.1.0:
+    resolution: {integrity: sha512-O5HX4/PCE5aqiaEiNGbSRLbSBZQ6kLswAav5LBSewwzhT+sZlN6iAaLZlZcJzPEnIAxwLEHP03xKEg92fflT9Q==}
+    engines: {node: '>=20'}
     peerDependencies:
-      prettier: '>=2.3.0'
+      prettier: '>=3.0.0'
 
   prettier-plugin-toml@2.0.4:
     resolution: {integrity: sha512-uOTNPClqnE3T9XJ8hCqAJek70Jnk3/ZuAG/aXRTmrWbVe8lJyuZ60KV7OtgWqF+iGZOPVpkh+giHhX9GZYRHGA==}
@@ -3522,6 +3528,8 @@ snapshots:
 
   '@bytecodealliance/preview2-shim@0.17.0': {}
 
+  '@bytecodealliance/preview2-shim@0.17.2': {}
+
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
@@ -3994,6 +4002,10 @@ snapshots:
   '@nomicfoundation/slang@0.18.3':
     dependencies:
       '@bytecodealliance/preview2-shim': 0.17.0
+
+  '@nomicfoundation/slang@1.2.0':
+    dependencies:
+      '@bytecodealliance/preview2-shim': 0.17.2
 
   '@nomicfoundation/solidity-analyzer-darwin-arm64@0.1.2':
     optional: true
@@ -6179,11 +6191,12 @@ snapshots:
     optionalDependencies:
       prettier: 3.5.3
 
-  prettier-plugin-solidity@1.4.2(prettier@3.5.3):
+  prettier-plugin-solidity@2.1.0(prettier@3.5.3):
     dependencies:
-      '@solidity-parser/parser': 0.19.0
+      '@nomicfoundation/slang': 1.2.0
+      '@solidity-parser/parser': 0.20.2
       prettier: 3.5.3
-      semver: 7.6.3
+      semver: 7.7.2
 
   prettier-plugin-toml@2.0.4(prettier@3.5.3):
     dependencies:
