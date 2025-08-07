@@ -53,8 +53,8 @@ importers:
         specifier: 3.1.0
         version: 3.1.0(ethers@6.15.0)(hardhat@2.26.1(ts-node@10.9.2(@types/node@24.2.0)(typescript@5.9.2))(typescript@5.9.2))
       '@nomicfoundation/hardhat-foundry':
-        specifier: 1.1.4
-        version: 1.1.4(hardhat@2.26.1(ts-node@10.9.2(@types/node@24.2.0)(typescript@5.9.2))(typescript@5.9.2))
+        specifier: 1.2.0
+        version: 1.2.0(hardhat@2.26.1(ts-node@10.9.2(@types/node@24.2.0)(typescript@5.9.2))(typescript@5.9.2))
       '@nomicfoundation/hardhat-network-helpers':
         specifier: 1.1.0
         version: 1.1.0(hardhat@2.26.1(ts-node@10.9.2(@types/node@24.2.0)(typescript@5.9.2))(typescript@5.9.2))
@@ -491,10 +491,10 @@ packages:
       ethers: ^6.14.0
       hardhat: ^2.26.0
 
-  '@nomicfoundation/hardhat-foundry@1.1.4':
-    resolution: {integrity: sha512-jpKyOr8bYKJPCuxJIJGOJzzyQPLcLJYq+kLPx135dkgCXyHiFdbSaGA9AEwqsPf97wlwXkskXGn4a21XOkSOPg==}
+  '@nomicfoundation/hardhat-foundry@1.2.0':
+    resolution: {integrity: sha512-2AJQLcWnUk/iQqHDVnyOadASKFQKF1PhNtt1cONEQqzUPK+fqME1IbP+EKu+RkZTRcyc4xqUMaB0sutglKRITg==}
     peerDependencies:
-      hardhat: ^2.17.2
+      hardhat: ^2.26.0
 
   '@nomicfoundation/hardhat-ignition-ethers@0.15.7':
     resolution: {integrity: sha512-pUZWQeFNMwDe6F/yKIJsCo+87elk/M/Edjp6AnWWIBplRyPa13Nh63+yOqMSSd9Mx9lLuBaEGnYXoI2Uz2wYZA==}
@@ -3924,7 +3924,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@nomicfoundation/hardhat-foundry@1.1.4(hardhat@2.26.1(ts-node@10.9.2(@types/node@24.2.0)(typescript@5.9.2))(typescript@5.9.2))':
+  '@nomicfoundation/hardhat-foundry@1.2.0(hardhat@2.26.1(ts-node@10.9.2(@types/node@24.2.0)(typescript@5.9.2))(typescript@5.9.2))':
     dependencies:
       hardhat: 2.26.1(ts-node@10.9.2(@types/node@24.2.0)(typescript@5.9.2))(typescript@5.9.2)
       picocolors: 1.1.1
