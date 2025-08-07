@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "2.0.8",
-    "@nomicfoundation/hardhat-ethers": "3.0.8",
+    "@nomicfoundation/hardhat-ethers": "3.1.0",
     "@nomicfoundation/hardhat-foundry": "1.1.4",
     "@nomicfoundation/hardhat-network-helpers": "1.0.13",
     "@nomicfoundation/hardhat-toolbox": "5.0.0",
