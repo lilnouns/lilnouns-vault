@@ -55,9 +55,16 @@ jobs:
       - name: Checking out repository code
         uses: actions/checkout@v5.0.0
 
+      - name: Install pnpm package manager
+        uses: pnpm/action-setup@v4.2.0
+        id: pnpm-install
+        with:
+          run_install: false
+
       - name: Setup Node.js Environment
         uses: actions/setup-node@v4.4.0
         with:
+          cache: pnpm
           node-version: ^20
 
       - name: Install Foundry
@@ -67,25 +74,6 @@ jobs:
 
       - name: Force HTTPS for GitHub
         run: git config --global url."https://github.com/".insteadOf "git@github.com:"
-
-      - name: Install pnpm package manager
-        uses: pnpm/action-setup@v4.2.0
-        id: pnpm-install
-        with:
-          run_install: false
-
-      - name: Capture pnpm store directory
-        id: pnpm-cache
-        run: |
-          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - name: Cache pnpm Store
-        uses: actions/cache@v4.3.0
-        with:
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }} # The path of the directory to cache.
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }} # An explicit key for restoring and saving the cache.
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
 
       # Installs all dependencies specified in the project's package.json file.
       - name: Install pnpm dependencies
