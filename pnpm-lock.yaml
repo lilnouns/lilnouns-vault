@@ -41,7 +41,7 @@ importers:
         version: git+https://git@github.com:dapphub/ds-test.git#e282159d5170298eb2455a6c05280ab5a73a4ef0
       forge-std:
         specifier: foundry-rs/forge-std
-        version: git+https://git@github.com:foundry-rs/forge-std.git#b8f065fda83b8cd94a6b2fec8fcd911dc3b444fd
+        version: git+https://git@github.com:foundry-rs/forge-std.git#a6d71da563bbb8d6eef8fbec3a16c61c603d2764
       solidity-stringutils:
         specifier: github:Arachnid/solidity-stringutils
         version: git+https://git@github.com:Arachnid/solidity-stringutils.git#4b2fcc43fa0426e19ce88b1f1ec16f5903a2e461
@@ -92,8 +92,8 @@ importers:
         specifier: 9.1.7
         version: 9.1.7
       lint-staged:
-        specifier: 16.2.5
-        version: 16.2.5
+        specifier: 16.2.6
+        version: 16.2.6
       prettier:
         specifier: 3.6.2
         version: 3.6.2
@@ -1724,8 +1724,8 @@ packages:
     resolution: {integrity: sha512-dKx12eRCVIzqCxFGplyFKJMPvLEWgmNtUrpTiJIR5u97zEhRG8ySrtboPHZXx7daLxQVrl643cTzbab2tkQjxg==}
     engines: {node: '>= 0.4'}
 
-  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#b8f065fda83b8cd94a6b2fec8fcd911dc3b444fd:
-    resolution: {commit: b8f065fda83b8cd94a6b2fec8fcd911dc3b444fd, repo: git@github.com:foundry-rs/forge-std.git, type: git}
+  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#a6d71da563bbb8d6eef8fbec3a16c61c603d2764:
+    resolution: {commit: a6d71da563bbb8d6eef8fbec3a16c61c603d2764, repo: git@github.com:foundry-rs/forge-std.git, type: git}
     version: 1.11.0
 
   form-data-encoder@2.1.4:
@@ -2154,8 +2154,8 @@ packages:
   lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
 
-  lint-staged@16.2.5:
-    resolution: {integrity: sha512-o36wH3OX0jRWqDw5dOa8a8x6GXTKaLM+LvhRaucZxez0IxA+KNDUCiyjBfNgsMNmchwSX6urLSL7wShcUqAang==}
+  lint-staged@16.2.6:
+    resolution: {integrity: sha512-s1gphtDbV4bmW1eylXpVMk2u7is7YsrLl8hzrtvC70h4ByhcMLZFY01Fx05ZUDNuv1H8HO4E+e2zgejV1jVwNw==}
     engines: {node: '>=20.17'}
     hasBin: true
 
@@ -5457,7 +5457,7 @@ snapshots:
     dependencies:
       is-callable: 1.2.7
 
-  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#b8f065fda83b8cd94a6b2fec8fcd911dc3b444fd: {}
+  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#a6d71da563bbb8d6eef8fbec3a16c61c603d2764: {}
 
   form-data-encoder@2.1.4: {}
 
@@ -5947,7 +5947,7 @@ snapshots:
 
   lines-and-columns@1.2.4: {}
 
-  lint-staged@16.2.5:
+  lint-staged@16.2.6:
     dependencies:
       commander: 14.0.1
       listr2: 9.0.5
