@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-beta.14] - 2025-11-03
+
+### Miscellaneous Tasks
+
+- Simplify pnpm caching and setup in build workflow
+
 ## [1.0.0-beta.13] - 2025-09-29
 
 ### Bug Fixes
