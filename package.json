@@ -1,6 +1,6 @@
 {
   "name": "lilnouns-vault",
-  "version": "1.0.0-beta.13",
+  "version": "1.0.0-beta.14",
   "description": "A template for create smart contracts using Foundry and Hardhat.",
   "keywords": [],
   "license": "Apache-2.0",
@@ -54,21 +54,21 @@
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "2.1.0",
-    "@nomicfoundation/hardhat-ethers": "3.1.0",
+    "@nomicfoundation/hardhat-ethers": "3.1.2",
     "@nomicfoundation/hardhat-foundry": "1.2.0",
-    "@nomicfoundation/hardhat-network-helpers": "1.1.0",
+    "@nomicfoundation/hardhat-network-helpers": "1.1.2",
     "@nomicfoundation/hardhat-toolbox": "5.0.0",
     "@nomiclabs/hardhat-solhint": "4.1.0",
     "@typechain/ethers-v6": "0.5.1",
     "@typechain/hardhat": "9.1.0",
     "@types/chai": "4.3.11",
     "@types/mocha": "10.0.10",
-    "@types/node": "24.5.2",
+    "@types/node": "24.9.2",
     "chai": "4.5.0",
     "ethers": "6.15.0",
-    "hardhat": "2.26.3",
+    "hardhat": "2.26.5",
     "husky": "9.1.7",
-    "lint-staged": "16.2.3",
+    "lint-staged": "16.2.6",
     "prettier": "3.6.2",
     "prettier-plugin-packagejson": "2.5.19",
     "prettier-plugin-solidity": "2.1.0",
@@ -76,7 +76,7 @@
     "solhint": "6.0.1",
     "ts-node": "10.9.2",
     "typechain": "8.3.2",
-    "typescript": "5.9.2"
+    "typescript": "5.9.3"
   },
   "engines": {
     "node": ">=20.0.0",
