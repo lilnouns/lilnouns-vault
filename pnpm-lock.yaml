@@ -41,7 +41,7 @@ importers:
         version: git+https://git@github.com:dapphub/ds-test.git#e282159d5170298eb2455a6c05280ab5a73a4ef0
       forge-std:
         specifier: foundry-rs/forge-std
-        version: git+https://git@github.com:foundry-rs/forge-std.git#3f999523613ab5454a5c4ae4abeaa8ea2ba7bcae
+        version: git+https://git@github.com:foundry-rs/forge-std.git#7117c90c8cf6c68e5acce4f09a6b24715cea4de6
       solidity-stringutils:
         specifier: github:Arachnid/solidity-stringutils
         version: git+https://git@github.com:Arachnid/solidity-stringutils.git#4b2fcc43fa0426e19ce88b1f1ec16f5903a2e461
@@ -95,17 +95,17 @@ importers:
         specifier: 16.2.7
         version: 16.2.7
       prettier:
-        specifier: 3.6.2
-        version: 3.6.2
+        specifier: 3.7.1
+        version: 3.7.1
       prettier-plugin-packagejson:
         specifier: 2.5.19
-        version: 2.5.19(prettier@3.6.2)
+        version: 2.5.19(prettier@3.7.1)
       prettier-plugin-solidity:
         specifier: 2.2.0
-        version: 2.2.0(prettier@3.6.2)
+        version: 2.2.0(prettier@3.7.1)
       prettier-plugin-toml:
         specifier: 2.0.6
-        version: 2.0.6(prettier@3.6.2)
+        version: 2.0.6(prettier@3.7.1)
       solhint:
         specifier: 6.0.1
         version: 6.0.1(typescript@5.9.3)
@@ -1707,9 +1707,9 @@ packages:
     resolution: {integrity: sha512-dKx12eRCVIzqCxFGplyFKJMPvLEWgmNtUrpTiJIR5u97zEhRG8ySrtboPHZXx7daLxQVrl643cTzbab2tkQjxg==}
     engines: {node: '>= 0.4'}
 
-  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#3f999523613ab5454a5c4ae4abeaa8ea2ba7bcae:
-    resolution: {commit: 3f999523613ab5454a5c4ae4abeaa8ea2ba7bcae, repo: git@github.com:foundry-rs/forge-std.git, type: git}
-    version: 1.11.0
+  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#7117c90c8cf6c68e5acce4f09a6b24715cea4de6:
+    resolution: {commit: 7117c90c8cf6c68e5acce4f09a6b24715cea4de6, repo: git@github.com:foundry-rs/forge-std.git, type: git}
+    version: 1.12.0
 
   form-data-encoder@2.1.4:
     resolution: {integrity: sha512-yDYSgNMraqvnxiEXO4hi88+YZxaHC6QKzb5N84iRCTDeRO7ZALpir/lVmf/uXUhnwUr2O4HU8s/n6x+yNjQkHw==}
@@ -2461,8 +2461,8 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
 
-  prettier@3.6.2:
-    resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
+  prettier@3.7.1:
+    resolution: {integrity: sha512-RWKXE4qB3u5Z6yz7omJkjWwmTfLdcbv44jUVHC5NpfXwFGzvpQM798FGv/6WNK879tc+Cn0AAyherCl1KjbyZQ==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -5415,7 +5415,7 @@ snapshots:
     dependencies:
       is-callable: 1.2.7
 
-  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#3f999523613ab5454a5c4ae4abeaa8ea2ba7bcae: {}
+  forge-std@git+https://git@github.com:foundry-rs/forge-std.git#7117c90c8cf6c68e5acce4f09a6b24715cea4de6: {}
 
   form-data-encoder@2.1.4: {}
 
@@ -6183,28 +6183,28 @@ snapshots:
 
   prelude-ls@1.1.2: {}
 
-  prettier-plugin-packagejson@2.5.19(prettier@3.6.2):
+  prettier-plugin-packagejson@2.5.19(prettier@3.7.1):
     dependencies:
       sort-package-json: 3.4.0
       synckit: 0.11.11
     optionalDependencies:
-      prettier: 3.6.2
+      prettier: 3.7.1
 
-  prettier-plugin-solidity@2.2.0(prettier@3.6.2):
+  prettier-plugin-solidity@2.2.0(prettier@3.7.1):
     dependencies:
       '@nomicfoundation/slang': 1.3.0
       '@solidity-parser/parser': 0.20.2
-      prettier: 3.6.2
+      prettier: 3.7.1
       semver: 7.7.3
 
-  prettier-plugin-toml@2.0.6(prettier@3.6.2):
+  prettier-plugin-toml@2.0.6(prettier@3.7.1):
     dependencies:
       '@taplo/lib': 0.5.0
-      prettier: 3.6.2
+      prettier: 3.7.1
 
   prettier@2.8.8: {}
 
-  prettier@3.6.2: {}
+  prettier@3.7.1: {}
 
   process-nextick-args@2.0.1: {}
 
