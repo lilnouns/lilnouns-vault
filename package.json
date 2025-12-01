@@ -69,7 +69,7 @@
     "hardhat": "2.27.1",
     "husky": "9.1.7",
     "lint-staged": "16.2.7",
-    "prettier": "3.7.1",
+    "prettier": "3.7.3",
     "prettier-plugin-packagejson": "2.5.19",
     "prettier-plugin-solidity": "2.2.0",
     "prettier-plugin-toml": "2.0.6",
