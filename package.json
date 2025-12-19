@@ -71,7 +71,7 @@
     "lint-staged": "16.2.7",
     "prettier": "3.7.4",
     "prettier-plugin-packagejson": "2.5.20",
-    "prettier-plugin-solidity": "2.2.0",
+    "prettier-plugin-solidity": "2.2.1",
     "prettier-plugin-toml": "2.0.6",
     "solhint": "6.0.1",
     "ts-node": "10.9.2",
